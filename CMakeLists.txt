@@ -18,6 +18,7 @@ set(MCLA_SOURCES
     src/audio_fallback.cpp
     src/frame_timing.cpp
     src/render_perf.cpp
+    src/aspect_ratio.cpp
     src/perf_options.cpp
     src/warp_fix.cpp
     src/button_prompts.cpp
@@ -47,3 +48,6 @@ if(WIN32)
     # The shader storage: the display drivers in its stamp, a preparation's memory figures (dxgi, psapi).
     target_link_libraries(mcla PRIVATE dxgi psapi)
 endif()
+
+# ABI-compatible UserProfile header extension for the initial player name.
+target_include_directories(mcla BEFORE PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")

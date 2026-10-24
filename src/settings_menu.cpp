@@ -47,6 +47,11 @@ REXCVAR_DEFINE_BOOL(mcla_motion_blur, true, "MCLA", "Motion blur");
 REXCVAR_DEFINE_BOOL(mcla_depth_of_field, true, "MCLA", "Depth of field blur");
 REXCVAR_DEFINE_BOOL(mcla_settings_menu, true, "MCLA",
                     "Add the settings submenus to the pause menu");
+REXCVAR_DEFINE_BOOL(mcla_ptbr, true, "MCLA",
+                    "Portuguese (Brazil) labels for the added pause settings menus")
+    .lifecycle(rex::cvar::Lifecycle::kRequiresRestart);
+
+#include "ptbr_menu.h"
 
 // Set by a host that keeps the settings file somewhere other than next to
 // the executable (PS5).
@@ -221,6 +226,8 @@ bool HashMapInsert(uint32_t map, uint32_t hash, uint32_t value) {
 // Sets the display text for a string-table key, creating the entry if needed.
 // Text buffers are 132 bytes.
 void SetStringTableText(const char* key, const char* text) {
+  const std::string localized = MclaLocalizeMenuText(text);
+  text = localized.c_str();
   uint32_t table = Read32(kStringTableGlobal);
   if (!table) {
     return;
@@ -418,6 +425,8 @@ constexpr int kHudRateCount = int(sizeof(kHudRates) / sizeof(kHudRates[0]));
 #if !REX_PLATFORM_PS5
 // resolution_scale (the SDK's; kRequiresRestart): the render targets, caches
 // and translated shaders are made for one scale when the GPU emulation starts.
+constexpr const char* kAspectValues[] = {"auto", "16:9", "43:18"};
+constexpr const char* kAspectLabels[] = {"AUTOMATIC", "16:9", "21:9"};
 constexpr const char* kScaleValues[] = {"1", "2", "3"};
 constexpr const char* kScaleLabels[] = {"NATIVE (720P)", "2X (1440P)", "3X (2160P)"};
 #endif
@@ -459,6 +468,8 @@ const ItemDef kDisplayItems[] = {
     {"PM_MxFullscreen", ItemKind::kToggle, "fullscreen", "FULLSCREEN"},
     {"PM_MxResolution", ItemKind::kStringChoice, "resolution_scale", "RESOLUTION", kScaleValues,
      kScaleLabels, nullptr, 3},
+    {"PM_MxAspect", ItemKind::kStringChoice, "mcla_aspect_ratio", "ASPECT RATIO",
+     kAspectValues, kAspectLabels, nullptr, 3},
 #endif
 #if REX_PLATFORM_WIN32
     {"PM_MxBackend", ItemKind::kStringChoice, "mcla_gpu_backend", "GRAPHICS API", kBackendValues,
@@ -506,7 +517,7 @@ constexpr double kDetailScales[] = {0.5, 0.75, 1.0};
 // starts once it is ready (half a second or so the first time).
 constexpr const char* kAntiAliasingValues[] = {"off", "msaa", "fsr"};
 #if REX_PLATFORM_WIN32
-constexpr const char* kAntiAliasingLabels[] = {"OFF", "MSAA 2X", "FSR 3.1 NATIVE AA"};
+constexpr const char* kAntiAliasingLabels[] = {"OFF", "MSAA 2X", "FSR 3.1"};
 #else
 // Built for Linux and the console, but not yet run on either.
 constexpr const char* kAntiAliasingLabels[] = {"OFF", "MSAA 2X", "FSR 3.1 (UNTESTED)"};
@@ -515,6 +526,12 @@ constexpr const char* kAntiAliasingLabels[] = {"OFF", "MSAA 2X", "FSR 3.1 (UNTES
 // its device features are enabled only then, ps5/game/main_ps5.cpp).
 constexpr const char* kFsrNextStartLabel = "FSR 3.1 (NEXT START, UNTESTED)";
 constexpr int kAntiAliasingCount = int(sizeof(kAntiAliasingValues) / sizeof(kAntiAliasingValues[0]));
+#if !REX_PLATFORM_PS5
+constexpr const char* kFrameGenValues[] = {"off", "fsr"};
+constexpr const char* kFrameGenLabels[] = {"OFF", "ON"};
+constexpr const char* kFsrModeValues[] = {"native", "quality", "balanced", "performance"};
+constexpr const char* kFsrModeLabels[] = {"NATIVE AA", "QUALITY", "BALANCED", "PERFORMANCE"};
+#endif
 constexpr double kSharpness[] = {0.0, 0.2, 0.4, 0.6, 0.8, 1.0};
 constexpr double kDensityScales[] = {0.0, 0.5, 1.0};
 constexpr double kTrafficDistances[] = {250.0, 325.0, 400.0};
@@ -540,6 +557,12 @@ const ItemDef kPerformanceItems[] = {
     {"PM_MxFsBlur", ItemKind::kToggle, "mcla_fullscreen_blur", "FULLSCREEN BLUR"},
     {"PM_MxAntiAliasing", ItemKind::kStringChoice, "mcla_anti_aliasing", "ANTI ALIASING",
      kAntiAliasingValues, kAntiAliasingLabels, nullptr, kAntiAliasingCount},
+#if !REX_PLATFORM_PS5
+    {"PM_MxFsrMode", ItemKind::kStringChoice, "temporal_aa_quality", "FSR MODE",
+     kFsrModeValues, kFsrModeLabels, nullptr, 4},
+    {"PM_MxFrameGen", ItemKind::kStringChoice, "frame_generation", "FRAME GENERATION",
+     kFrameGenValues, kFrameGenLabels, nullptr, 2},
+#endif
     {"PM_MxFsrSharpness", ItemKind::kNumberChoice, "temporal_aa_sharpness", "FSR SHARPNESS",
      nullptr, nullptr, kSharpness, 6, "%.1f", "OFF"},
 };
@@ -571,7 +594,7 @@ const MenuDef kMenus[] = {
      int(sizeof(kControlItems) / sizeof(kControlItems[0]))},
 };
 constexpr int kMenuCount = int(sizeof(kMenus) / sizeof(kMenus[0]));
-constexpr int kMaxRows = 16;
+constexpr int kMaxRows = 17;
 
 // An option the game reads only when it starts (kRequiresRestart).
 bool RestartOnly(const char* option) {
@@ -584,6 +607,10 @@ bool RestartOnly(const char* option) {
 // says "(UNAVAILABLE)" where the GPU emulates the console's EDRAM, too small
 // for it (src/render_perf.cpp), and doesn't change then (ItemChangeable).
 std::string RowLabel(const ItemDef& item, bool pending) {
+  if (!std::strcmp(item.option, "frame_generation")) {
+    const auto version = rex::cvar::GetFlagByName("frame_generation_provider");
+    return "FRAME GENERATION " + (version.empty() ? std::string("4.0.2") : version);
+  }
   std::string label = item.label;
   if (RestartOnly(item.option)) {
     label += pending ? " (RESTART NEEDED)" : " (NEXT START)";
@@ -601,6 +628,14 @@ std::string RowLabel(const ItemDef& item, bool pending) {
     }
   }
 #endif
+  if (!std::strcmp(item.option, "frame_generation") &&
+      rex::cvar::GetFlagByName("frame_generation_menu_available") != "true") {
+    label += " (DX12 ONLY)";
+  }
+  if (!std::strcmp(item.option, "temporal_aa_quality") &&
+      rex::cvar::GetFlagByName("temporal_aa_upscale_available") != "true") {
+    label += " (NATIVE ONLY)";
+  }
   return label;
 }
 
@@ -608,6 +643,12 @@ std::string RowLabel(const ItemDef& item, bool pending) {
 // session with the console's EDRAM (edram_tiles = 2048, or a GPU that can't
 // bind a larger one) doesn't save a value for the next one.
 bool ItemChangeable(const ItemDef& item) {
+  if (!std::strcmp(item.option, "frame_generation")) {
+    return rex::cvar::GetFlagByName("frame_generation_menu_available") == "true";
+  }
+  if (!std::strcmp(item.option, "temporal_aa_quality")) {
+    return rex::cvar::GetFlagByName("temporal_aa_upscale_available") == "true";
+  }
   return std::strcmp(item.option, "mcla_single_tile") != 0 || MclaSingleTileAvailable();
 }
 
@@ -715,6 +756,16 @@ double RangeStepLimited(const ItemDef& item, double value, int direction) {
 }
 
 std::string ItemValueLabel(const ItemDef& item, int index) {
+  if (!std::strcmp(item.option, "frame_generation")) {
+    const bool enabled = index == 1 &&
+        rex::cvar::GetFlagByName("frame_generation_menu_available") == "true";
+    return enabled ? "YES" : "NO";
+  }
+  // Unsupported sessions keep native AA regardless of the saved preset.
+  if (!std::strcmp(item.option, "temporal_aa_quality") &&
+      rex::cvar::GetFlagByName("temporal_aa_upscale_available") != "true") {
+    return "NATIVE AA";
+  }
   switch (item.kind) {
     case ItemKind::kToggle:
       return index ? "ON" : "OFF";
@@ -722,6 +773,10 @@ std::string ItemValueLabel(const ItemDef& item, int index) {
       if (item.values == kAntiAliasingValues && !std::strcmp(item.values[index], "fsr") &&
           MclaFsrNextStart()) {
         return kFsrNextStartLabel;
+      }
+      if (item.values == kAntiAliasingValues && !std::strcmp(item.values[index], "fsr")) {
+        const auto version = rex::cvar::GetFlagByName("temporal_aa_provider");
+        if (!version.empty()) return "FSR " + version;
       }
       return item.value_labels[index];
     case ItemKind::kNumberChoice: {
@@ -1205,7 +1260,7 @@ void ShowSubmenu() {
 
   uint32_t title = g_menu_title[menu].load(std::memory_order_relaxed);
   if (!title) {
-    title = AllocGuestString(kMenus[menu].label);
+    title = AllocGuestString(MclaLocalizeMenuText(kMenus[menu].label).c_str());
     g_menu_title[menu].store(title, std::memory_order_relaxed);
   }
   uint32_t menu_object = CallGuest(kGetFlashObjFn, context, HashString("menu"), kStr_menu);

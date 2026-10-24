@@ -1,3 +1,6 @@
+#include <imgui.h>
+#include <rex/ui/imgui_dialog.h>
+#include <rex/system/xam/user_profile.h>
 #include "generated/default/mcla_init.h"
 
 #include "mcla_app.h"
@@ -40,6 +43,9 @@ REXCVAR_DEFINE_BOOL(mcla_hide_cursor, true, "MCLA",
                     "mouse has been still for a few seconds; moving the mouse or clicking "
                     "shows it again");
 
+REXCVAR_DECLARE(std::string, game_data_root);
+REXCVAR_DECLARE(bool, mcla_ptbr);
+
 
 std::unique_ptr<rex::system::IAudioSystem> CreateMclaAudioSystem(
     rex::runtime::FunctionDispatcher* function_dispatcher);
@@ -49,6 +55,7 @@ void MclaSaveMenuSettings();  // src/settings_menu.cpp
 bool MclaPrepareShadersIsRequested();  // src/shader_prepare.cpp
 void MclaShaderStorageAfterPreload(rex::Runtime* runtime);
 void MclaMigrateAntiAliasing();  // src/perf_options.cpp
+void MclaApplyAspectRatio(rex::ui::Window* window);  // src/aspect_ratio.cpp
 
 #ifdef _WIN32
 // The pause menu's RESTART GAME (src/settings_menu.cpp) starts the game again
@@ -125,9 +132,33 @@ bool MclaRelaunchGame() {
     if (i > 0 && std::wstring_view(argv[i]).starts_with(kRestartFlag)) {
       continue;
     }
+    if (i > 0 && std::wstring_view(argv[i]).starts_with(L"--temporal_aa_quality=")) {
+      continue;
+    }
+    if (i > 0 && std::wstring_view(argv[i]).starts_with(L"--frame_generation=")) {
+      continue;
+    }
+    // The menu may have changed the aspect since the launcher supplied it.
+    if (i > 0 && std::wstring_view(argv[i]).starts_with(L"--mcla_aspect_ratio=")) {
+      continue;
+    }
     command += (command.empty() ? L"" : L" ") + QuoteArgument(argv[i]);
   }
   LocalFree(argv);
+  const auto aspect = rex::cvar::GetFlagByName("mcla_aspect_ratio");
+  if (aspect == "auto" || aspect == "16:9" || aspect == "43:18") {
+    command += L" --mcla_aspect_ratio=" + std::wstring(aspect.begin(), aspect.end());
+  }
+
+  const auto fsr_mode = rex::cvar::GetFlagByName("temporal_aa_quality");
+  if (fsr_mode == "native" || fsr_mode == "quality" || fsr_mode == "balanced" ||
+      fsr_mode == "performance") {
+    const std::wstring fsr_argument(fsr_mode.begin(), fsr_mode.end());
+    command += L" --temporal_aa_quality=" + fsr_argument;
+  }
+
+  const auto framegen = rex::cvar::GetFlagByName("frame_generation");
+  command += framegen == "fsr" ? L" --frame_generation=fsr" : L" --frame_generation=off";
 
   HANDLE self = nullptr;
   if (!DuplicateHandle(GetCurrentProcess(), GetCurrentProcess(), GetCurrentProcess(), &self,
@@ -244,6 +275,60 @@ void MclaApp::OnConfigurePaths(rex::PathConfig& paths) {
   }
 }
 
+std::optional<rex::PathConfig> MclaApp::OnFinalizePaths(
+    const rex::PathConfig& defaults,
+    std::function<void(rex::PathConfig)> resume) {
+  (void)resume;
+  auto paths = defaults;
+  // These cvars are loaded from mcla.toml after the early path phase.
+  // Honor the installation's data root before constructing ContentManager.
+  const auto& configured_user_root = REXCVAR_GET(user_data_root);
+  if (!configured_user_root.empty()) {
+    paths.user_data_root = std::filesystem::absolute(configured_user_root);
+    const auto& configured_cache_root = REXCVAR_GET(cache_root);
+    paths.cache_root = configured_cache_root.empty()
+        ? paths.user_data_root / "cache"
+        : std::filesystem::absolute(configured_cache_root);
+    REXLOG_INFO("Installation user data: {}", paths.user_data_root.string());
+  }
+  // mcla.toml is loaded after OnConfigurePaths. Resolve the optional translated
+  // archive here as well, so launching the executable directly uses it. Only
+  // game assets move: the existing user/save and cache paths remain unchanged.
+  if (REXCVAR_GET(mcla_ptbr)) {
+    auto valid = [](const std::filesystem::path& candidate) {
+      std::error_code error;
+      return std::filesystem::exists(candidate / "default.xex", error) &&
+             std::filesystem::exists(candidate / "xarchive_cache.rpf", error);
+    };
+    const auto& configured = REXCVAR_GET(game_data_root);
+    std::filesystem::path localized;
+    if (!configured.empty()) {
+      const std::filesystem::path candidate(configured);
+      if (valid(candidate) &&
+          (std::filesystem::exists(candidate / ".mcla-ptbr.json") ||
+           candidate.generic_string().find("pt-BR") != std::string::npos)) {
+        localized = candidate;
+      }
+    }
+    auto folder = rex::filesystem::GetExecutableFolder();
+    for (int level = 0; localized.empty() && level < 6 && !folder.empty(); ++level) {
+      for (const auto* relative : {"out/localization/pt-BR/game", "localization/pt-BR/game"}) {
+        const auto candidate = folder / relative;
+        if (valid(candidate)) { localized = candidate; break; }
+      }
+      if (folder == folder.parent_path()) break;
+      folder = folder.parent_path();
+    }
+    if (!localized.empty()) {
+      paths.game_data_root = localized;
+      REXLOG_INFO("pt-BR: localized game assets selected from {}", localized.string());
+    } else {
+      REXLOG_WARN("pt-BR assets missing; run scripts/make_pc.ps1 to build the translation");
+    }
+  }
+  return paths;
+}
+
 void MclaApp::OnPreSetup(rex::RuntimeConfig& config) {
   config.audio_factory = &CreateMclaAudioSystem;
   // Preparing shaders shows nothing: a window, not the full screen, hidden once the runtime is up.
@@ -307,6 +392,9 @@ void MclaApp::ApplyPcDefaults() {
       {"edram_tiles", "4096"},
 #if REX_PLATFORM_WIN32
       {"hdr", "auto"},
+      {"temporal_aa_quality", "quality"},
+      {"frame_generation_present", "tearing"},
+      {"frame_generation_edge_pixels", "2"},
 #endif
   };
   for (const auto& [name, value] : kDefaults) {
@@ -348,6 +436,7 @@ void MclaApp::FollowCursorSetting() {
 
 void MclaApp::OnPostLaunchModule(rex::system::XThread* thread) {
   (void)thread;
+  MclaApplyAspectRatio(window());
   MclaShaderStorageAfterPreload(runtime());
 }
 
@@ -357,7 +446,13 @@ bool MclaApp::OnWindowCloseRequested() {
   return true;
 }
 
+REXCVAR_DEFINE_STRING(mcla_player_name, "User", "MCLA", "Initial player profile name (up to 15 ASCII characters)");
+
 void MclaApp::OnPostSetup() {
+  const auto name = REXCVAR_GET(mcla_player_name);
+  if (!name.empty() && name.size() <= 15 && runtime() && runtime()->kernel_state()) {
+    runtime()->kernel_state()->user_profile()->set_name(name);
+  }
   ConfigureFrameTiming();
   FollowCursorSetting();
 
@@ -370,3 +465,34 @@ void MclaApp::OnPostSetup() {
     runtime()->file_system()->RegisterSymbolicLink("t:", "\\Device\\Harddisk0\\Partition1");
   }
 }
+
+// Retail Bink video draws in a 16:9 region. Keep the unused ultrawide area
+// black in the final presentation, including interpolated frames. This overlay
+// has no window, input handling, or continuous repaint requests.
+namespace {
+class VideoBorders final : public rex::ui::ImGuiDialog {
+ public:
+  explicit VideoBorders(rex::ui::ImGuiDrawer* drawer) : ImGuiDialog(drawer) {}
+  bool RepaintsContinuously() const override { return false; }
+ protected:
+  void OnDraw(ImGuiIO& io) override {
+    auto* runtime = rex::Runtime::instance();
+    if (!runtime || !runtime->virtual_membase()) return;
+    auto* base = runtime->virtual_membase();
+    auto word = [base](uint32_t a) { return (uint32_t(base[a]) << 24) |
+        (uint32_t(base[a+1]) << 16) | (uint32_t(base[a+2]) << 8) | base[a+3]; };
+    const auto manager = word(0x82879410);
+    if (manager < 0x10000 || manager > 0xDFFFFF00 || !word(manager + 76)) return;
+    const auto size = io.DisplaySize;
+    const float side = (size.x - size.y * (16.0f / 9.0f)) * 0.5f;
+    if (side < 1.0f) return;
+    auto* draw = ImGui::GetForegroundDrawList();
+    draw->AddRectFilled(ImVec2(0,0), ImVec2(side,size.y), IM_COL32(0,0,0,255));
+    draw->AddRectFilled(ImVec2(size.x-side,0), size, IM_COL32(0,0,0,255));
+  }
+};
+}
+void MclaApp::OnCreateDialogs(rex::ui::ImGuiDrawer* drawer) {
+  video_borders_ = std::make_unique<VideoBorders>(drawer);
+}
+void MclaApp::OnShutdown() { video_borders_.reset(); }

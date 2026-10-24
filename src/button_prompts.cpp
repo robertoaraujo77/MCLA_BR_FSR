@@ -27,7 +27,7 @@
 #include <windows.h>
 #endif
 
-REXCVAR_DEFINE_STRING(mcla_button_prompts, "auto", "MCLA",
+REXCVAR_DEFINE_STRING(mcla_button_prompts, "xbox", "MCLA",
                       "Button glyphs: auto (match the controller), xbox or playstation");
 
 namespace {

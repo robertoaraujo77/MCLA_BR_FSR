@@ -54,6 +54,8 @@ REXCVAR_DEFINE_BOOL(mcla_render_markers, true, "MCLA",
 REXCVAR_DEFINE_BOOL(mcla_render_markers_all_phases, false, "MCLA",
                     "Development: also mark the start of every render phase");
 
+void MclaAspectPhase(uint8_t* base, uint32_t phase);
+
 namespace {
 
 // The SDK's GuestMarkerKind (include/rex/graphics/command_processor.h).
@@ -146,8 +148,10 @@ void EmitMarker(PPCContext& ctx, uint8_t* base, uint32_t kind, uint32_t value) {
 // The frame's rendering: the thread that calls it is the one that draws.
 extern "C" REX_FUNC(sub_822C0980) {
   g_render_thread.store(ThisThread());
+  MclaAspectPhase(base, 0);
   EmitMarker(ctx, base, kFrameBegin, ++g_frame);
   __imp__sub_822C0980(ctx, base);
+  MclaAspectPhase(base, 0);
   EmitMarker(ctx, base, kFrameEnd, g_frame);
 }
 
@@ -161,6 +165,7 @@ extern "C" REX_FUNC(sub_822E6408) {
 // The start of a render phase (r3 = the renderer, r4 = the phase bit).
 extern "C" REX_FUNC(sub_822E55D0) {
   const uint32_t phase = ctx.r4.u32;
+  MclaAspectPhase(base, 0);
   if (phase == kPhaseScene) {
     EmitMarker(ctx, base, kSceneBegin, phase);
   } else if (phase == kPhaseTranslucent) {
@@ -178,4 +183,5 @@ extern "C" REX_FUNC(sub_822E55D0) {
     EmitMarker(ctx, base, kPhase, phase);
   }
   __imp__sub_822E55D0(ctx, base);
+  MclaAspectPhase(base, phase);
 }

@@ -1,0 +1,152 @@
+{
+  "release": "v1.0.0",
+  "application_files_compared": 32,
+  "application_files": [
+    {
+      "path": "src/achievement_toast.h",
+      "sha256": "63252ca21e77cee8c5734b2741f8b636bebaa76c8dd44d7d44abd568e4d75126"
+    },
+    {
+      "path": "src/aspect_ratio.cpp",
+      "sha256": "8d80fb5bc54f713bb732aad5218643e1b73cd4f879d77c507b9ed02292894ef7"
+    },
+    {
+      "path": "src/audio_fallback.cpp",
+      "sha256": "16550d39292ac1e4a04bfa512610e0dd0cdc5504fe8454c907083835fc1b37da"
+    },
+    {
+      "path": "src/button_prompts.cpp",
+      "sha256": "4ebc83f9896400a2c303f4fedb34b7a7cd6538f00aec52ec49cd8658bb404456"
+    },
+    {
+      "path": "src/code_pointer_scan.cpp",
+      "sha256": "afa98da498bad81c9fd485fc6102b7c71d5424712c975396d3f0c365eca9c04b"
+    },
+    {
+      "path": "src/crash_trace.cpp",
+      "sha256": "b633e7fd590d903c85909fc678ac16d58b6e800bd38c2a32b8869bb5d39eae22"
+    },
+    {
+      "path": "src/dev_pad.cpp",
+      "sha256": "ef07b3b5b7215c3dab3db75f318cff6d49db9f5a6a4db91e6d3730690590c1f1"
+    },
+    {
+      "path": "src/display_gamma.cpp",
+      "sha256": "a40e6c6193f2ff845581bedaf9f7d84731f798875a326a75a09727826b23c507"
+    },
+    {
+      "path": "src/frame_timing.cpp",
+      "sha256": "d7ad3ddfec9ae6aa221731defe56478ebbe8ba11a7c63e41435c0bdfe985bd87"
+    },
+    {
+      "path": "src/main.cpp",
+      "sha256": "3528e9e65a1433b8ad33557ba775b694cc6203ba29315d0dce8ec2fccf8d54cb"
+    },
+    {
+      "path": "src/mcla_app.cpp",
+      "sha256": "b478d5e293942000277fe0efc8add0b2f588fce958468630ae3b10fa36bd2655"
+    },
+    {
+      "path": "src/mcla_app.h",
+      "sha256": "9ed4b398be2a17bc57b1151ef8e463efc92e9c2e6ae2534ab57ef805e9e9638c"
+    },
+    {
+      "path": "src/perf_options.cpp",
+      "sha256": "3df7fbf98ff7127a58ce6165751e2a16ee42cee8973809f9f7731321a0c77ef9"
+    },
+    {
+      "path": "src/ptbr_menu.h",
+      "sha256": "a74d00f530808a602e9df0ab25eabc009af2555438bd3314b3bb049fd88d6214"
+    },
+    {
+      "path": "src/render_markers.cpp",
+      "sha256": "61736e72f4055af1cf5010e6e04a48857f0deb37634761d7a379f44663207a7a"
+    },
+    {
+      "path": "src/render_perf.cpp",
+      "sha256": "ca8c371b497d36a8b114716c82039543a2e0d0e52960aa5799c02dffeebffb99"
+    },
+    {
+      "path": "src/sampling_profiler.cpp",
+      "sha256": "cc82d9a04253f230d4bd936c1b4f344d8a774b3ba101f4034b427ea7e3dfafb4"
+    },
+    {
+      "path": "src/settings_menu.cpp",
+      "sha256": "6125dcf1d18fc5da62dbf82d085e8696e0d675ec78f3122f61098029a914acee"
+    },
+    {
+      "path": "src/shader_prepare.cpp",
+      "sha256": "3519ce0b37319767e90c6fbc83fcf93b48e2a17dff4895918e851381d2a0741c"
+    },
+    {
+      "path": "src/shader_storage_files.cpp",
+      "sha256": "1adcbe2636a0ffa3d752f4317caad6de5d350fd7f3171ee568dcbbb8c3122300"
+    },
+    {
+      "path": "src/shader_storage_files.h",
+      "sha256": "53b805c0874854746ff4d3f104447940536459b125b766299142160b5c3e2762"
+    },
+    {
+      "path": "src/warp_fix.cpp",
+      "sha256": "13ab720855a84b32d7f38bdf3a249bca51160781bf873edf7374240395cc1f9f"
+    },
+    {
+      "path": "config/code_referenced.toml",
+      "sha256": "bacd3403298a7f216bb9d72f7f528539eb926677728330ee0c9c98e68d3b1250"
+    },
+    {
+      "path": "config/data_referenced.toml",
+      "sha256": "afb8bf51f912a7a42814d77c6bac4a3e9e8336d12d3cd694b6c5d8a14392acc5"
+    },
+    {
+      "path": "config/frame_timing.toml",
+      "sha256": "523cbefbcea23a801d3460e11f963e8858e5d338cf9a862b64a02d0ff339f56c"
+    },
+    {
+      "path": "config/mcla.toml",
+      "sha256": "2ba23797bca74ea6ac890b5c8832e2b25e6ffa687efeae9bb3be32416c487f55"
+    },
+    {
+      "path": "config/perf_options.toml",
+      "sha256": "f48bdc19115356069d26da0790c72e91b1765b2e5efd734ee2a6483a1a2c7035"
+    },
+    {
+      "path": "config/render_perf.toml",
+      "sha256": "e5c22b53e348f136a67327458ed446b98371cd814278707e1f005848b7430d92"
+    },
+    {
+      "path": "config/runtime_discovered.toml",
+      "sha256": "7a9a0cfbd770927d2dab023d6cbae222e7791a2d2c3003033b878a0bae1c2070"
+    },
+    {
+      "path": "config/settings_menu.toml",
+      "sha256": "f59daad32ddbfb7cffa93e1a8244b0e04d6445249b868af662d2a9c11ba6de66"
+    },
+    {
+      "path": "config/ui.toml",
+      "sha256": "9997883ab3a5547b600de11368a7c63e6633de3488287d12e9323f2596fa5e66"
+    },
+    {
+      "path": "include/rex/system/xam/user_profile.h",
+      "sha256": "a0cb5d8e1d924c3adbfd16ab36c1c2bcdcbe7c2cfbf2159db34d055b7c55df31"
+    }
+  ],
+  "sdk_patch_clean_apply": true,
+  "dependency_patches_clean_apply": [
+    "FFmpeg"
+  ],
+  "powershell_syntax_checked": true,
+  "python_syntax_checked": true,
+  "personal_data_scan": "passed",
+  "full_clean_rebuild_performed": true,
+  "clean_build_scope": [
+    "sdk",
+    "fidelityfx-dx12",
+    "fidelityfx-vulkan",
+    "game-from-user-iso",
+    "installer-configurator",
+    "installer-packaging"
+  ],
+  "sdk_source_files_compared": 1736,
+  "published": false
+}

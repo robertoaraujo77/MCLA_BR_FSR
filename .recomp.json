@@ -4,9 +4,14 @@
   "wikidata": "Q1514674",
   "system": "Xbox 360",
   "type": "recomp",
-  "project": "mcla-recomp",
+  "project": "MC_LA_Recompiled",
   "status": "released",
-  "targets": ["Windows", "PS5"],
+  "targets": [
+    "Windows"
+  ],
   "toolchain": "ReXGlue",
-  "original": {"region": "USA, Europe", "revision": "Complete Edition"}
+  "original": {
+    "region": "USA, Europe",
+    "revision": "Complete Edition"
+  }
 }

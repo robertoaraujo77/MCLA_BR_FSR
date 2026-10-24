@@ -55,3 +55,18 @@ keys.*
 /scripts/smoke_run.ps1
 /scripts/sweep_stats.py
 /scripts/thread_profile.ps1
+
+# Release build inputs and personal data
+/installer/bundle.zip
+/installer/dist/
+/userdata/
+/config-backups/
+/launcher.json
+/mcla.toml
+
+!/docs/INSTALACAO.md
+!/docs/CONFIGURACAO.md
+!/docs/MELHORIAS.md
+!/docs/COMPILACAO.md
+!/docs/images/
+/third_party/

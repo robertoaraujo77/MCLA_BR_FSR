@@ -1,0 +1,327 @@
+{
+  "format": 1,
+  "identity": "mcla-la-recompiled",
+  "runtime_version": "FSR 4.1.2 / Frame Generation 4.0.2",
+  "mode": "precompiled PC runtime plus local game-data preparation; no end-user C++ compilation",
+  "isolated_user_profile": true,
+  "files": [
+    {
+      "path": "compact_prepare.py",
+      "size": 6870,
+      "sha256": "0106e03e063c16520c5dc8101e87d3d6348f315e8366ce635fdda816a6fe2215"
+    },
+    {
+      "path": "payload/licenses/CREDITS.md",
+      "size": 2022,
+      "sha256": "79571e5a496610add6180c293bf150cdf3339f8e719b26d93293f22240112c1c"
+    },
+    {
+      "path": "payload/licenses/LICENSE",
+      "size": 35823,
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "path": "payload/licenses/ReXGlue-LICENSE.txt",
+      "size": 1659,
+      "sha256": "8e065be1da2ff9a16b1f063d4636d8b67e6a654bb90583ea4332e66ac421bb18"
+    },
+    {
+      "path": "payload/licenses/THIRD-PARTY-NOTICES.md",
+      "size": 9291,
+      "sha256": "8dd9db27ab57301b86f1b868eb7586dfb3e286267a4c7f9e0914adca0a249df4"
+    },
+    {
+      "path": "payload/licenses/native-tools/libmspack-COPYING.LIB",
+      "size": 26934,
+      "sha256": "885a03f54b157961236f46843e79972abfcd6890b6cbb368bc7eca328ff95a12"
+    },
+    {
+      "path": "payload/licenses/rexglue-dependencies/SDL3/LICENSE.txt",
+      "size": 902,
+      "sha256": "f4c406cd23df8e2ea3e8bb1af62f15cb6b2439e4e5385828cf90301baea4d944"
+    },
+    {
+      "path": "payload/project.zip",
+      "size": 195193,
+      "sha256": "b643ec7b5a55ab639b16ea088fd197a8e5f92d647e43ddbd7b79188d2374fcc1"
+    },
+    {
+      "path": "payload/runtime/AMD-FSR-LICENSE.md",
+      "size": 60891,
+      "sha256": "6757f2fec461238da6f84f83536ec195e8c036b1773a06f6f34301b9ed8c0963"
+    },
+    {
+      "path": "payload/runtime/amd_fidelityfx_dx12.dll",
+      "size": 5969408,
+      "sha256": "0a07b0c871e60cb600a5a0a0ca01cf9c97e20b93082ac6f08be9afaae0d8de25"
+    },
+    {
+      "path": "payload/runtime/amd_fidelityfx_framegeneration_dx12.dll",
+      "size": 40085776,
+      "sha256": "02297beedd285e822d3a64f314cf00faf378dcec0edc47ff0c4dd71b3a8c2f18"
+    },
+    {
+      "path": "payload/runtime/amd_fidelityfx_loader_dx12.dll",
+      "size": 26376,
+      "sha256": "e2d85aa05a9bd9ed8b38935fdf5199372cca6f74c12015143bb6f945ee1608aa"
+    },
+    {
+      "path": "payload/runtime/amd_fidelityfx_upscaler_dx12.dll",
+      "size": 28761864,
+      "sha256": "d0dcccc74a43c44ba435b7a369b456e0970d8a4464e4bd683119b374f2c9fb46"
+    },
+    {
+      "path": "payload/runtime/amd_fidelityfx_vk.dll",
+      "size": 8355840,
+      "sha256": "8e64aad98c107b48da7646001219f8674387c9dd60c767770096582210ab7800"
+    },
+    {
+      "path": "payload/runtime/concrt140.dll",
+      "size": 324208,
+      "sha256": "2405355f0a58067b258f8df33c327e3a3d716eaac5a3a5aebb757842d85bd376"
+    },
+    {
+      "path": "payload/runtime/game.ico",
+      "size": 268496,
+      "sha256": "0dcd43f221c84b8ca161ef822acdd3ae234730a59ac8f80ea081d1e24be7c708"
+    },
+    {
+      "path": "payload/runtime/mcla.exe",
+      "size": 43023360,
+      "sha256": "247653e8b0488770861c18618aed869e9c2fec9101425b8cf76224bc5eb4ccfa"
+    },
+    {
+      "path": "payload/runtime/msvcp140.dll",
+      "size": 557728,
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9"
+    },
+    {
+      "path": "payload/runtime/msvcp140_1.dll",
+      "size": 35952,
+      "sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d"
+    },
+    {
+      "path": "payload/runtime/msvcp140_2.dll",
+      "size": 280200,
+      "sha256": "3ea06f0ee098b4823cb79599df3780e7f23cce52c19aac31d2a0d47efe33a5e9"
+    },
+    {
+      "path": "payload/runtime/msvcp140_atomic_wait.dll",
+      "size": 50304,
+      "sha256": "640b2aefced484d0368eea5bdd06addd0658a3a70a49256e560d6923b404a479"
+    },
+    {
+      "path": "payload/runtime/msvcp140_codecvt_ids.dll",
+      "size": 31872,
+      "sha256": "f2069a52880ec885ee7f0511186100eb7fada0411a2b4948fafea7735b878a18"
+    },
+    {
+      "path": "payload/runtime/rexgpu-xenos.dll",
+      "size": 8856576,
+      "sha256": "6dba908de3207acfb38b04806acbeee4103509ff7058cdadef8646af34681fc3"
+    },
+    {
+      "path": "payload/runtime/rexruntime.dll",
+      "size": 11265536,
+      "sha256": "6a382bf0077276a35bb82dd7c07eca5304a1824fc2ff042b0fd856d0032f4593"
+    },
+    {
+      "path": "payload/runtime/vccorlib140.dll",
+      "size": 352384,
+      "sha256": "19839407c3fdbc824e5bce189bf68ddf8097f12ec28b757797ffa0415c144ddd"
+    },
+    {
+      "path": "payload/runtime/vcruntime140.dll",
+      "size": 124544,
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+    },
+    {
+      "path": "payload/runtime/vcruntime140_1.dll",
+      "size": 49792,
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+    },
+    {
+      "path": "payload/runtime/vcruntime140_threads.dll",
+      "size": 38528,
+      "sha256": "219915cf20822f34d5e7c1fdd4e21ae7f3396881096c51036225fb8f84b47afa"
+    },
+    {
+      "path": "tools/python/LICENSE.txt",
+      "size": 36874,
+      "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419"
+    },
+    {
+      "path": "tools/python/_asyncio.pyd",
+      "size": 74096,
+      "sha256": "c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d"
+    },
+    {
+      "path": "tools/python/_bz2.pyd",
+      "size": 86896,
+      "sha256": "65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc"
+    },
+    {
+      "path": "tools/python/_ctypes.pyd",
+      "size": 127480,
+      "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+    },
+    {
+      "path": "tools/python/_decimal.pyd",
+      "size": 262000,
+      "sha256": "aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d"
+    },
+    {
+      "path": "tools/python/_elementtree.pyd",
+      "size": 135160,
+      "sha256": "5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca"
+    },
+    {
+      "path": "tools/python/_hashlib.pyd",
+      "size": 68976,
+      "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+    },
+    {
+      "path": "tools/python/_lzma.pyd",
+      "size": 161136,
+      "sha256": "e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf"
+    },
+    {
+      "path": "tools/python/_msi.pyd",
+      "size": 46584,
+      "sha256": "b49332bae154ebdd8c3d5e7ddfdde336d9c47f91ba028dc67bafb2420b3dbb5c"
+    },
+    {
+      "path": "tools/python/_multiprocessing.pyd",
+      "size": 37368,
+      "sha256": "2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a"
+    },
+    {
+      "path": "tools/python/_overlapped.pyd",
+      "size": 57336,
+      "sha256": "662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c"
+    },
+    {
+      "path": "tools/python/_queue.pyd",
+      "size": 33784,
+      "sha256": "48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035"
+    },
+    {
+      "path": "tools/python/_socket.pyd",
+      "size": 85496,
+      "sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d"
+    },
+    {
+      "path": "tools/python/_sqlite3.pyd",
+      "size": 126184,
+      "sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc"
+    },
+    {
+      "path": "tools/python/_ssl.pyd",
+      "size": 179432,
+      "sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040"
+    },
+    {
+      "path": "tools/python/_uuid.pyd",
+      "size": 27128,
+      "sha256": "acce4f281d7ffb2dec0997527faf25b1df62ad7bd3032c568ddcf65c90edc867"
+    },
+    {
+      "path": "tools/python/_wmi.pyd",
+      "size": 40304,
+      "sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2"
+    },
+    {
+      "path": "tools/python/_zoneinfo.pyd",
+      "size": 49656,
+      "sha256": "76f1439cda82ab6976df6ba505c4079444703f6d44d8b0259ce59c0ff4279fb4"
+    },
+    {
+      "path": "tools/python/libcrypto-3.dll",
+      "size": 5231472,
+      "sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7"
+    },
+    {
+      "path": "tools/python/libffi-8.dll",
+      "size": 39696,
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+    },
+    {
+      "path": "tools/python/libssl-3.dll",
+      "size": 794992,
+      "sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe"
+    },
+    {
+      "path": "tools/python/pyexpat.pyd",
+      "size": 205304,
+      "sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a"
+    },
+    {
+      "path": "tools/python/python.cat",
+      "size": 574231,
+      "sha256": "5d85439736ae088d9680b391e2bca55ca7e9cc5b41a12ebe8e2f554506c7e72e"
+    },
+    {
+      "path": "tools/python/python.exe",
+      "size": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "tools/python/python3.dll",
+      "size": 70376,
+      "sha256": "fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c"
+    },
+    {
+      "path": "tools/python/python312._pth",
+      "size": 80,
+      "sha256": "2820f241bc9d6810d4db21c21cca3845799367fbdf0199620fb37c86a74b945c"
+    },
+    {
+      "path": "tools/python/python312.dll",
+      "size": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120"
+    },
+    {
+      "path": "tools/python/python312.zip",
+      "size": 3835482,
+      "sha256": "fb131c0ef7e35cc5250a74c8cd18744bf4115fb8163710711f3758d7df3d1f88"
+    },
+    {
+      "path": "tools/python/pythonw.exe",
+      "size": 104304,
+      "sha256": "d72294fb338bc2fc8896d25a7395a4db466425427e1559e77185d5135a830681"
+    },
+    {
+      "path": "tools/python/select.pyd",
+      "size": 33136,
+      "sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a"
+    },
+    {
+      "path": "tools/python/sqlite3.dll",
+      "size": 1583608,
+      "sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a"
+    },
+    {
+      "path": "tools/python/unicodedata.pyd",
+      "size": 1140592,
+      "sha256": "208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488"
+    },
+    {
+      "path": "tools/python/vcruntime140.dll",
+      "size": 120400,
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4"
+    },
+    {
+      "path": "tools/python/vcruntime140_1.dll",
+      "size": 49776,
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8"
+    },
+    {
+      "path": "tools/python/winsound.pyd",
+      "size": 31736,
+      "sha256": "100e8d676777603c7258daf9b2f23ef001f09f1596d8708de359326fff72bddd"
+    }
+  ],
+  "release": "v1.0.0",
+  "application_base_commit": "eaf3ad4b8701de537ea55411f7b413ad98bf73f1",
+  "sdk_base_commit": "f5337cdc947ff6d4c4196737e2c807a48f2a1fc2"
+}

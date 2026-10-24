@@ -112,7 +112,7 @@ generation (`patches/rexglue-frame-generation.patch`, in development):
   (`cmake/rexglue_fsr.cmake` fetches it and checks its tree hashes):
   `amd_fidelityfx_dx12.dll` and `amd_fidelityfx_vk.dll` installed next to
   `mcla.exe` on Windows; `libamd_fidelityfx_vk.so` with the SDK's libraries on
-  Linux; static libraries linked into the title on the PS5. On Windows the
+  Linux. On Windows the
   runtimes also carry frame generation (its provider, frame interpolation and
   optical flow), and the Direct3D 12 one AMD's frame interpolation swap chain
   (which includes the Anti-Lag 2 header); `ffx_framegeneration.h` is among the
@@ -172,3 +172,22 @@ freely, subject to the following restrictions:
 
 Mark Adler    madler@alumni.caltech.edu
 ```
+
+
+## AMD FidelityFX providers used by MCLA BR FSR
+
+The DX12 ML upscaler (observed 4.1.2) and Frame Generation provider (observed
+4.0.2), loader and API headers are fetched from the official AMD repository:
+https://github.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK
+at revision `60f4ea81909200d8542eca14dccb2628b763a9a3`.
+
+`scripts/amd-fsr-manifest.json` records each download's SHA-256. The download
+step copies the official `Kits/FidelityFX/docs/license.md` to the runtime
+folder as `AMD-FSR-LICENSE.md`. The binary providers are separate third-party
+components under that AMD license; they are not relicensed under this fork's
+GPL. Headers and open-source portions retain the notices/exceptions listed
+in AMD's license. No AMD provider DLLs are stored in this repository.
+
+The existing FSR 3.1 runtime notices above continue to apply to the fallback
+runtime built from source. The new patch contains this fork's integration
+and its own resampling shader, not the proprietary AMD algorithms.
