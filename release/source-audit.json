@@ -150,8 +150,13 @@
     "update from a simulated v1.0.0 installation (v1.0.0 bundle and runtime)"
   ],
   "update_checks": "saves and mcla.toml byte-identical; 80 of 80 translated resources identical to a full build; old runtime kept in backups",
-  "clean_install_validated_in_game": false,
+  "clean_install_validated_in_game": true,
   "published": false,
-  "installer_ui_clicked_by_a_person": false,
-  "installs_tested_note": "through the installer back end with an already extracted game, not from an ISO and not through the window"
+  "installer_ui_clicked_by_a_person": true,
+  "installs_tested_note": "through the installer back end with an already extracted game, not from an ISO and not through the window",
+  "manual_checks_by_maintainer": [
+    "installer window: Update button on a simulated v1.0.0 installation and the translation switch",
+    "game started from a fresh installation with the default settings"
+  ],
+  "archives_built_by": "scripts/package_release.py"
 }
