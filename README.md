@@ -9,7 +9,7 @@ A recompilação original é de [holdmysocks](https://github.com/holdmysocks/mcl
 
 ## Comece aqui
 
-1. Acesse [Releases](https://github.com/robertoaraujo77/MC_LA_Recompiled/releases) e baixe o pacote da versão publicada.
+1. Acesse [Releases](https://github.com/robertoaraujo77/MC_LA_Recompiled/releases) e baixe **Midnight-Club-LA-Recompiled-Windows-x64.zip** da versão mais recente. O arquivo `source.zip` é só o código-fonte.
 2. Extraia o ZIP inteiro para uma pasta estável e abra **Midnight Club L.A. Recompiled.exe**.
 3. Selecione sua própria ISO de **Midnight Club: Los Angeles Complete Edition para Xbox 360**.
 4. Escolha a pasta do jogo. O padrão é uma subpasta ao lado do instalador; você pode mudar o local e o nome.
@@ -28,12 +28,12 @@ A recompilação original é de [holdmysocks](https://github.com/holdmysocks/mcl
 
 | Área | Melhorias |
 | --- | --- |
-| Idioma | Menus, telefone, dicas, missões, objetivos, garagem/customização, corridas e avisos em PT-BR; legendas traduzidas onde disponíveis. |
+| Idioma | Menus, telefone, dicas, missões, objetivos, garagem/customização, corridas e avisos em PT-BR; legendas traduzidas onde disponíveis. A tradução é opcional na instalação: vem marcada, e desmarcada o jogo fica em inglês. |
 | Ultrawide | Automático, 16:9 e 21:9; HUD nos cantos, correções de proporção de telefone, garagem, painéis, GPS, ícones e cursor. |
 | Reconstrução | FSR 4.1.2 (IA) **somente no DirectX 12**, em GPU AMD compatível; Native AA, Qualidade, Equilibrado e Desempenho. |
 | Frame Generation | Provedor AMD 4.0.2 por IA **somente no DirectX 12**, em GPU AMD compatível; opção de ligar/desligar. |
 | Vulkan | FSR 3.1 e seus modos. **FSR 4.1.2 e Frame Generation por IA não estão disponíveis em Vulkan**: o SDK da AMD não os oferece para essa API, e a opção de Frame Generation não gera quadros nesse modo. |
-| Facilidade | Um mesmo executável instala, configura, inicia o jogo e exporta backup; atalho direto para jogar. |
+| Facilidade | Um mesmo executável instala, configura, inicia o jogo e exporta backup; atalho direto para jogar. Quem já tem uma versão anterior atualiza sem a ISO e sem perder os saves. |
 
 Os números FSR identificam os provedores integrados. A seleção efetiva depende de GPU, driver e API e pode ser conferida no registro do jogo. Não há promessa de IA em todas as placas.
 
@@ -51,7 +51,7 @@ Nenhum save, nome de jogador do mantenedor, histórico ou configuração pessoal
 | Limite / VSync | 30 FPS / ligado |
 | Sombras e efeitos | Padrões do jogo, sem perfil de desempenho aplicado |
 | Frame Generation | Desligado |
-| Idioma / proporção / botões | PT-BR / Automático / Xbox |
+| Idioma / proporção / botões | PT-BR (opcional na instalação) / Automático / Xbox |
 
 Esses são os padrões desta distribuição, preservando as correções do projeto. Se você mudar as opções antes de preparar, suas escolhas serão aplicadas. Uma instalação existente pode carregar **os seus próprios** ajustes locais; isso não significa que o pacote inclua o histórico do mantenedor.
 
@@ -79,6 +79,7 @@ Capturas do desenvolvimento; opções e desempenho mostrados não representam os
 - Testes realizados no Windows, incluindo RX 9060 XT e 3440×1440; outras combinações precisam de validação.
 - Pode ocorrer uma linha verde discreta na borda em alta velocidade com Frame Generation. Desligá-lo eliminou o artefato nos testes relatados.
 - Em Vulkan, FSR 4.1.2 e Frame Generation por IA não existem e a Frame Generation ainda não gera quadros. Use DirectX 12 para esses recursos.
+- Os adesivos (vinyls) dos carros têm a resolução original do jogo, que os monta numa textura de 512×512; de perto, parecem de baixa resolução.
 - Há traduções e legendas que ainda exigem conferência durante toda a campanha. Não é dublagem.
 - Nomes próprios, marcas e músicas permanecem no original.
 - As melhorias não foram testadas no Linux.
