@@ -1,0 +1,10 @@
+Midnight Club L.A. Recompiled v1.0.1
+
+Instalação nova: abra Midnight Club L.A. Recompiled.exe, selecione sua própria ISO de Xbox 360 Complete Edition e uma subpasta para o jogo. A tradução para português vem marcada; desmarque para jogar em inglês.
+Já tem a v1.0.0: abra o programa, use Localizar instalação e clique em Atualizar. A ISO não é necessária e seus saves e configurações são mantidos.
+As configurações iniciais são padrão; ajuste nas abas antes de preparar, se desejar.
+Nenhum save ou histórico pessoal acompanha este pacote.
+
+Instalação e configuração: mesmo executável. O atalho da Área de Trabalho inicia diretamente o jogo.
+Documentação: https://github.com/robertoaraujo77/MC_LA_Recompiled
+Créditos e licenças acompanham o pacote.
