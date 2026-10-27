@@ -65,9 +65,17 @@
       "source_sha256": "b69d0e62341eebab64b782eceda1e43928b7d17de10cbb9e9b7e5dd9cc0d66a1",
       "translation": "ACERTO DE CONTAS"
     },
+    "00ff98bb": {
+      "source_sha256": "569e55971146f0cfbbbad3b46f1b237e34e01f73b03b0440a59e1e7f2bb471e0",
+      "translation": "VENÇA ESTA CORRIDA"
+    },
     "01118248": {
       "source_sha256": "b560dfd6e02e9faf0ac2bdc77d8654fb5d7aec0baeb1726527036c765ce3b603",
       "translation": "ESPAÇO 16"
+    },
+    "012ba77f": {
+      "source_sha256": "dee18ab341b0621ebac74d713cef3bfb00f4ed6356f9368580af954126f25023",
+      "translation": "TIRAR FOTO"
     },
     "012cde71": {
       "source_sha256": "13835088718f17af8887b02c53d687bfbccda642ff08f13b49be419183a9d756",
@@ -97,6 +105,10 @@
       "source_sha256": "fb3bc64d1fd613616d8637016d857a191faf1292a07e4389eaef0db02657bafb",
       "translation": "3 DE 4"
     },
+    "020f5fb7": {
+      "source_sha256": "567f60fce46949ed59ea32cb551db10eccf0fff3861cecda15c30cb9f01e0707",
+      "translation": ".. Assistindo <D>SPECTATOR_NAME</D> .."
+    },
     "022b175c": {
       "source_sha256": "b17a67863cdae7c8e0996e426846cd9a1bda21f43a30f9611027901fbb27dc4c",
       "translation": "CAPOTA CONVERSÍVEL"
@@ -120,6 +132,14 @@
     "02ddcdb8": {
       "source_sha256": "f0cb69b3956aaa24a060e0176bb3ddeb285ec9fea2ad53d3a355e59cb08564c0",
       "translation": "1 DE 1"
+    },
+    "030b84ed": {
+      "source_sha256": "207c78cb054a311334365d6efc4b4b4459d7b68187a83e985e7159b3f09af42f",
+      "translation": "O conteúdo adicional já está disponível"
+    },
+    "031329fc": {
+      "source_sha256": "f8173006f6319b2118a3d313f5bf98e1874785a5535ffc1a015ed2c82f9cd54d",
+      "translation": "Você não pode comprar seu próprio veículo."
     },
     "032671a2": {
       "source_sha256": "52c0279920686c6c6065d1572d69ca11676a1e69793010e7cb84de27971c543b",
@@ -201,6 +221,10 @@
       "source_sha256": "3a0931580d18a6e0308c1135ee9c807f0aaa83cad286d951d3a8dfa6017aecf1",
       "translation": "SAIR"
     },
+    "0591869b": {
+      "source_sha256": "573fd98a7df9fd130698f8c712627dfb607ad780b88efb5a7ad9c5c4101b2390",
+      "translation": "DESPISTE A POLÍCIA"
+    },
     "05abf3db": {
       "source_sha256": "7cc2c5a27dcd2ed77f4a7d292522dbd52cafa3abaded929e388e1b7b2b66fd72",
       "translation": "Você recebe missões no SIDEKICK. Ao receber uma mensagem, pressione BACK para abrir o REGISTRO DE MISSÕES. Ao dirigir livremente, também pode abri-lo pressionando Y no mapa do GPS. Consulte missões ATIVAS, CONCLUÍDAS e TUTORIAIS. Pressione LB para ver as missões ativas."
@@ -225,6 +249,10 @@
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
       "translation": "ORIGINAL"
     },
+    "06828328": {
+      "source_sha256": "dcfcdd03b973b4766dd1e41aa926a53cbf98f5a60d129de17538361464330518",
+      "translation": "MEU VEÍCULO"
+    },
     "06842c62": {
       "source_sha256": "77827d8013d41873e787f3e73eeadbdfa9a14199bfc442e20bc08851db8a67d5",
       "translation": "IR PARA A LARGADA"
@@ -232,6 +260,10 @@
     "069502c8": {
       "source_sha256": "939dbc75374e2e3e1d178c6d1cb2c995f264f18d9c1c3fdd0d6679478ac14c35",
       "translation": "CORRIDA VALENDO O CARRO"
+    },
+    "06bb4e92": {
+      "source_sha256": "dbfe3de60222d3a1f42eda11804af8dd947d5eff764b01ebee20bca1a0d50069",
+      "translation": "REINICIAR REPLAY"
     },
     "070a21eb": {
       "source_sha256": "df6a6e410f1dd26ba18353a9328b5072130e0e2bd1d2c5eef81d51002c23beec",
@@ -261,6 +293,10 @@
       "source_sha256": "5c50309e9ba5e4a2e7894084e7e9130997da82fe92bae7c178a2b9674226215c",
       "translation": "1 DE 2"
     },
+    "077e8b6e": {
+      "source_sha256": "f76cc7eb0c25bbbdbec1a784fb27f23eb0f926df481f2fc1710b8e6b2d4ee3af",
+      "translation": "ESCOLHER ESPAÇO"
+    },
     "077e9145": {
       "source_sha256": "38cca6bea010af8adaf4be7d270456fa9adef8c0252db91f2767c607d077319b",
       "translation": "DESLIGADO"
@@ -284,6 +320,10 @@
     "081e09d4": {
       "source_sha256": "c1470bd4e15adbc0714d5ee3eb54cd0003b8f9feb5b84b95f337c9e22d34596b",
       "translation": "VAMOS CORRER NO CENTRO. MELHOR DE 3."
+    },
+    "0834543e": {
+      "source_sha256": "f93f595f9496d30b84a3c6fea411b13369c19475ec5cdb1dab2deae1bfd83587",
+      "translation": "TEMPO ESGOTADO"
     },
     "085ee259": {
       "source_sha256": "fd49e5bc2a30c83cdb47dd4da622d57f142cdfe47e7c1c39e86359573ea554f7",
@@ -377,6 +417,10 @@
       "source_sha256": "d8dddfa7243a3fe02d33cfb04c8a31cd72cf998213591424f78a82271c6b0150",
       "translation": "SUSPENSÃO HIDRÁULICA/A AR"
     },
+    "0a05ebf5": {
+      "source_sha256": "150525e2cea71effbbe5a5e0e508053a10bfe7bf16fc667ec808fb4510d6a9cc",
+      "translation": "Você precisa despistar a polícia antes de continuar."
+    },
     "0a2d0a07": {
       "source_sha256": "f9171164593756e56fb197327b529a4955590566560dbe62d586bff41be9d297",
       "translation": "SIM"
@@ -396,6 +440,10 @@
     "0a8b69a7": {
       "source_sha256": "db51f02f155e669fe7d750279806479a370b01127f941b1b086e0015485f264d",
       "translation": "OLHAR PARA TRÁS"
+    },
+    "0a94b844": {
+      "source_sha256": "376b2011946efa720378781d093ee1a868f641398130f51445a2e1b77ff9beb0",
+      "translation": "Você não tem o veículo correto para esta corrida. Verifique as restrições da corrida e troque para o veículo correto."
     },
     "0aa8ac93": {
       "source_sha256": "22655acc6c5508dc185b492655bc695af0445c3e374e1d75244c7fa348e5b9b2",
@@ -433,6 +481,10 @@
       "source_sha256": "968f5f1cc0d09f9d13eea368d345ef92ae81a8ef17b4eae661c789d165e1ff27",
       "translation": "DISPUTA EM HOLLYWOOD"
     },
+    "0bc97d08": {
+      "source_sha256": "8571f8889145ace4632b34fc51230bd203d18be28fa96b3d54d9e35fab275001",
+      "translation": "BRANCO COM LINHA VERMELHA"
+    },
     "0be8cc09": {
       "source_sha256": "fef9634126207e6ba8b7f1464d74d9a358c1f798e99743c0f869450707013dce",
       "translation": "NOVO CONTEÚDO ADICIONAL"
@@ -460,6 +512,10 @@
     "0cafdebe": {
       "source_sha256": "89c49ae2838497dbda31272ecc8f5115af2f19956cc2d0b05688f67393303961",
       "translation": "INICIAR CORRIDA"
+    },
+    "0cbc58c2": {
+      "source_sha256": "d18487da7d4db0cbac9b085168ec98cbdc9c3b5babbe4498766100cf826b037e",
+      "translation": "Deseja restaurar os ajustes padrão do jogo?"
     },
     "0cbda5a5": {
       "source_sha256": "993d201204a48e48eb49f1d9da75b7ff03a17c8febd9e68cf23de319ef2d73cc",
@@ -529,6 +585,10 @@
       "source_sha256": "04d5caad18b73ebd4f02fbfded61ee32e4bbe48c5db286679f4bea08c0613cd6",
       "translation": "VEÍCULO COMPRADO"
     },
+    "0dd75e45": {
+      "source_sha256": "dee18ab341b0621ebac74d713cef3bfb00f4ed6356f9368580af954126f25023",
+      "translation": "TIRAR FOTO"
+    },
     "0dd8e0d6": {
       "source_sha256": "abef0cdc3059c9c2f79da59d8c8994c4b00cd4ca2eb275affe24210ee494d3b9",
       "translation": "ACERTO DE CONTAS FRACASSADO"
@@ -572,6 +632,10 @@
     "0ed46891": {
       "source_sha256": "ac49d3301bdd11b56c4c611d9798f4ca0da07702444731bdecbe4de206ae249d",
       "translation": "BEBERRÕES DE GASOLINA"
+    },
+    "0f044e90": {
+      "source_sha256": "56c42704a1cbd0965a0c5cb72138a4ecfa5f9905ceed63013f115dd721cfdb62",
+      "translation": "EQUIPES EMPATADAS"
     },
     "0f2c2b90": {
       "source_sha256": "66b2d302f9c00fd7ec549cb25c4b1db9619e6dd631f84f90d00044c0dc57a900",
@@ -649,9 +713,17 @@
       "source_sha256": "062f4d05fc209ef803d85a141a34c034c8198539b8abf02f41e3bab5ca8f511d",
       "translation": "MINIMAPA"
     },
+    "111183c6": {
+      "source_sha256": "132d32b587ff55ee6f0d3bcb003efe4c9d858b5832fd36962ea6761b18c13a8b",
+      "translation": "TROCAR DISPOSITIVO DE ARMAZENAMENTO"
+    },
     "11122e82": {
       "source_sha256": "2741480d2656d2b8466f96db4d04de6b7914f9c54309a89da44b94463535ebdc",
       "translation": "CAVALOS DE AÇO"
+    },
+    "1112a418": {
+      "source_sha256": "12b99b6ea26a36236974f2634d08e5e8f24e47a874014c68cce62a3c7a6dc1e7",
+      "translation": "Deseja restaurar os controles padrão? Você perderá qualquer personalização deste tipo de controle."
     },
     "111776bb": {
       "source_sha256": "7898c12127774eb79cac84bd802996c7f44fb405569737a41caaa1faccfeb58f",
@@ -669,9 +741,17 @@
       "source_sha256": "6fdf8b36c24aa719bd51306dacf41434546ef5ffc5fe1c699a6bb9aa40b84ba4",
       "translation": "CONTROLE NO AR"
     },
+    "119eb22e": {
+      "source_sha256": "abd965161016314c3105db8a89a9bf3a6593fb223deddc8ef8222ac0ef26a90c",
+      "translation": "NÚMERO DE VOLTAS"
+    },
     "11a4af3e": {
       "source_sha256": "e7045066646524b29a2cc312e883b6dffbbb2d2e614c6d39ec89ea0c3016f965",
       "translation": "VITÓRIAS COM CARROS DE LUXO"
+    },
+    "11b297a2": {
+      "source_sha256": "f9aa4b75c3e51e926f501adaa209e6e30d82b6c06fbd88fbe637309bf1ae98d2",
+      "translation": "VITÓRIAS NO TOTAL"
     },
     "11b81e4d": {
       "source_sha256": "9d040969bb612b1225b95bff5b24d0c00d6be683a835ed40b81a1e3f9557e073",
@@ -700,6 +780,10 @@
     "1219245b": {
       "source_sha256": "19c4ac7361722fc7a4fcc32f5eff04d27cea20a96b3b1b0b2b5adc491fbec6c1",
       "translation": "ESPAÇO 19"
+    },
+    "121c8015": {
+      "source_sha256": "0f7b0a53eace9a68f5b4a7451c111d2fe593a6ba20a1307958d1351533934333",
+      "translation": "DE NOVO"
     },
     "12356802": {
       "source_sha256": "03b389ad3777fa74a5b1d8ba551f442ca0fb380fe10b68519cb010e20ac55161",
@@ -793,6 +877,10 @@
       "source_sha256": "daf7e522bdaf6343b41c34734f8e3dcfc0b4b7030dbf70310805071807b9ab72",
       "translation": "O CAMPEÃO ESTÁ AQUI"
     },
+    "14522d10": {
+      "source_sha256": "e063cbea64ad3489bd93cfa96f7cabea6eb076c94889a6af9b167ee7bfc1922a",
+      "translation": "Não está à venda"
+    },
     "145af4f2": {
       "source_sha256": "ef18aeb53302a2a2e76c424a24df8412fed51afd6a13b6a19662804eb041247f",
       "translation": "4 DE 4"
@@ -808,6 +896,10 @@
     "14781fb2": {
       "source_sha256": "5f89138d6364122752adf90cb8479fb8be0da7f1f367997f3e16658bafc892ee",
       "translation": "ESTOU NA OCEAN AVE., NA PRAIA. TRAGA UM VEÍCULO DA CLASSE A."
+    },
+    "147f8461": {
+      "source_sha256": "0a244108837bc27421acabe3c6cf1c5511665c9ab090e75552d611fb5d6f59ec",
+      "translation": "CLIMA"
     },
     "1491caee": {
       "source_sha256": "96c0e634ad69407668bc9051049f7a12a0f6304bde702c0bb47c9902f7268737",
@@ -877,9 +969,25 @@
       "source_sha256": "5a7f6b9d5cae294d51883ce0d0849882383e8b52c207ee06d991afc60b198580",
       "translation": "Dirija sem bater para carregar ZONE. Quanto mais usar a habilidade, mais cargas poderá acumular."
     },
+    "1612a74d": {
+      "source_sha256": "2cb9e21997ed41e37f00c06e23c3b23e37056d5b95472bf55d9f0d60ebc51457",
+      "translation": "PORTAS TESOURA"
+    },
+    "161e1e19": {
+      "source_sha256": "0dc793cd53cb2c88c10c02da092dcdfc6c34ca66ba516180b1633b54d757deac",
+      "translation": "REMOVER CORRIDA"
+    },
     "166cb786": {
       "source_sha256": "7239c0e01072995e9092927c87fe2597023dc7cc45d62167c2b062a2274119a2",
       "translation": "BATERAM SEU TEMPO. ME ENCONTRE EM SANTA MONICA PARA TENTAR O CONTRARRELÓGIO DE NOVO."
+    },
+    "1682bf24": {
+      "source_sha256": "8bd891fd01cb91d34b6f0d6fef007e2e30f1c7b66a9349157a79a6591a43f942",
+      "translation": "SAIR DO REPLAY"
+    },
+    "169aa911": {
+      "source_sha256": "520948634db17a2c68ad6eaff2fc3052b1818a13f6a7c5962573ba483d130fcc",
+      "translation": "SAIR PARA O GPS"
     },
     "16ca3f5d": {
       "source_sha256": "b69d0e62341eebab64b782eceda1e43928b7d17de10cbb9e9b7e5dd9cc0d66a1",
@@ -900,6 +1008,10 @@
     "16eb1213": {
       "source_sha256": "87450b9665e7560d755b5707178062a1eb1647c91d9f337b817b6e6c1fdeac64",
       "translation": "DINHEIRO:"
+    },
+    "16f97407": {
+      "source_sha256": "8892a75179c4ee690da5f1093320a8bfd1062182e5724805d9f27f0ffc0e50a5",
+      "translation": "SÓ CARROS"
     },
     "1745bc47": {
       "source_sha256": "072cb51786f2d8f2ea0d4aeecdd66b1690c89a939a8c6f1907ff384b0e8fc85c",
@@ -941,6 +1053,10 @@
       "source_sha256": "e6edfd1ffac1c700501ee5b30cdbc5e950306d475f367120c7690c2486025e82",
       "translation": "MELHOR DE TRÊS EM SANTA MONICA"
     },
+    "1812c7d1": {
+      "source_sha256": "9ecfba5d41961d7b959736088551e91eddcb93e41955fbae31ac682a5aa1302e",
+      "translation": "VER LISTA"
+    },
     "1816bcb0": {
       "source_sha256": "fa5ebd9d4d3ffc965377273fa4bf77c5e73a34fa97f43d4e86ee6947e485c099",
       "translation": "PRESO"
@@ -948,6 +1064,10 @@
     "181bd2a1": {
       "source_sha256": "2b78f0049338fc5e058ff02f7d5fe1735a1ad6f245c1fa9df86f828cfc10d4f9",
       "translation": "MACK BURGER"
+    },
+    "18343e47": {
+      "source_sha256": "1f83ec571f725648b2e0fc6cfd63846efd94716f375124a6b831698257a6aa46",
+      "translation": "ANTERIORES/PRÓXIMOS 10"
     },
     "1864ecf3": {
       "source_sha256": "852486e45f74916cbf1d989938f54f8d41dab4c144d176a1994d4f11ab34b041",
@@ -1044,6 +1164,10 @@
     "19ee591e": {
       "source_sha256": "4563ede5f80ebeecd899f8c549a3aee90439aabfa91fada86693594f2725a52f",
       "translation": "APOSTE O CAMARO DO NIKOLAI NA SUNSET BLVD."
+    },
+    "19f67435": {
+      "source_sha256": "40750ad89bc00a058169225eae1af31583c58f0a6d63939f6a43a363a1e94ac5",
+      "translation": "CARROS DESTRUÍDOS"
     },
     "1a15d5f4": {
       "source_sha256": "72fc7273b3ce941dd89b21cf5a0efd47bb65e6d8befd9d2249c4db79f351d05f",
@@ -1221,6 +1345,10 @@
       "source_sha256": "544264fe9a12ed96f64b86900ccf789833f836e584fe74a8ca3c66e3f2af4b35",
       "translation": "ENCONTRO EM CENTURY CITY"
     },
+    "1e0aae0d": {
+      "source_sha256": "5ab195ab324ad57652d73b04c03e2f085afca44a7b377427da030ab5d94367b4",
+      "translation": "CARRO ERRADO"
+    },
     "1e35aa50": {
       "source_sha256": "7702924981bf988a429c0ebdc85b0dcdb60d587b419fc531cad7ba2ba8ab2b70",
       "translation": "Não há espaço suficiente para salvar. Libere espaço ou troque de dispositivo de armazenamento."
@@ -1301,9 +1429,21 @@
       "source_sha256": "b6dbc116127ddd12b2f4413ad4a808e6dfb364f43fc46248584a762023152f1c",
       "translation": "CONTRARRELÓGIO: HILLS"
     },
+    "20660680": {
+      "source_sha256": "0f6f1bf56f581cc2d2b2e147295cd5ac9a8d8b94a333716d199a083598f4880f",
+      "translation": "11º LUGAR"
+    },
     "20beae77": {
       "source_sha256": "83798aa2b744bcc1bcedf2ede7a17dcbf7edf8ca6a73728bae8db4fbbef5531b",
       "translation": "QUANDO CONSEGUIR UM MUSCLE CAR, GANHE REP. COM ELE."
+    },
+    "20cb5c13": {
+      "source_sha256": "add2e97e78b12954dbc96aafa6f8094d607985774030e7b23521d48798e6d05f",
+      "translation": "OCULTAR HUD"
+    },
+    "2110d42e": {
+      "source_sha256": "c39715189f2b401ee224cea71f027e09b3d4b5762df7cc5ba1fc7a7b22073f4c",
+      "translation": "PRÓXIMO ALVO - SANTA MONICA"
     },
     "21196ec1": {
       "source_sha256": "ef18aeb53302a2a2e76c424a24df8412fed51afd6a13b6a19662804eb041247f",
@@ -1312,6 +1452,10 @@
     "2123a22f": {
       "source_sha256": "6f9bde4a464d16d3df8af820c3b8e99cdb44707c70a30f4be6e3c8c91b6bcb62",
       "translation": "COMPRAR VEÍCULO"
+    },
+    "2127e204": {
+      "source_sha256": "35a49cfa87c866d64d623b75104a15f43d222a9cd03b5e6f2b40bd9728e0e1cd",
+      "translation": "VER FOTOS LOCAIS"
     },
     "214d315e": {
       "source_sha256": "ddcdb9fcc731b5f84b6fe3df18a490d561a5831bf80d31aa1934deab5927b3dc",
@@ -1337,6 +1481,10 @@
       "source_sha256": "30eee888631172b5f4c8f93de1af1c4f8a761111ff32bd6890edead9f285b21c",
       "translation": "TEMPO DE CORRIDA"
     },
+    "21b28ec5": {
+      "source_sha256": "36f2e3683a7f38a7b7f35a17df5f9d34f1907ef2611853f4b22951a71c92f5a0",
+      "translation": "PRÓXIMO ALVO - BEVERLY HILLS"
+    },
     "21ccf612": {
       "source_sha256": "52bd04294d71ef8a1879a8c0b5e1834450334e35a8c01f93b4e520d6eaac3c14",
       "translation": "ESPAÇO 5"
@@ -1353,9 +1501,21 @@
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
       "translation": "ORIGINAL"
     },
+    "222d202a": {
+      "source_sha256": "4efba9aa4d166372b7607b4b85d039e8918fa95e479fb3e0f6d4afef3b4436fd",
+      "translation": "Deseja excluir esta corrida favorita?"
+    },
+    "22671185": {
+      "source_sha256": "bbdba52b83ba3440f5aae48ad588f26b191e56d2c3364aac62a30aa9903b4053",
+      "translation": "À VENDA?"
+    },
     "2274a26a": {
       "source_sha256": "7886016c640975f8362f7bb792dd26be3af962887943f1a28658d0c4c52a8fe7",
       "translation": "ALTERAR"
+    },
+    "228feaa5": {
+      "source_sha256": "8e97a99d67516b393748aaf431afde001ccb389990e38dda083f19697055bf30",
+      "translation": "7º LUGAR"
     },
     "2296c552": {
       "source_sha256": "6ed10cc18d8382051a8d820d2d1c3c511954272bb8345417f540dc59962b122f",
@@ -1368,6 +1528,10 @@
     "22a5a9aa": {
       "source_sha256": "65daeb378bdec35d90224389f6e10917bcc0b94c90c489014ba156dd6cbf9350",
       "translation": "EXCLUIR"
+    },
+    "22d75d31": {
+      "source_sha256": "ed2fd4e0b79801387d761cba1b977aedd71c0a29af1442a26353170a68de94a1",
+      "translation": "DINHEIRO"
     },
     "22dedba0": {
       "source_sha256": "d4800b91b7780eb9d58d785b9519a7fbf5c103cefd626b8e7791e91dc5a35267",
@@ -1529,6 +1693,10 @@
       "source_sha256": "d02bf373df0c13778ffbde74232d8bd1d43cd9e55ff6518ee501745c68f23fb2",
       "translation": "O NITRO dá um impulso de velocidade quando você mais precisa. É possível acumular várias cargas. Compre cargas extras na OFICINA e reabasteça nos POSTOS DE SERVIÇO. O nitro é reabastecido no começo e no fim das corridas, exceto nas dinâmicas, como corridas de rodovia e disputas até a largada."
     },
+    "26b1cb5a": {
+      "source_sha256": "dfcffbc97a6fa0d3b88efed0efb0a3c2986cbe412c19a7eeacf07351bad78274",
+      "translation": "OBJETIVO NÃO CUMPRIDO!"
+    },
     "26c1a807": {
       "source_sha256": "a2bd84f43a1066c763a35383a07a527e53e74284a9d89a46a4a0dc27a06294df",
       "translation": "PRECISO DA SUA AJUDA. PASSE NA OFICINA DA PRAIA."
@@ -1565,6 +1733,10 @@
       "source_sha256": "1e1dad312accee41f4dba42b333252c6164d0fb25f563b9bd99985df0e8d76c0",
       "translation": "TORNEIO: DOWNTOWN"
     },
+    "27b1c86b": {
+      "source_sha256": "bac6da7d1806e7d3e409d000c4de1e6e9477cae0333bbde43e4c206bc25a234e",
+      "translation": "Escolha um padrão ou personalize tudo"
+    },
     "27ce0fec": {
       "source_sha256": "4b4635988424ca7dc264c65f7f560e3589dda6b30d98b78b9cab36046f160fc4",
       "translation": "NENHUM TORNEIO DISPONÍVEL"
@@ -1580,6 +1752,10 @@
     "27e3eb6a": {
       "source_sha256": "0cc98a10284bf87780417a01065e71a6c8e9a3e120cffde6ee1f11a4387a6f0c",
       "translation": "ENTREGA"
+    },
+    "27e468b8": {
+      "source_sha256": "1f207179fa8bfc5fccc2fc8e3f6a20adbd8f652407a9423db14010ba78be567d",
+      "translation": "AJUSTES PADRÃO"
     },
     "2805a51f": {
       "source_sha256": "4388a758d577125562b6f5dc3a328488225f800d26345f6513864041972f17f0",
@@ -1669,6 +1845,14 @@
       "source_sha256": "b70961b70d4539dd6cb8c9750376b1ab8a3676597376219288f9e4e6107341d5",
       "translation": "CORRIDA DE CIRCUITO"
     },
+    "29fce490": {
+      "source_sha256": "7dcaeb2e4acd206eb7c2ab895ffa15349915eefa783ae12877abc6a3ccce9e5c",
+      "translation": "É ELE, PEGUE-O!"
+    },
+    "2a1208af": {
+      "source_sha256": "c084d7ca6c94643042fe13a32102111c321b1487236eee66b41a089d0369ebee",
+      "translation": "VEÍCULO USADO"
+    },
     "2a134864": {
       "source_sha256": "ebce4b55360cd1a5d46afa9e8972fb1922d94709042d5159f2db9a894fc4e68e",
       "translation": "MARCEL desafia você para uma corrida de esportivos americanos à moda antiga. Vença-o com um carro dessa categoria na Ocean Ave."
@@ -1757,6 +1941,10 @@
       "source_sha256": "68d4e3941da56a9fc4839d4b4e787254eff23aac64ad5c6993a70bb9019a116e",
       "translation": "CORRIDA DO EDITOR 10"
     },
+    "2bd3a307": {
+      "source_sha256": "5f96d7d6500b5a15ec729ff64da844cf4ec44afb81df304d2c487012fc9b4653",
+      "translation": "PRÓXIMO ALVO - WEST HOLLYWOOD"
+    },
     "2bd9f8dc": {
       "source_sha256": "36ab2da61c3ce727bcfa83cac20efd852eff0ea209597390ef9cb2f0b612ce3a",
       "translation": "Seu progresso e o estado das missões"
@@ -1784,6 +1972,10 @@
     "2c86c9cf": {
       "source_sha256": "16227df7f50704e126ee4615e774b67b6346f374f7f4a0f065083243c15d4e9e",
       "translation": "MULTADO"
+    },
+    "2c888bb9": {
+      "source_sha256": "f7ecb62f8c76e5479ddadcf60ef5b0a6be09f6ac2fc63fd05f4d87b79d2406ab",
+      "translation": "Deseja correr valendo o carro? ATENÇÃO: você PERDERÁ seu veículo se SAIR, se ele for DESTRUÍDO ou se você PERDER esta corrida."
     },
     "2ca35499": {
       "source_sha256": "15d0308a2ce16a5265d9034de14c21c1c97d286ec406299d791afd70ad8c47df",
@@ -1821,6 +2013,10 @@
       "source_sha256": "96fe6df709f5edbfa5cf312249d7ebe9085bc74e7707c83fca40b5621cb6b160",
       "translation": "VENÇA JULIAN COM UM ESPORTIVO PREPARADO"
     },
+    "2d366e19": {
+      "source_sha256": "7767d5e4938cb979c6cea67efba5cc73f81e89b0e225f55adfa47f453122589f",
+      "translation": "TEMPO-ALVO"
+    },
     "2d4a7898": {
       "source_sha256": "3aaa898faa5e02fdf944da021ca62d4033ff3f7bb477c0a832e382acfc7c275b",
       "translation": "MUITO FÁCIL"
@@ -1849,6 +2045,10 @@
       "source_sha256": "e2c243de512b1fd24cdba0363c0fea45344e371b8a3983ab6b67811a56005a5c",
       "translation": "BELEZA. QUANDO ESTIVER PRONTO, EU CORRO. ME ENCONTRE NA AVENIDA."
     },
+    "2e11b4f7": {
+      "source_sha256": "cf3e02cac3eb825bcf33d10855faca421994747d8686cc89524e8a53b4341a4d",
+      "translation": "SALVAR ALTERAÇÕES?"
+    },
     "2e18327d": {
       "source_sha256": "8ed3fa2ae0b90071b2ebdfffe50c8d7daf9f6a4ae022ee3a304f722bdfcb06b1",
       "translation": "CHECKPOINTS"
@@ -1864,6 +2064,10 @@
     "2e8ffceb": {
       "source_sha256": "9238047485094bcdeb2dfef5f2796c5d79195ffac9ef77d4a06ddd8904eff7f0",
       "translation": "TIPO DE CORRIDA DESCONHECIDO"
+    },
+    "2e9d6524": {
+      "source_sha256": "e41db04d1bd5f2de7e35ee1f2f802d6491eeb3167bba024edc94539fba4d6e20",
+      "translation": "PRÓXIMO ALVO - HOLLYWOOD"
     },
     "2ea17c2d": {
       "source_sha256": "87c2b8ad8fd0cdf2b5b413cd4c85bc5148a452b0c667b2929132e9ff76eff8a4",
@@ -1881,6 +2085,10 @@
       "source_sha256": "2a973dc16361beed279c955fa528b83395479ceda918c8d77c2d2cf887b5c874",
       "translation": "VOLTAR À PERSEGUIÇÃO"
     },
+    "2f0566de": {
+      "source_sha256": "9d7a4a596a61f23200f343c0f1a54678d1ec84384726538018050b2381589ea2",
+      "translation": "Aceitar esta aposta descontará dinheiro da sua conta. Perder ou sair fará você perder a aposta. Deseja correr mesmo assim?"
+    },
     "2f13209f": {
       "source_sha256": "9f5f7df9992a7044aa71a1e049228cf8cdfafe3fbc4f9cdb2cd1606611f57ef4",
       "translation": "COR DOS INSTRUMENTOS A"
@@ -1888,6 +2096,10 @@
     "2f2d3817": {
       "source_sha256": "2c5b49935f3e4c98cfecec50242cf1b09dfacbf271783f7f336a054f21eb122a",
       "translation": "BARRAS ESTABILIZADORAS"
+    },
+    "2f41e30c": {
+      "source_sha256": "fc6fd35d8a9c8d6b1624d8d275727fc61ff203e03b313a9c337861ecddfe1b18",
+      "translation": "DEGRADÊ"
     },
     "2f527f86": {
       "source_sha256": "be95c0fb575c1c26a96948d437d0223f961bfe1148fc1bec4af876012b9de4cf",
@@ -2005,9 +2217,17 @@
       "source_sha256": "b17ccc89d05a289512984ee25019bb15e5312d3c07410ed202be052073c8bb93",
       "translation": "O torneio \"DUB\" de Hollywood está aberto. Vença na dificuldade DIFÍCIL para ganhar um Chevy Camaro \"DUB Edition\"."
     },
+    "327e2af1": {
+      "source_sha256": "a872f67384948f79440eb93bc12a47d2f25f6e0067bc252559f9af76c9e8257e",
+      "translation": "SAIR"
+    },
     "32ab4630": {
       "source_sha256": "e58f72bc7232a636e4f90de2aba6224f8bf7b73450721ce3d391a8467a24cd5e",
       "translation": "DISPUTE CONTRA ANDREW E JIN"
+    },
+    "32b21a1e": {
+      "source_sha256": "6c54ca6316d943500593a41187f15ded27044e6dea03e50f1ad7a49c5d653aea",
+      "translation": "Deseja trocar seu veículo do Avalie Meu Carro? A classificação atual do veículo será perdida."
     },
     "32bf69a8": {
       "source_sha256": "6764e12539560be2b599210a7472898c935a07e04e344b2ecd309c21d11ed338",
@@ -2020,6 +2240,10 @@
     "32f3a4d5": {
       "source_sha256": "0ff3e425fdbb9951a5a56bfed736c6d122af5dca722bb448204edbec2fbe6f3c",
       "translation": "REPARO COMPLETO/RÁPIDO"
+    },
+    "3301f20b": {
+      "source_sha256": "257136b53e83c3ac4cb7e53328c754ebd1e57618c7b3215f1dc10d0197bab7fe",
+      "translation": "CONTORNO BRANCO"
     },
     "331540ac": {
       "source_sha256": "b9f964e9b47b65dc6faa4c53675106493d411233078329bdf4d4f72152ea5c60",
@@ -2044,6 +2268,10 @@
     "336649a5": {
       "source_sha256": "47afafc1aa7d45f1fe32dea6342ef0e23ec797c8b3fef88d7dd6cd27dbb7a348",
       "translation": "PRISÕES"
+    },
+    "33735b1d": {
+      "source_sha256": "29c12651d83f5aa11cd9bab007946149bec9a5e91e99d845023dd6f720f179a5",
+      "translation": "MEIO-DIA"
     },
     "338a1b4c": {
       "source_sha256": "c044d5cee895c37a127532559b133cb3c78c9d9cddb02d026858444e8d3a8047",
@@ -2072,6 +2300,10 @@
     "341f5bdb": {
       "source_sha256": "c56b5e6d764f0e8b10357fa43c29ad8f3c1a3391026bf0b14a59a522eb001a8b",
       "translation": "REINICIAR TORNEIO"
+    },
+    "343bba34": {
+      "source_sha256": "edde95aac35dc3ca42dce062481d618665afa423b06fe5388d6a385731f7fc80",
+      "translation": "TROCAR VEÍCULO"
     },
     "343fedf8": {
       "source_sha256": "56a70a35c2a884173ccaa3db383f1705e84571306f3aff6975707ab44027678b",
@@ -2137,6 +2369,10 @@
       "source_sha256": "b66770201395b2c49b8b8f41f43dfcf85ae7e8327b76f4f729464eca643869b4",
       "translation": "ESTOU NA CRENSHAW. TRAGA SEU MELHOR CARRO E VAMOS NESSA."
     },
+    "35bfcc28": {
+      "source_sha256": "5435d63d17236b89f816f0f99e2d8cc453fe488827cfeaea243319bce0db49b6",
+      "translation": "CIDADE INTEIRA"
+    },
     "35da1bef": {
       "source_sha256": "ad221f6b0ee8d7c0c8b7ec570c042731ab92fce1d0dd7465aed56ac199e1dadb",
       "translation": "OPÇÕES DA CORRIDA"
@@ -2144,6 +2380,10 @@
     "35edcf30": {
       "source_sha256": "7d160a89cc9530ff2d21deb69ff60ae8e8536931a58fca11cfbb01e89a09a979",
       "translation": "CORRIDA DO EDITOR 7"
+    },
+    "360ba46f": {
+      "source_sha256": "238903d28ed15a17d227b12ddf1e295ca30466ba34d4fc435946b3046922b3f6",
+      "translation": "DESAFIO"
     },
     "3610323f": {
       "source_sha256": "2a8bd65f054f1b2ce7ae39716199660ceb26752e7e177c4aef27559862c98f2a",
@@ -2188,6 +2428,14 @@
     "36fad170": {
       "source_sha256": "188e5b733af371dbf6b754d3c086aaabdfe860783d163baa4df415515fb621d8",
       "translation": "PARA-CHOQUE TRASEIRO"
+    },
+    "3710634e": {
+      "source_sha256": "e4e295c395e82b5cdac5543c4fd49091920bf2a9b01d7c464e92fb2c881100c4",
+      "translation": "ACEITAR DESAFIO"
+    },
+    "37146e85": {
+      "source_sha256": "bf2524646d3a17be2675656cf27e03640e50f18c65466c5bd918d9c1f532fe6d",
+      "translation": "ESCOLHER VEÍCULO"
     },
     "372e21ad": {
       "source_sha256": "22caf9b14e7b79628915df28a71099fcc69b0310877103e6a76169bd94bcfc6b",
@@ -2305,6 +2553,10 @@
       "source_sha256": "149cf3d32d15ad55f6a0df7109740ed0fdfe8aa1cdb0184691016d312ba4b504",
       "translation": "SALVAMENTO AUTOMÁTICO"
     },
+    "399c7fdd": {
+      "source_sha256": "f76cc7eb0c25bbbdbec1a784fb27f23eb0f926df481f2fc1710b8e6b2d4ee3af",
+      "translation": "ESCOLHER ESPAÇO"
+    },
     "39b96576": {
       "source_sha256": "ac28b43fa6abef1ea4ce3e8398e67ea8a06fe2fed949c68d014c009983ea9b91",
       "translation": "MAIOR DIST. DE SALTO"
@@ -2312,6 +2564,10 @@
     "39e8aaf5": {
       "source_sha256": "57b9a5f964d3bb11488a02bcdf74b0610502c92706201ab85857d67d8de5b179",
       "translation": "Deseja reiniciar o acerto de contas? O progresso atual será perdido."
+    },
+    "3a08aaaa": {
+      "source_sha256": "e9c617cd8e62a5d6392f083d61436adc849d616308ccc7146a1d4a047f287a50",
+      "translation": "Você precisa ter pelo menos 2 veículos para correr valendo o carro."
     },
     "3a1a7836": {
       "source_sha256": "88ae71709ab542e2f48adb39506a3e4e4715c09244c00e58ca6012c3a39a5478",
@@ -2324,6 +2580,10 @@
     "3a412a28": {
       "source_sha256": "b9daec6d1265b2cbf0146017f779f7dfd8150f16e0f2f2e5c4bb175730e007d2",
       "translation": "ÁLBUM DE FOTOS"
+    },
+    "3a43cc8a": {
+      "source_sha256": "77357beed950b9b6355aff0982cb57ce158d4627d3156dde6cd91b3be6445e51",
+      "translation": "SEU TEMPO: <D>YOUR_TIME</D>"
     },
     "3a4a8ebe": {
       "source_sha256": "bb1b282991aa126c71ab094845427655576c1cffb14c055018294b80eb022311",
@@ -2373,6 +2633,10 @@
       "source_sha256": "07dde9e3f1d516025345e54e83d99e0a2a093a28f228917966c738c1f86aaafc",
       "translation": "BATERAM SEU MELHOR TEMPO EM HOLLYWOOD."
     },
+    "3bb3d980": {
+      "source_sha256": "643b734951ae091de1b282626959d731466ea4756e0b7a055cdd87d10ca05244",
+      "translation": "VOLUME GERAL"
+    },
     "3bb4dcf9": {
       "source_sha256": "3a0931580d18a6e0308c1135ee9c807f0aaa83cad286d951d3a8dfa6017aecf1",
       "translation": "SAIR"
@@ -2389,9 +2653,17 @@
       "source_sha256": "7898c12127774eb79cac84bd802996c7f44fb405569737a41caaa1faccfeb58f",
       "translation": "4 DE 5"
     },
+    "3be69c6b": {
+      "source_sha256": "858b1f4b6c58a63c9f5d7c6e09830b4cbbe37edcc56d4780d05c239a6674269c",
+      "translation": "Há ações sem atribuição que podem ser necessárias. Deseja continuar?"
+    },
     "3bf84c68": {
       "source_sha256": "7c2fda0b3b407a0f4d250634e605208bc3e1e7d9843d99c7728ab92c4fb872ba",
       "translation": "O GPS é um mapa interativo de toda a cidade. Nele, você pode localizar CORRIDAS e defini-las como DESTINO. Consulte as MISSÕES no REGISTRO DE MISSÕES. Pressione BACK para abrir o mapa do GPS."
+    },
+    "3c0a09b5": {
+      "source_sha256": "6adbeb94c0a91c3c2f820a0660be1ddfc2333c881445489e5a51b895a05f9486",
+      "translation": "VEÍCULO DESTRUÍDO"
     },
     "3caa20f1": {
       "source_sha256": "9563e9dc4a7d451be55d730447e6accc28c96d5e13f049cce41a97fc634d89dd",
@@ -2405,6 +2677,10 @@
       "source_sha256": "6969f271d422d47526de467383b78ac3f1f0bf63df0bf607a3a7c82cf7f4d2c1",
       "translation": "CORRIDA ATÉ A LARGADA"
     },
+    "3d011f87": {
+      "source_sha256": "493c30eb8e3fb4d651c117af77f91b28bd71c1f43172bb77159ded3905a7728d",
+      "translation": "3º"
+    },
     "3d0c52bb": {
       "source_sha256": "4904efbddc5dfb4abffe9a0fa09e1463c0b4c9a0dcd618b1f0d558a938fb1de5",
       "translation": "TEMPOS COM CHECKPOINTS"
@@ -2417,6 +2693,18 @@
       "source_sha256": "1f30aec416aa608b48819efa4870658143d486db55063ce110e0078a71e708ec",
       "translation": "GANHE REP. CORRENDO COM SEU TUNADO."
     },
+    "3d2a3aa7": {
+      "source_sha256": "9e65fa42748289dcea5e7387ab53754cde1c332201da9c6479b586fbe6b03aca",
+      "translation": "OLHAR PARA TRÁS"
+    },
+    "3d388946": {
+      "source_sha256": "1a0e7b6b2b1551b7a30cb0b650a23d8a0dd29877708cc5e8144bc49858ea2ecb",
+      "translation": "PRÓXIMO ALVO - CITY HALL"
+    },
+    "3d5e5dc0": {
+      "source_sha256": "f9aa4b75c3e51e926f501adaa209e6e30d82b6c06fbd88fbe637309bf1ae98d2",
+      "translation": "VITÓRIAS NO TOTAL"
+    },
     "3d5fff19": {
       "source_sha256": "91e7ba51aec61c7eaa7b8c6bdd4ee6d50df15977e6a43987cc940efaa25a67b4",
       "translation": "VENÇA A SÉRIE EM CENTURY CITY"
@@ -2428,6 +2716,14 @@
     "3d7348ef": {
       "source_sha256": "4713588a8a7981c0caa0a2c81151e1a448ae5c2712fd38bb5809bce849283b7c",
       "translation": "VENÇA A SÉRIE DE CORRIDAS EM WEST HOLLYWOOD."
+    },
+    "3d770b38": {
+      "source_sha256": "beec39e4e17447e4f594cb8532095678044833729e490fd50296d8fce8610fd7",
+      "translation": "VEÍCULOS DO GRUPO 3"
+    },
+    "3da8628d": {
+      "source_sha256": "c58c59cdd8dbe9985cb663909683b9b838ca31824719a8102f79bc992f046a32",
+      "translation": "AJUSTES DE JOGABILIDADE"
     },
     "3dc04311": {
       "source_sha256": "2b40e7f49d9e9ba6170f2a548718302bb8afdc74430a08751cee321075e7da3c",
@@ -2456,6 +2752,10 @@
     "3e5adf3c": {
       "source_sha256": "dea111efc24479bdc90f4a2ccbde489dde716a9748d7fe14390458e4d59ea3c0",
       "translation": "EXTERIOR/INTERIOR"
+    },
+    "3e67e915": {
+      "source_sha256": "4c3a228227e0bde2455a8afa9b04dffd0053b2e27b082c096835ad0981157241",
+      "translation": "RESTAURAR PADRÃO?"
     },
     "3e7331f6": {
       "source_sha256": "3598197fe8b046b41c3abdc47e638dc5707f317d1997f586aec7247b25cf4cf2",
@@ -2577,6 +2877,10 @@
       "source_sha256": "b6c5a5665946a594eb3a9d408b6ae332faac5bf006a135cad5c2d73a34cc9cff",
       "translation": "OFICINA DE PINTURA"
     },
+    "41627fab": {
+      "source_sha256": "f27f17e3f0632792bbe214cd86906910e331cfe9fd9d8349d4130431d92ba1aa",
+      "translation": "FOGO"
+    },
     "417ba9eb": {
       "source_sha256": "4388a758d577125562b6f5dc3a328488225f800d26345f6513864041972f17f0",
       "translation": "CORRIDAS COM CHECKPOINTS"
@@ -2596,6 +2900,10 @@
     "41c1ae2a": {
       "source_sha256": "0895e6d922c180c9b2f2875d2292d99ba4e511e872cde904acb795033dc9522a",
       "translation": "CHECKPOINT ANTERIOR/PRÓXIMO"
+    },
+    "420a955b": {
+      "source_sha256": "9b5590940e398369725af6b542776cac6c822e6b6ba2fdd03f4d41643df32224",
+      "translation": "CHAMADA RECEBIDA"
     },
     "4214d7c0": {
       "source_sha256": "87c2b8ad8fd0cdf2b5b413cd4c85bc5148a452b0c667b2929132e9ff76eff8a4",
@@ -2628,6 +2936,10 @@
     "42dacc72": {
       "source_sha256": "81bdcf35abbc0a4cd1fae4060b4ef20b15ab1c77eb6fbc6fd7dab02dc53dc369",
       "translation": "CONFIRA A OFICINA COM FREQUÊNCIA PARA VER NOVAS PEÇAS E MELHORIAS."
+    },
+    "42f6cbad": {
+      "source_sha256": "50af596a4fb3956697aa49f11cad5fb6cd5ad3fd0025ac40d8e43487770774f6",
+      "translation": "15º LUGAR"
     },
     "431375e1": {
       "source_sha256": "776730b9c3287988087d50c5684db0ec82e6fdf51411732cdf181fa9847810fd",
@@ -2665,6 +2977,10 @@
       "source_sha256": "dde503375393d596841bb98bcd23a6a5b63d9236e11d55ee2eaf763cacedbc6d",
       "translation": "SAIR DA APOSTA"
     },
+    "43c9da62": {
+      "source_sha256": "ebc20da67b1394ac45c1dbd9f54cc794f18e08fe7fb93eea79110a91319f2dc6",
+      "translation": "CONTINUAR REPLAY"
+    },
     "43e2e4c9": {
       "source_sha256": "c279166f808d6c6263dc902110c7b8b5673ff6dac9f56d70e7ced2ebc1be5c0e",
       "translation": "PARA-CHOQUES DIANTEIROS"
@@ -2680,6 +2996,14 @@
     "4451848a": {
       "source_sha256": "a981ca0e1f49dc12f6cfcb1ec88ffa88f2be27de7dba80d06711e5ff8e15a56a",
       "translation": "Deseja iniciar uma partida online? Todo o progresso não salvo será perdido."
+    },
+    "445f859a": {
+      "source_sha256": "015cf9dd3ee481bc9ddd9cb05e9eb2c546251da07f9a32679aa30abb05359198",
+      "translation": "ESTE VEÍCULO É SEU"
+    },
+    "447ae9cb": {
+      "source_sha256": "d53edd32c07b645355a7c063730284d8ce3090337a30ae5c706a1c76864fddc8",
+      "translation": "Deseja ver o replay? Você perderá seu veículo se ver o replay."
     },
     "4486420e": {
       "source_sha256": "b18d8fd2dc18bb3a3ae71922f2e85371817064f6e45a86b9d94d1a0c24f549cf",
@@ -2709,6 +3033,14 @@
       "source_sha256": "10ef2d4c2b978c3aedab31b02edb465e585574dcbb649422701e18439986a74e",
       "translation": "TOTAL:  "
     },
+    "451ed820": {
+      "source_sha256": "edde95aac35dc3ca42dce062481d618665afa423b06fe5388d6a385731f7fc80",
+      "translation": "TROCAR VEÍCULO"
+    },
+    "4525cfff": {
+      "source_sha256": "6649cd3925f349cb01020a42a9b5c4c7ec69979121e3d5c63d7e8c5dad5acfb8",
+      "translation": "13º LUGAR"
+    },
     "4529bf18": {
       "source_sha256": "66e840b526276cf6976a804dde8e97b578410638e0cdef82e532e6417a2e5dc8",
       "translation": "Há COLECIONÁVEIS da Rockstar escondidos pela cidade. Eles servem para desbloquear trapaças."
@@ -2716,6 +3048,10 @@
     "452f7048": {
       "source_sha256": "cf83f3bbcaf5b5a3ff51343ecf0718c768e1027e2c24a14caa33945dd4fddc6a",
       "translation": "CLÁSSICA"
+    },
+    "454b301b": {
+      "source_sha256": "1554aae5e2d94350c9fb5f64a382423aa8128a52603a5f733d2528a8c5716b86",
+      "translation": "4º LUGAR"
     },
     "4556091f": {
       "source_sha256": "5c50309e9ba5e4a2e7894084e7e9130997da82fe92bae7c178a2b9674226215c",
@@ -2777,6 +3113,10 @@
       "source_sha256": "e718ea7131572dc99d18503d2187e50478e413a8f3b7715f9b78e69bb4a5e632",
       "translation": "Você voltou à tela inicial porque o perfil conectado mudou."
     },
+    "46ddefcb": {
+      "source_sha256": "1f43e5df53318ceebe47e9ceda0b2490597c0dc71f338f40aeaf269a43ae5b96",
+      "translation": "Obrigado por baixar South Central. Aguarde enquanto as novas áreas e conteúdos da cidade são carregados."
+    },
     "470bc093": {
       "source_sha256": "f3a2b489a1f1a3a1e2428b4284de0114c2fae4c74852f620de1cdd0a3b6635ce",
       "translation": "ESPAÇO 1"
@@ -2788,6 +3128,10 @@
     "4733e861": {
       "source_sha256": "8ca2881133daf46303ef4c2cf40d7bf7942a825ef3aafa555cfeaf0a14254e08",
       "translation": "CONTROLE PERSONALIZADO"
+    },
+    "474af119": {
+      "source_sha256": "2b82278d22b61a13dd4783ba473d2696639378544b0292161612deeea6a30f7d",
+      "translation": "DANO VISUAL SOFRIDO: <D>YOUR_DAMAGE</D>%"
     },
     "475976c0": {
       "source_sha256": "c97db8a34aa02bcf3b374eb8d43b6f56ab37b3ca366d7d0a8b849e85bfde7b07",
@@ -2812,6 +3156,10 @@
     "47b27044": {
       "source_sha256": "eff8b413cc00ee857ac4b3e19ee1b00095dd4a760c85fa5a0d69f9d59bffa37a",
       "translation": "TORNEIO: SOUTH CENTRAL"
+    },
+    "47c316c2": {
+      "source_sha256": "7379a6c68378bf83698e1c5a326eaca0294529a738ada82257490e964d2381f4",
+      "translation": "TERMINE ESTA CORRIDA EM MENOS DE <D>GOAL_TIME_ENTRY</D>"
     },
     "47ec4994": {
       "source_sha256": "e678314b76c9eac0d489751935a70f35721f59e12d11ee137f5fc7f223201b19",
@@ -2885,6 +3233,10 @@
       "source_sha256": "4d34767f8bce7bef5519ced91aee8d1ab077c3f59394723621088afd78bfe1e2",
       "translation": "CONTEÚDO ADICIONAL"
     },
+    "48fde455": {
+      "source_sha256": "0f8c6d0ff2eac092a19029404e34a5b6987588c58ef0da26c3e4ba32e77c7f6b",
+      "translation": "PAGAR MULTA"
+    },
     "490c7caa": {
       "source_sha256": "b83e63d2b5836b7bdef4a993afe0b07587d90f4d38bf0513fec8e2568b1a3dc5",
       "translation": "PARTICIPE NOVAMENTE DO TORNEIO DE HOLLYWOOD."
@@ -2892,6 +3244,10 @@
     "4911c67a": {
       "source_sha256": "ab79c6bf9f43a04d20fbcfcebd9f53cf1c3720d32f8759b4e0534622d150f26a",
       "translation": "RASGOS"
+    },
+    "491f6a44": {
+      "source_sha256": "b5552d711dc1deffde0f1014fed49ac3edcbca1ad6e55b3eb501331391d1989d",
+      "translation": "PUBLICAR ÁLBUM"
     },
     "495c0f40": {
       "source_sha256": "a4c01b54e435139ac187bfea38c662f0aa51921718afb1306ac90987621c0400",
@@ -2937,6 +3293,10 @@
       "source_sha256": "d54e0efdc3324348bd6a4dd1872319964e6453d0d9f6051d2f7226ef39b07338",
       "translation": "ANNIE quer uma melhor de três em carros de luxo. Consiga um e procure-a na Sunset Blvd., em Hollywood."
     },
+    "4a862167": {
+      "source_sha256": "543617e1bd284de71dd1b5c27ee9861f5a9cef7a5089acf9a0e604ddf74d692c",
+      "translation": "DANO SOFRIDO:"
+    },
     "4a9d3c12": {
       "source_sha256": "64902947768ad68554fbda352e737f3d2cb8a87acfa832647d9d14b67ea98a8b",
       "translation": "VAMOS CORRER DE MOTO NA MULHOLLAND DR."
@@ -2948,6 +3308,10 @@
     "4ac00ed1": {
       "source_sha256": "ad1ac285a297379e4c2ce129b2ce9bea1f6bd455968f436a83fd6b37c9b2491b",
       "translation": "O que deseja ajustar?"
+    },
+    "4ac8925a": {
+      "source_sha256": "eef964f24ff32f19f2366c6c9e8bc28a0a050b076fdabe8a7adbb85aa7876103",
+      "translation": "SEU TEMPO:"
     },
     "4ac9b35c": {
       "source_sha256": "cc1cc9c1e65e03e8b1f6cf0601289899f7c674d06577a3ea98710f1edc889893",
@@ -2961,6 +3325,10 @@
       "source_sha256": "fa9e57473764abde136aef8921b823addd247835777ee5368b5c0e648f184595",
       "translation": "CROMADO"
     },
+    "4af35425": {
+      "source_sha256": "ee0288292e3cdef1e109ea1458f2d40d4114d72a8aa57bc4ccf84c2e29d35ad1",
+      "translation": "REP.:"
+    },
     "4af86658": {
       "source_sha256": "83633f1a4e1376f8f664c0411e8c84ba4ffddc8b36df2226ab8d0612545365e2",
       "translation": "COR SECUNDÁRIA"
@@ -2968,6 +3336,10 @@
     "4b1629ea": {
       "source_sha256": "fcfa281e2a7752fe2ca3abad612094e089bc71c1dc1e6e13ecddb8034b287ec5",
       "translation": "APOSTA"
+    },
+    "4b2990f8": {
+      "source_sha256": "49444b0710af529cd49bfcb0893d392f35cec94ee609936ce413520fd0202e41",
+      "translation": "VITÓRIAS %"
     },
     "4b48a7a6": {
       "source_sha256": "0358881d46dc2394d6fa00ca2742241b7431c55010d5e1eabd0d244bea0b5998",
@@ -3000,6 +3372,10 @@
     "4bc9d46a": {
       "source_sha256": "a8486ebb1dd539bdf4999a0363d37812cd600e9b77c60108d623b3c9a15c13cd",
       "translation": "HABILIDADE ESPECIAL INSTALADA"
+    },
+    "4be88f80": {
+      "source_sha256": "f0762c4f3bfcd695e32e7fcd087dc2a60bc26cda108b4fc0a643445b397168c7",
+      "translation": "Tem certeza?"
     },
     "4bebae03": {
       "source_sha256": "fd6502ea318df139a74492b2f6aaf3ff968df4251bca720c9c0b7690450bd18a",
@@ -3041,9 +3417,17 @@
       "source_sha256": "1012720537f7bc44d98d08a7e2b110d6b8515ec2d416346148ed477cddf229d0",
       "translation": "OPÇÕES DE BUSCA"
     },
+    "4c4e9fd1": {
+      "source_sha256": "6ed870816e4bea88ecf568775a5d785c8420723f17966b49dca985671367af5c",
+      "translation": "DUAS CORES"
+    },
     "4c84b8b0": {
       "source_sha256": "4403c2e80bab03b38b8dd0d6bd312cc6871b0c2bc7b0644dfb5d59985b8d2297",
       "translation": "EMP NÍVEL 3"
+    },
+    "4cf2c242": {
+      "source_sha256": "a915428c5f0d13ebd5765c2f388a30d70633c642957a0f7f02ca620bb121ae01",
+      "translation": "MOLHADO"
     },
     "4d0dfcc7": {
       "source_sha256": "26eedc688c3fa83e58bb181431fdcce8bdab62de59fd53bcbdb63703a1ab6810",
@@ -3060,6 +3444,10 @@
     "4d864805": {
       "source_sha256": "d5cffac9762b6b4e77fd96acb4153be46c0bd1f6d79e9d05b6cf98362415584b",
       "translation": "TEMPO TOTAL DE SALTOS"
+    },
+    "4d87f1e9": {
+      "source_sha256": "dee18ab341b0621ebac74d713cef3bfb00f4ed6356f9368580af954126f25023",
+      "translation": "TIRAR FOTO"
     },
     "4db30d90": {
       "source_sha256": "86f56fe8221f029db2c9755cc998669a7d873c32bfa83bc9431bafe0bb814400",
@@ -3080,6 +3468,10 @@
     "4e0ab9ae": {
       "source_sha256": "7f36ac29aebbd67df691bf61f321e5bd3412927f7f4e17c834606136363b1cbc",
       "translation": "APAGAR AS LUZES"
+    },
+    "4e2ee211": {
+      "source_sha256": "172c5c02ce750860037d01886dd2c75a58fca6892cfd802ff26adc7e99bff6a4",
+      "translation": "14º LUGAR"
     },
     "4e317cda": {
       "source_sha256": "5c50309e9ba5e4a2e7894084e7e9130997da82fe92bae7c178a2b9674226215c",
@@ -3177,9 +3569,17 @@
       "source_sha256": "e0c976038b9cd3c0bce149ca526d17216cf421e57605cb50a20b6607ccd65de7",
       "translation": "VOLANTES"
     },
+    "4fe59bce": {
+      "source_sha256": "aabf72a95698e1c1d5e8a6a23c107b8686aa6ee31506ad4dbc48a574813e8c63",
+      "translation": "CUMPRA TODAS AS METAS NA MESMA CORRIDA"
+    },
     "4feb32c2": {
       "source_sha256": "36a60336a033094e421ced6a537216564b6bc188d2be331885a3b4f86f81bc77",
       "translation": "AGUARDE"
+    },
+    "50032cdc": {
+      "source_sha256": "ea4bee9597b89d394e5c1a3fa9d084bb4ab39fea4b9b4286006660abe57c631e",
+      "translation": "ESCALA"
     },
     "5031937b": {
       "source_sha256": "32bacd378143135f426d07d8de418b5c2b0656e9b6ef7790002b955bfeb59a05",
@@ -3225,6 +3625,10 @@
       "source_sha256": "9094cbdf6e17b32362d5a1f55fdabd158401a3a12f857c60566316dafb9a5301",
       "translation": "VAMOS NESSA. TRAGA UM MUSCLE CAR PARA A OCEAN AVE."
     },
+    "50f3476b": {
+      "source_sha256": "0749bbab80548aa56019cf5179057384769f3cb7060f45e6f27ed6c8c6f68779",
+      "translation": "6º LUGAR"
+    },
     "50f8f896": {
       "source_sha256": "2c37df146f5391ae40bc253cb57744e4a23c7a143aef0e18ad3ebf8ee97588d9",
       "translation": "NÃO ESQUEÇA. ME ENCONTRE NO CARNEYS."
@@ -3256,6 +3660,10 @@
     "521b4c27": {
       "source_sha256": "86979c2b1632903e27b267c03914ec50895f45628793cf94f7b0686b00947125",
       "translation": "ERRO DE CONEXÃO"
+    },
+    "5229bdd4": {
+      "source_sha256": "4a789399d672863a9f832d1bcf97c2f6678fc3f16fda068bd5827d878cef0cbb",
+      "translation": "REPARO COMPLETO"
     },
     "523f104a": {
       "source_sha256": "a76da52ebdaf4f8949e2eb63f9ad7ca06bbac6cac9cd7a3f9e459ffcc798d83d",
@@ -3333,6 +3741,10 @@
       "source_sha256": "dd1edb44f082a40f4bb1b641ffbc77190fd4720d24aa3ac746bbc38133adca5a",
       "translation": "COMPRAR"
     },
+    "53f48e62": {
+      "source_sha256": "ace21e02cf33aa4112fccd30dc7516c8447a52b572aab9a970ffe540fef31c9c",
+      "translation": "Revise seus controles"
+    },
     "53f7be62": {
       "source_sha256": "de110d82af38a00f1dee6abeeaca687796445faae1b937324364ba16f17d2f8a",
       "translation": "CHAMAS"
@@ -3361,6 +3773,10 @@
       "source_sha256": "c7f10f14da814ef5f68310b8d78c96b1f66e8260cfe4c66e48fa989eb645f4d6",
       "translation": "VENCER A CORRIDA"
     },
+    "5478de12": {
+      "source_sha256": "79162683cc418a417a1e0499837d0c8a29270d718e7d4f6706eb9a6725c3adf0",
+      "translation": "NOITE"
+    },
     "547a1e55": {
       "source_sha256": "d45b3383faf6e04f443c7ca602ba151b533d27c8f7394524aad4f3480523a71b",
       "translation": "BAIXO"
@@ -3385,9 +3801,21 @@
       "source_sha256": "7a66eabf637f6a4c162d331966b5966e2656f4051ae52acbcb1af0a3ab2eff10",
       "translation": "PRÓXIMO"
     },
+    "54fae95e": {
+      "source_sha256": "5c3ed2f6e8e5559d035449589798503818cca19495edfa2b626184a38ea99c7e",
+      "translation": "USAR ESTE ESTILO"
+    },
+    "54fb0108": {
+      "source_sha256": "fb1b1894cb5d231968645838f3acd784284eaf851c735797797310a63f35d980",
+      "translation": "CONTROLES PADRÃO"
+    },
     "54fec1e8": {
       "source_sha256": "a13d64c1b9f1a445c53b8e65e24b2342233e519d46a35af4982c247539d12474",
       "translation": "Deseja reparar seu veículo antes da próxima aposta? Você perderá a aposta atual. A próxima será de <D>rewageramount</D>."
+    },
+    "54ff6fbe": {
+      "source_sha256": "f13d99b4c7ec002960e058836bb128ace58c6aa204b7a1254068db64c55d5c7b",
+      "translation": "16º LUGAR"
     },
     "5512906f": {
       "source_sha256": "47e092b301cc72ad04bb278e8a47875f0bf6d2261c31c492f984ff80c4fc6edf",
@@ -3421,6 +3849,14 @@
       "source_sha256": "e5e86f0f7fce93ab8940c22e7a3310418cccd334cc632107f7ac7562d8cc75ee",
       "translation": "GIRAR"
     },
+    "55dea6ba": {
+      "source_sha256": "38e5a46cbc5ad32842ac60a4f1425ac9b31c06bac685f446a06ab72b87de31ed",
+      "translation": "Pontuação"
+    },
+    "560d28d7": {
+      "source_sha256": "8b146fbb5c9c78ffc1f22cd803495bd72b52d867175e055cdae0aff1429cb5fd",
+      "translation": "Você não tem a corrida que está em andamento."
+    },
     "5668d0a4": {
       "source_sha256": "a53d29043cd58c80f43a1b95865b1cdcd1473a6ba45a09bd45701e9aaa9441cb",
       "translation": "TODOS OS GÊNEROS"
@@ -3449,6 +3885,10 @@
       "source_sha256": "282fe5ba6066fa4f7152a4fcffefa9b5479a3f6851127fe447472137ed1d461d",
       "translation": "ORO conta sobre o torneio de South Central. Procure-o em Crenshaw."
     },
+    "575062f7": {
+      "source_sha256": "fc6fd35d8a9c8d6b1624d8d275727fc61ff203e03b313a9c337861ecddfe1b18",
+      "translation": "DEGRADÊ"
+    },
     "576e1a2b": {
       "source_sha256": "c9634e2afc9bcf0805d87e82ffd8dbc056ab1762a0b958d0bee53e1b2901a386",
       "translation": "OCORREU UM ERRO INESPERADO AO CARREGAR O JOGO."
@@ -3469,9 +3909,17 @@
       "source_sha256": "f1f6ba7804c5900a716f840e7b1acbcf4e9b4246f0a8029ff77cba57fa58ab23",
       "translation": "TOTAL DE CORRIDAS:"
     },
+    "580b837f": {
+      "source_sha256": "be4f4108d0c07a18728fc7f84265c433d38c50ce12bdf2c920e37f13d8036e82",
+      "translation": "MELHORES CARROS"
+    },
     "5812e562": {
       "source_sha256": "9a215b464f0a0c5c3f63d02a2b86a09e8cc3cdd432d3e9d501267bb8876c5048",
       "translation": "IR À GARAGEM"
+    },
+    "581ce372": {
+      "source_sha256": "b6678730f4f73c40d29e22ee5bd2f22493fe6ac039eecefe4ccd445a95cf0185",
+      "translation": "Fotos tiradas"
     },
     "581d23c6": {
       "source_sha256": "abdc8887f1076ce2ee1a30215ca5c5d87e27eef987375ecd1f81841e9d095d81",
@@ -3496,6 +3944,10 @@
     "58d93328": {
       "source_sha256": "ca1df588864011a8a3d428cc5a53397cf5232f225477cea5c62d018bfb4579e4",
       "translation": "PRESSIONE"
+    },
+    "58fee176": {
+      "source_sha256": "72b0663d1475163f0519c15030d9c8aa7dbb75ccf89d5883d3b9845bca30a00f",
+      "translation": "CHAMAS REAIS"
     },
     "59006582": {
       "source_sha256": "77cdf82a40c274c72d6bb1d797111894d30b95620774f460038db504fa175db5",
@@ -3629,6 +4081,10 @@
       "source_sha256": "2e0aa74e13f685ca26e410b217cd85e1fe4b7e72ccdb6acfb6b96c1c4e409173",
       "translation": "TUDO QUE RELUZ"
     },
+    "5cd012d5": {
+      "source_sha256": "d4b16373234c1da36e7ca3b6f9a1946edfef65a0f06e90eb487ecd2d96cfadbb",
+      "translation": "MÚSICA ANTERIOR/PAUSAR"
+    },
     "5cd4c544": {
       "source_sha256": "f900e8a4e4c6f19218e832de15e838c4cbbf492df87bca60313779e73fbc50cd",
       "translation": "NÃO ESQUEÇA DE VENCER APOSTAS EM SANTA MONICA."
@@ -3665,6 +4121,10 @@
       "source_sha256": "22655acc6c5508dc185b492655bc695af0445c3e374e1d75244c7fa348e5b9b2",
       "translation": "OK"
     },
+    "5dbaa059": {
+      "source_sha256": "cd05bdee8d8367ec3b59c2b26b7b3dfc79fa27a1215003419e3ac44331cf26ea",
+      "translation": "NOTA MÉDIA"
+    },
     "5dc2a2d9": {
       "source_sha256": "58ab2fc96bc73f0e8844b47f94190d1b3130c81a62c7b91e83ac4db3ec7fdff9",
       "translation": "VENÇA APOSTAS EM SOUTH CENTRAL."
@@ -3684,6 +4144,10 @@
     "5dfa0365": {
       "source_sha256": "23794d91c53ae875c8e247d72561e35d9d06ee07c70c9e0dbcc977a6d161504a",
       "translation": "NÃO"
+    },
+    "5e5e4488": {
+      "source_sha256": "f1fe5e3cba8b9f268b85bbefeaefdbc277ad4115b013cd926c878fd35406d3f9",
+      "translation": "TERMINE A CORRIDA COM MENOS DE 25% DE DANO"
     },
     "5e7917b1": {
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
@@ -3749,6 +4213,10 @@
       "source_sha256": "55f7f5cb8e90364f1b9ccea2d5fccb06a1162d063a1aabef99e7c83aee76d240",
       "translation": "ENCONTRE E DESAFIE OS CORREDORES DAS RODOVIAS."
     },
+    "600f7231": {
+      "source_sha256": "5435d63d17236b89f816f0f99e2d8cc453fe488827cfeaea243319bce0db49b6",
+      "translation": "CIDADE INTEIRA"
+    },
     "6012c7fd": {
       "source_sha256": "fd7de5d5e0b973aea8f1c0335d1be53949a2e98c9f7c983d35fe55f1fe264872",
       "translation": "CLASSE C"
@@ -3773,6 +4241,10 @@
       "source_sha256": "24c86e6beb005f7407f4c7c1e59f602c31a0dd88e3fa2310904f9a890317f23f",
       "translation": "VENÇA ANNIE COM UM VEÍCULO DE CLASSE C"
     },
+    "60dcb0e0": {
+      "source_sha256": "ece754d5931ebc766f83bd848395d0eb9c99c947fc3f9e42462e5932173e2df8",
+      "translation": "AJUSTES DO JOGO"
+    },
     "60de0ae6": {
       "source_sha256": "70d1a9dc3bc6876d7980f3bbb565be2d61d17c1f474a07db42efb7ff55909cf2",
       "translation": "DISPUTE UMA MELHOR DE 3 VALENDO O CAMARO DO NIKOLAI NA SUNSET BLVD."
@@ -3793,13 +4265,25 @@
       "source_sha256": "5a325a47ad0328d4316567464b2fa129bf59aae2e1a1c1cfa3407dd2b341c6f3",
       "translation": "ANNIE conta que sempre há corredores no 7-Eleven de Santa Monica. Procure-os quando quiser correr."
     },
+    "615d25e3": {
+      "source_sha256": "c8b6c094bbbda1f69723dcf2333ab9c9086576065bd1554f7466c52f47f2720d",
+      "translation": "MODELO"
+    },
     "615e045e": {
       "source_sha256": "f47b08ac499eaefeabd19b058d89bb9678a20c25563e108949268f65cf63b7d5",
       "translation": "ESTOU NA FIGUEROA ST., NO CENTRO. VAMOS CORRER."
     },
+    "61693674": {
+      "source_sha256": "9dd9cc16d93ea5c5febb55779cbcb7f944385fe2adcb9086aa92d225362cd2a1",
+      "translation": "PRÓXIMO ALVO - CONVENTION CENTER"
+    },
     "616f458f": {
       "source_sha256": "072c0d1c709589eac0da1fbfa81b6cfb7e790761c51b83bee304a0cbbb6122ab",
       "translation": "POSIÇÃO INVÁLIDA PARA CHECKPOINT"
+    },
+    "6176dff6": {
+      "source_sha256": "af7a6c7a7ecfac2d279659f76594a9c5464cf3eb5d405a3606764e6cf893ab02",
+      "translation": "TEMPO-ALVO: <D>TARGET_TIME</D>"
     },
     "61f553b8": {
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
@@ -3849,6 +4333,10 @@
       "source_sha256": "504f1feb704ab8f73e5ad1b0f2d039422fd08b1c17be1d4e4a2cb2ac2e50019f",
       "translation": "Deseja sair? O progresso atual será perdido."
     },
+    "62ae7c2a": {
+      "source_sha256": "92c428fb1329a3dd891d80bb60461c330b6e3c707692db6fbf0ab226a854b757",
+      "translation": "Altere seus controles"
+    },
     "62dfdfa5": {
       "source_sha256": "f66c93b1bbda3e55216919b2c8338f57ea894ad806b4588745fc2cdd0f1106db",
       "translation": "2 DE 5"
@@ -3897,6 +4385,14 @@
       "source_sha256": "504f1feb704ab8f73e5ad1b0f2d039422fd08b1c17be1d4e4a2cb2ac2e50019f",
       "translation": "Deseja sair? O progresso atual será perdido."
     },
+    "6437ec94": {
+      "source_sha256": "916aad8efe2008c1319dcec1710fae50018cf93084ffd77da327226f90b324d4",
+      "translation": "VER VEÍCULO"
+    },
+    "645c20a5": {
+      "source_sha256": "763be60b06a8c062b3669717fc35e366749fc6fd5c4e1cafca6b1648ce18ad69",
+      "translation": "HORA DO DIA"
+    },
     "64603a1c": {
       "source_sha256": "23794d91c53ae875c8e247d72561e35d9d06ee07c70c9e0dbcc977a6d161504a",
       "translation": "NÃO"
@@ -3908,6 +4404,10 @@
     "647f518e": {
       "source_sha256": "d8ec960b23f98d5c01f3b830d41c945c50efb623d74b500246f608a832eff2ee",
       "translation": "CHEGUE ANTES DE MIM"
+    },
+    "648d2537": {
+      "source_sha256": "293dbf38502f78112ff212a17b42a294cb1006bf7573582a122096b535df89f1",
+      "translation": "VEÍCULOS DO GRUPO 4"
     },
     "64b10793": {
       "source_sha256": "25df06def4b63ddcdb2146716220d30cf4451114247e3c56f95d89414ac25297",
@@ -3952,6 +4452,10 @@
     "659c1b08": {
       "source_sha256": "63df013a5eb7c3979dd29950f71f1add4dcd45204b3403d714d39ea245351b21",
       "translation": "SAIAS LATERAIS"
+    },
+    "65a6b73d": {
+      "source_sha256": "e0ca14aac396fc76aa30624acdd8772d9cb8ed8db73bf4d28018ca2ca5ce66f3",
+      "translation": "2º"
     },
     "65d94d7d": {
       "source_sha256": "359a6d08e8a1b706bcdd9e79a51e043269cd1d3306d78fd9423c02fbf54160f0",
@@ -4013,6 +4517,10 @@
       "source_sha256": "206433ac63611abd40b8abb0ddb531bf650821b230286e1bf33157abb27ebcd1",
       "translation": "Nenhuma camada foi copiada para a área de transferência."
     },
+    "67868880": {
+      "source_sha256": "e6b2c9a478336f7f3af8e515fb724f1b7eb57c1bdfeeb8a0b8c2c85173eaa938",
+      "translation": "PAUSAR MÚSICA"
+    },
     "67c05648": {
       "source_sha256": "a4cae81b6d0480d3ab6b52a6dfb5eae63346252bd00c4df5e27fcf96851bb84e",
       "translation": "SOMBRIOS"
@@ -4049,6 +4557,10 @@
       "source_sha256": "c6034aeab681786135bdfc5ad66bcd48a5257b6b50071f557efe7bba3b760779",
       "translation": "PACOTE 2"
     },
+    "687ba0aa": {
+      "source_sha256": "40136f6d53183e58fe6ffdaeb61cb77476b2d76ec9d3087461b48d3f00f9ee8d",
+      "translation": "Escolha um espaço para salvar sua foto."
+    },
     "68836518": {
       "source_sha256": "bd18ccdd763618ad503d64317e9496f63af135b27fb5c8f35c27a1f712e2fa6a",
       "translation": "ANNIE desafia você com seu Pontiac Solstice. Leve um veículo de classe C à Ocean Ave., em Santa Monica. Instale ou remova melhorias para adequar seu carro à classe exigida."
@@ -4068,6 +4580,10 @@
     "690e1e5e": {
       "source_sha256": "9c973ad2b6f0e451042570a17b5dde629ea3016de98cf0d32d1c172725aff021",
       "translation": "ENTREGA NÃO CONCLUÍDA"
+    },
+    "692770cc": {
+      "source_sha256": "add2e97e78b12954dbc96aafa6f8094d607985774030e7b23521d48798e6d05f",
+      "translation": "OCULTAR HUD"
     },
     "696dd896": {
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
@@ -4089,6 +4605,10 @@
       "source_sha256": "2a23df22f3fdbe70d917278808bff51e16549fb58fe605c0977acd2e52d3e39e",
       "translation": "TODAS AS CLASSES"
     },
+    "698aebcd": {
+      "source_sha256": "92c428fb1329a3dd891d80bb60461c330b6e3c707692db6fbf0ab226a854b757",
+      "translation": "Altere seus controles"
+    },
     "69a4f5e2": {
       "source_sha256": "595f493411bbbb7266ce952ad400fa497b1addf2e009f2ac203171b6448bb184",
       "translation": "Dinheiro insuficiente para esta compra. Custo: $1.000."
@@ -4104,6 +4624,10 @@
     "69c149e8": {
       "source_sha256": "357b3fcde4eca32179cfa9db0012edd1434eb4365f843d2809376b13f37997b4",
       "translation": "PRÓXIMA CORRIDA"
+    },
+    "69c41f40": {
+      "source_sha256": "d761f8bae82d783a0153d5f87b7eb345c7076581a91691f4dd4ffaa2b52adf02",
+      "translation": "HABILIDADE ESPECIAL"
     },
     "69ccf015": {
       "source_sha256": "a8622b59c0c516c8830ae100f124c080e462165a0d7179b0519b7483bb4e7413",
@@ -4133,6 +4657,10 @@
       "source_sha256": "5f03f7d7c02b05106f558f171ca75dfed11ffd1938423b616eaff3ff78305e44",
       "translation": "ANNIE conta que há corredores na doca de carga atrás do shopping em Century City."
     },
+    "6a43a3b9": {
+      "source_sha256": "43dc8b1e5bea8c2d2583a963a39a9f199eff8d9182ebd0c530b630417bcd6290",
+      "translation": "PÁGINA ANTERIOR/PRÓXIMA"
+    },
     "6ab8199d": {
       "source_sha256": "824af1f9aa264a4a9c0c5604c630e5bf68406d2da0cab01fbefcd2ece0a7c7d7",
       "translation": "VENÇA OSWALDO DE MOTO"
@@ -4140,6 +4668,10 @@
     "6ac5bb3e": {
       "source_sha256": "0d1af033be0a1c1287e4881756cff709ce0d0d85928fb8e64048dde6167cc7ff",
       "translation": "MELHOR DE TRÊS EM HOLLYWOOD."
+    },
+    "6ae045c7": {
+      "source_sha256": "23759997b3c59884dc4c0ff5320d6301b0e7f63bf0f6483a7b54d7d43bc5ccd1",
+      "translation": "DESCONHECIDO"
     },
     "6ae615d6": {
       "source_sha256": "825a240252d4f23cc1d46f144bc6c558dc6f86f7a8f87e1f8d90fab4bac2e640",
@@ -4152,6 +4684,10 @@
     "6b3269c6": {
       "source_sha256": "6a1e963371a64b32aff302ef7f3a7d6df8df903fce10f3db6ee918f18ac11f2a",
       "translation": "BANDEIRA"
+    },
+    "6b551320": {
+      "source_sha256": "51b69a530b3f3230f7440c61572ff76219a950228e118542963b9fda224f89dc",
+      "translation": "A polícia está em seu encalço. Você precisa pagar a multa de $<D>PayOffAmount</D> antes de iniciar outro modo de jogo. O valor será descontado da sua conta ao entrar no modo de jogo."
     },
     "6b55a86b": {
       "source_sha256": "c75befc64765c13ec62f9db96a3bbe70e39f62d23915b6896d4363a90b2a543f",
@@ -4205,9 +4741,21 @@
       "source_sha256": "9606cf20e07428d1d0dec40db60882b4eaa34c45ef4cd6de9e71ab05c72ad5e5",
       "translation": "CONTRARRELÓGIO: BEACH"
     },
+    "6bbaa5d1": {
+      "source_sha256": "cf3ae48cfcbef0fec5da9b6b2fdb7c63372f427ee23f87819edce03f8d06dd7b",
+      "translation": "MODO FOTO"
+    },
     "6bf5bb7a": {
       "source_sha256": "27f1752786305b84ce5232f6708b1782f9608e05166eebeaf66e1a23ac4e08e9",
       "translation": "ENCONTRE ANDREW"
+    },
+    "6bf70c36": {
+      "source_sha256": "1f429f907feda571844d5886c9de0052ca96f7aa6c39f9d442a830d540e8bd69",
+      "translation": "CHAMADA RECEBIDA"
+    },
+    "6bfb9daa": {
+      "source_sha256": "1d7aaab806baf4ae9fe145ef24a5a64cba629b2afbbd056d0d78d19bb0c9f163",
+      "translation": "10º LUGAR"
     },
     "6c0c9d6f": {
       "source_sha256": "231b83e238f08ee6ef4b477e894531f29245e03c9a436cee18a8e9dfeb2d1464",
@@ -4237,6 +4785,10 @@
       "source_sha256": "c627c09c14e58e44bc51622dac392958ec88244e414b508020634f53cfcd1e69",
       "translation": "NENHUMA"
     },
+    "6c6ff39c": {
+      "source_sha256": "6ad446059a8bb8d8722e1420110f2784368a2ad5a56384d516c602530e5af256",
+      "translation": "PULAR"
+    },
     "6c769ef2": {
       "source_sha256": "77987075f98f77d283152c6f6cd2835fa54df8fd8a2e85a6aadf8d921d2a7fe6",
       "translation": "PACOTE 3"
@@ -4252,6 +4804,10 @@
     "6cfb33e0": {
       "source_sha256": "e267fb721934bec4e7ef966d1881709c820a67b5729db8f96d5578beb308fced",
       "translation": "LOJA DE VEÍCULOS"
+    },
+    "6d004244": {
+      "source_sha256": "62730bbf9f9bebe9847d994e1de61244798ec13096487ffa582b12e8efdea493",
+      "translation": "PÁGINA ANTERIOR/PRÓXIMA"
     },
     "6d032578": {
       "source_sha256": "557c8032c7464f6c73cc1c401538bdd87cd7a126dc8a8ca1d982b49d1091f193",
@@ -4337,6 +4893,10 @@
       "source_sha256": "204983577e23b2c25c81ab319dace3c91196757b5ea9fcb26ffc0a4fba47607b",
       "translation": "FABRICANTE"
     },
+    "6f119864": {
+      "source_sha256": "359c75da918ab240be91689285610ae210cbc8c296ea03ac533e59f256ae09d3",
+      "translation": "CONTROLES PERSONALIZADOS"
+    },
     "6f53670f": {
       "source_sha256": "d504fee4f164b9dcb6201abb5e8b6a481f81b12603bfe12f98615ffa48b9da7e",
       "translation": "VENÇA A SÉRIE DE CORRIDAS NO CENTRO."
@@ -4360,6 +4920,10 @@
     "6fbf4628": {
       "source_sha256": "ef1b6781c4ca542ef4ac7aa8f7a844b47e035c6546e303b90e098cc27221fe48",
       "translation": "LISTAS DE MÚSICA"
+    },
+    "7007a332": {
+      "source_sha256": "93e242a415adec0cd36946778beb4d835c29089b83f62dd7120fd2b56940b69d",
+      "translation": "NÃO CLASSIFICADO"
     },
     "700bc48b": {
       "source_sha256": "f478a5307a49d02e3258c5c02094c6adbb4e5221115030256f82333af6c37cfb",
@@ -4409,6 +4973,10 @@
       "source_sha256": "e678314b76c9eac0d489751935a70f35721f59e12d11ee137f5fc7f223201b19",
       "translation": "PONTO DE ENCONTRO"
     },
+    "715061ac": {
+      "source_sha256": "ce3140761a47a1ade5087f1230bafa00bad017f1e72145d6b04d1a3857eb4a8a",
+      "translation": "VOCÊ PEGOU UMA BOMBA!"
+    },
     "7165639c": {
       "source_sha256": "16227df7f50704e126ee4615e774b67b6346f374f7f4a0f065083243c15d4e9e",
       "translation": "MULTADO"
@@ -4457,6 +5025,10 @@
       "source_sha256": "1f339c72eff6f0fc98744ec35261dfeb2d5002cd6ca3c565c8b792f01872acbe",
       "translation": "INCOMPLETO"
     },
+    "723ef9bb": {
+      "source_sha256": "283e91eb85d58ffc2ad922884b644c41b54140660f6d1fda3c403d543eedd839",
+      "translation": "CONCLUÍDO"
+    },
     "724cd974": {
       "source_sha256": "5bfb3dac7d4e09d4cab69b245a49ecd34aa6ae8881972247140cf31d1a863709",
       "translation": "AJUSTES DA CÂMERA"
@@ -4464,6 +5036,10 @@
     "726bdfc7": {
       "source_sha256": "9e63ad8df0504219e327b3619a7f0302974453aef7f00cd3a2e6c285ac35f9f2",
       "translation": "QUANDO PUDER, ME PROCURE NA SOUTH CENTRAL AUTO SHOP."
+    },
+    "728cf0ba": {
+      "source_sha256": "bf2524646d3a17be2675656cf27e03640e50f18c65466c5bd918d9c1f532fe6d",
+      "translation": "ESCOLHER VEÍCULO"
     },
     "728e4b44": {
       "source_sha256": "639807a2e01886a2236b9fe1fe9bdbdea267b9c84c4acb3ab0858a6a13531b9a",
@@ -4541,6 +5117,10 @@
       "source_sha256": "c5c6504e23e6c69e0664116dcd6e0470bf82dcf2fbea2ecc84e5e4cbf7a885fc",
       "translation": "VITÓRIAS"
     },
+    "7474e47f": {
+      "source_sha256": "bfd0b3fd2f44c56ca0686afe2fb47ad39c99566690abea48226ddef612921868",
+      "translation": "BOMBA DETONADA"
+    },
     "74903219": {
       "source_sha256": "e54d5e0de429cd5dc0d0a8baf7aa5d0e446f818171201fbe4b4ae7502944b3c4",
       "translation": "TRAGA SEU MILHÃO PARA O CHATEAU MARMONT E A GENTE CONVERSA."
@@ -4556,6 +5136,10 @@
     "74ef053e": {
       "source_sha256": "fb3bc64d1fd613616d8637016d857a191faf1292a07e4389eaef0db02657bafb",
       "translation": "3 DE 4"
+    },
+    "75118f18": {
+      "source_sha256": "d93d3719bfa9c96f90a5f473521acec23310b87b03f888d79109931c4176bbb5",
+      "translation": "TEMPO RESTANTE:"
     },
     "751cee24": {
       "source_sha256": "b5c7aed7cd2a308523e7d2847b7815909e864b2fd9c4ea88b00d35adb2ecdfd7",
@@ -4573,6 +5157,14 @@
       "source_sha256": "3be7ddc64c27c978de55e2752a993d42685f6e0811baaa3ac30f35bfd7274ae9",
       "translation": "NÃO É POSSÍVEL EXCLUIR A LARGADA"
     },
+    "7583dbc6": {
+      "source_sha256": "f91709414bd5aa26a4a6249e9215d7a9b213dcb3992799e3f3fce3380019b27a",
+      "translation": "SEM REGISTROS"
+    },
+    "75858501": {
+      "source_sha256": "23759997b3c59884dc4c0ff5320d6301b0e7f63bf0f6483a7b54d7d43bc5ccd1",
+      "translation": "DESCONHECIDO"
+    },
     "75a7640f": {
       "source_sha256": "88b1cfc6f1e4bc8b6eece38ec697ae65cbeb3096dcac13853c7fba278a0176ea",
       "translation": "SAIR DA SÉRIE"
@@ -4580,6 +5172,10 @@
     "75a83907": {
       "source_sha256": "f2d6609b0640d8570afc8b0344a7924b2945df1cf43190ce533a103397cebbbf",
       "translation": "Não é possível usar o álbum de fotos com o salvamento desativado. Ative o salvamento automático nas opções. É necessário estar conectado a um perfil."
+    },
+    "75c0569e": {
+      "source_sha256": "6a32ac0c5eaee44b59f4a5196bfc1c18b7acb84ebe45928d19c1e4f2002d3107",
+      "translation": "SELECIONAR FOTO"
     },
     "760dd7e1": {
       "source_sha256": "1c98c1e73f47cf3fa421a0a6a4924956f60e9df73dd27df04bd031c4d9686118",
@@ -4617,6 +5213,10 @@
       "source_sha256": "3a4b7921f3ac0c59ae449186d05cfb4d8bde18a1b822f837c44c3245c3b5d5ce",
       "translation": "O dispositivo de armazenamento foi removido. Selecione outro dispositivo."
     },
+    "76d5604d": {
+      "source_sha256": "ba8cb4f74e55b29503ccb12646a0b3339b1ae8fc7bdbe9f16fda7e548089232a",
+      "translation": "PRÓXIMA/ANTERIOR FOTO"
+    },
     "76e2c1f2": {
       "source_sha256": "2a981760b218eeb1982c64fa90349b830a169dbf44802b0a8a2f1a0343cce30e",
       "translation": "PEÇAS EXTERNAS"
@@ -4628,6 +5228,10 @@
     "7711a97c": {
       "source_sha256": "628db0c7598820b101769164f5228a5096e4f531ee71ee7e5e31d734dd38fe64",
       "translation": "CONTINUAR"
+    },
+    "7715367f": {
+      "source_sha256": "3fabbf3bd5f937c091bd73afa5615252fa8e5110ddf23d52d7b70529fe7d17a1",
+      "translation": "TIPO DE DEGRADÊ"
     },
     "7729a8e0": {
       "source_sha256": "aa11ca35012ce3113777531a9e90c01facc34a4ac0beec63d2a06fdb487e7869",
@@ -4673,9 +5277,17 @@
       "source_sha256": "1c98c1e73f47cf3fa421a0a6a4924956f60e9df73dd27df04bd031c4d9686118",
       "translation": "CLASSE DO VEÍCULO"
     },
+    "77ff5058": {
+      "source_sha256": "e0aeeb0f091210e106405ab7391ddb26781cf4610f2e526364a7a912f6f78fab",
+      "translation": "50 ANTERIORES"
+    },
     "782d8dca": {
       "source_sha256": "360ff2359fb0a7d4ab05fe6a37e8092446e743e0e3e76c4b92f8c19a4a1fe7a2",
       "translation": "Traga seu melhor esportivo americano e me encontre na Sunset Strip. Vamos correr."
+    },
+    "78372c42": {
+      "source_sha256": "dc26bc50abf8ce9cf2d137c98479bb8dbfd0a7f3c7f96a30d60fe49d984d7d42",
+      "translation": "COPIAR"
     },
     "78609e6e": {
       "source_sha256": "11faf5dcf1bcb42f4585bae2078d6ec88be873d171dd58a50c295ab6d6bb2c39",
@@ -4700,6 +5312,10 @@
     "78de6297": {
       "source_sha256": "9e8ce049b7ac3a8a9309b54ec75b06a8cc30e43606dd9337597bda1a465b7f12",
       "translation": "DINHEIRO GANHO"
+    },
+    "78eaf055": {
+      "source_sha256": "be524b41440a2a6407106fbc74ace3f0a8c9feb8f098ef2cce61cbc9469167d1",
+      "translation": "PRÓXIMOS 50"
     },
     "79132636": {
       "source_sha256": "b1df1d2fa00815572d6be31e63cfeb2e766c89349eeaa7105056a3bdddbee368",
@@ -4769,6 +5385,10 @@
       "source_sha256": "f02b8e7a8d940464d433dd1c8fa077154edb3fb5f100fe226b1b440890fe97b3",
       "translation": "Seu tempo no contrarrelógio de Hollywood foi superado novamente. Procure OSWALDO para marcar outro recorde."
     },
+    "7b51f659": {
+      "source_sha256": "4a789399d672863a9f832d1bcf97c2f6678fc3f16fda068bd5827d878cef0cbb",
+      "translation": "REPARO COMPLETO"
+    },
     "7b934f34": {
       "source_sha256": "0e19f02ca15d6060d63dc1946cc784d739c69a4cc5e6ef266a50e3b58c673f35",
       "translation": "ESTÁTICA"
@@ -4797,6 +5417,10 @@
       "source_sha256": "346543e8c4c75554b42c6639fb60206d94e0e68cfad4cdcdd1636592354bfe5e",
       "translation": "VEÍCULOS DO TRÁFEGO ATINGIDOS"
     },
+    "7bfdf610": {
+      "source_sha256": "ed370c34bec56e53ef885e787a30dd8717a321b5faa8d92d1d444e4b43405ce9",
+      "translation": "Você precisa comprar o conteúdo adicional ou baixar o pacote de compatibilidade para ver este veículo."
+    },
     "7c162faa": {
       "source_sha256": "fe151a0feb97af54648946fb289d480c24c706b2a318da89c4b52c8afca9d9a3",
       "translation": "SAIR DO TORNEIO"
@@ -4804,6 +5428,14 @@
     "7c2fe29e": {
       "source_sha256": "f3c3707ed7d7cf8ada16194d2f5153d02342763b1c88e74effdd155cbf7f7698",
       "translation": "BOOKE desafia você a encontrar e vencer dez corridas nas rodovias."
+    },
+    "7c31cef0": {
+      "source_sha256": "23759997b3c59884dc4c0ff5320d6301b0e7f63bf0f6483a7b54d7d43bc5ccd1",
+      "translation": "DESCONHECIDO"
+    },
+    "7c67077e": {
+      "source_sha256": "916aad8efe2008c1319dcec1710fae50018cf93084ffd77da327226f90b324d4",
+      "translation": "VER VEÍCULO"
     },
     "7c84eba7": {
       "source_sha256": "8646d78b55bd8e17986ff1eb32b767fb8fb433d07cd68f7643448019b729728c",
@@ -4829,6 +5461,10 @@
       "source_sha256": "cd0509a7290a3444167943c424d625571075642c7f3b99a49e6a680a6f033f11",
       "translation": "3 DE 3"
     },
+    "7d38087d": {
+      "source_sha256": "37d02855971e335e48742b800f7a4777249d36bd607297c211e0b0d4e14fc90c",
+      "translation": "VEÍCULOS DO GRUPO 1"
+    },
     "7d487334": {
       "source_sha256": "2df51addf9312d5554c250f6d2e2b06007013cd24b64cba53fa1c5d1674f6064",
       "translation": "PERSONAGEM ONLINE"
@@ -4844,6 +5480,10 @@
     "7d786882": {
       "source_sha256": "03dff02fbecd4e27718cc2da9198bd16496ef63a4c844eb027f9a495bed22929",
       "translation": "COLECIONÁVEIS DA PRAIA"
+    },
+    "7d7fcf98": {
+      "source_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "translation": "Desconhecido"
     },
     "7d8deccb": {
       "source_sha256": "69ce4b89a42721ee28fccc995b206f8c836c45b89e37859b34c0c32c7f7ea59f",
@@ -4921,6 +5561,10 @@
       "source_sha256": "bfe966ae5fefc797f77215c2b58528d4017d929936c08914408a5c602398168c",
       "translation": "VENÇA DUAS CORRIDAS PRIMEIRO"
     },
+    "7f35e4f5": {
+      "source_sha256": "a60ffbb10dc4cf25ca492a4f7f05751e488c53719cbeccacaabe41c2db88c4a3",
+      "translation": "PONTUAÇÃO"
+    },
     "7f373fcd": {
       "source_sha256": "9db447d82379348b9023f63e81bbd8b32b7ee0c44ae0a5ba4a55484a8781e670",
       "translation": "RODOVIA"
@@ -4940,6 +5584,10 @@
     "7f69f4bd": {
       "source_sha256": "b23256b2d306727dc638e681fe47656a40375ba76f6f39ae2e32e1c42d65900b",
       "translation": "KAROL avisa que há um contrarrelógio em Santa Monica. Procure ANDRE na San Vicente Blvd."
+    },
+    "7f6dbf6a": {
+      "source_sha256": "32de9f635fae8829fb4b5dae67a4f585aa54a5cec2c9b02e770759041078b86b",
+      "translation": "SALVAR NO ESPAÇO"
     },
     "7f7195d0": {
       "source_sha256": "89c49ae2838497dbda31272ecc8f5115af2f19956cc2d0b05688f67393303961",
@@ -4984,6 +5632,10 @@
     "80635b13": {
       "source_sha256": "de617af866dddd63c3dfaa066e603128c810826cec4f1c419d83305dde6e0209",
       "translation": "TODAS AS PEÇAS"
+    },
+    "80741d7b": {
+      "source_sha256": "4c11a52dd38c0acda86a533d72edbb33fea1cec3e8ca0a038d9a758eaec5994a",
+      "translation": "ESCOLHA SEU IDIOMA"
     },
     "8075cf82": {
       "source_sha256": "ed9412da1e63f6dc6a55a6348edcab0a629acd5e2bdc702d8628a6a602ce86a0",
@@ -5037,6 +5689,10 @@
       "source_sha256": "6b4c8c41a796410e3bc7bc74756a4f5b07d72569b9a3ccfdcfc48d9f2584d073",
       "translation": "EDIÇÃO: ARRASTAR ATIVADO"
     },
+    "81c4e459": {
+      "source_sha256": "1b1586859681ead9e7474edecb87c29047d8a320f99fdfc497747b4882252eae",
+      "translation": "ENTARDECER"
+    },
     "81c5668b": {
       "source_sha256": "2281a523f91045d9c00ba3ae0cbfd691c7245f2a36eb5ff7b6b0d45c54fac8d1",
       "translation": "CORRIDA NA RODOVIA"
@@ -5048,6 +5704,10 @@
     "81e0323d": {
       "source_sha256": "212822a8ce612b7479774d37c7efce6dac93d38d385d5c6dd28049b5f3456fd4",
       "translation": "Nas CORRIDAS COM APOSTAS, você aposta dinheiro contra um único adversário. O valor define a dificuldade. Ao apostar, o dinheiro sai da sua conta e é entregue no fim da corrida. Vencer dobra o valor apostado. Reiniciar faz você perder a aposta."
+    },
+    "81f7d165": {
+      "source_sha256": "d138a51aab808a11ea15dfb9ed60580a9c2939e941a039a1e574ab61e2067dda",
+      "translation": "Deseja excluir a corrida desta lista?"
     },
     "81f7e75f": {
       "source_sha256": "66b7ea9c76909191095b40e5cdf0ca90825741a4cfbadf1b6165976d7743c99f",
@@ -5077,6 +5737,10 @@
       "source_sha256": "baf3d6fb622a0811fbb23671afadca52aace664ba1d8e3fcceb83dcfab852f40",
       "translation": "CONTRARRELÓGIO HOLLYWOOD: '99 ECLIPSE"
     },
+    "826f0be5": {
+      "source_sha256": "30d375ff4a450a3d4a402bfda28cc6e28c747c5e9ad8e36f86300446dc59dd75",
+      "translation": "TANQUE DA MOTO"
+    },
     "827c0dbf": {
       "source_sha256": "d4fa8251f075411481deaace685b974091202d2489c634131eda149f83d15849",
       "translation": "O salvamento automático está desativado. Você pode ativá-lo no menu de opções."
@@ -5092,6 +5756,10 @@
     "82ac8e33": {
       "source_sha256": "23794d91c53ae875c8e247d72561e35d9d06ee07c70c9e0dbcc977a6d161504a",
       "translation": "NÃO"
+    },
+    "82b4c749": {
+      "source_sha256": "fd98e4aeae3b1efca63060744eab1f4c83a09e247485e2cec4f3c76b56bd71de",
+      "translation": "Deseja ver o replay da corrida até este ponto? Você perderá o progresso da corrida atual desta série."
     },
     "83329393": {
       "source_sha256": "015cd4f2ed4a6ceb388e6363f328e7c616dee747373eed2627a8034525e371c7",
@@ -5112,6 +5780,10 @@
     "83bdd12a": {
       "source_sha256": "d0aaa7ca4ecd61997ed02f524cddeef186ac83768c820f3abf79c555320cd0dc",
       "translation": "CLASSIFICAÇÃO DO TORNEIO"
+    },
+    "83cb4887": {
+      "source_sha256": "b5687b632590ab4d67f221b53a42156e41f2d432ce32da2190712d6e4789ecf5",
+      "translation": "Desafio de corrida iniciado"
     },
     "83da04b5": {
       "source_sha256": "7107f755426b7fe91e5bcec741d24409dc461fb5ebee6c6fe321ae504138571a",
@@ -5213,6 +5885,10 @@
       "source_sha256": "15063b5c9d2df1f50471a31a453b1e267873ee43bbed90c14bbff0c6fcf04e45",
       "translation": "KAROL conta que há corredores num estacionamento em Beverly Hills. Vá encontrá-los quando quiser correr."
     },
+    "8646b488": {
+      "source_sha256": "feb9a732258d5aa443672cc3a4dcf23c3673969e951db39e9a37cafb212c52b1",
+      "translation": "MAPA AÉREO"
+    },
     "866e2659": {
       "source_sha256": "f90476f2a10eb583c6ec8b07318ab48a3b0239b8e3015552ae7bd6bcf5ec2862",
       "translation": "MODOS DE BATALHA"
@@ -5224,6 +5900,14 @@
     "86ca53c1": {
       "source_sha256": "db2cb3fe28e2c54fce50bd9c03fd2b131091229c0ceda79289527aaba47226ad",
       "translation": "NORMAL"
+    },
+    "86d84666": {
+      "source_sha256": "d4dffe0593dda40920aa8c6e92a33c99007b0ca9730dbbcc369e00bad9965037",
+      "translation": "VER MEUS VEÍCULOS"
+    },
+    "871078a1": {
+      "source_sha256": "fc6fd35d8a9c8d6b1624d8d275727fc61ff203e03b313a9c337861ecddfe1b18",
+      "translation": "DEGRADÊ"
     },
     "872522a0": {
       "source_sha256": "78532b626e71177e016f57a4a03c952c96b40952031c20893965256101593b87",
@@ -5253,9 +5937,21 @@
       "source_sha256": "6b315f2f826760a246284f8364f2ca8d1a111a08a5bc7b2bd08be91627708d24",
       "translation": "RODOVIA"
     },
+    "87c0d873": {
+      "source_sha256": "9058ce473adb215843deff61bd985e04869723cf054b7c73b8a117f5b37491d3",
+      "translation": "FIM DE JOGO - TEMPO ESGOTADO!"
+    },
+    "87c53889": {
+      "source_sha256": "78b48f0ffaf18eca7657f98be718abf972befa2f74609cbd667171cd535af961",
+      "translation": "RECUSAR?"
+    },
     "87d4210b": {
       "source_sha256": "7da111af91f89003436f7a5f49fdefb689b7e735a1625b416f2d59fd86387e2b",
       "translation": "CORRIDA DE SEMÁFORO"
+    },
+    "87edc89a": {
+      "source_sha256": "fb5b8ae0fd37258b8ce25ead2fa261f362b00d861735431a12209aa6d5095cae",
+      "translation": "DOURADO"
     },
     "87f7e4f4": {
       "source_sha256": "6a5aecfae1870afef4efd6b9db73f12824cb2a0867a52adbee654567e3bb02ff",
@@ -5341,6 +6037,10 @@
       "source_sha256": "bb1b282991aa126c71ab094845427655576c1cffb14c055018294b80eb022311",
       "translation": "EDITOR DE ADESIVOS"
     },
+    "89c0d934": {
+      "source_sha256": "41ab6e8a6e5c96a93e7a56e364f2e7c02ca37f8c171ce23213263b05a6cfebda",
+      "translation": "12º LUGAR"
+    },
     "89d47c64": {
       "source_sha256": "32d3e789cdcb9169e8c47b3dc2759cb8771e03aaaebe73ebd5ec3d630b6a182c",
       "translation": "CAMPEÃO DOS CARROS DE LUXO"
@@ -5360,6 +6060,10 @@
     "8a2446c7": {
       "source_sha256": "ce3959a892ffbdb654b89975b212a92786df9c4db0a15ac7873a857ecd66aa9a",
       "translation": "CORRIDA DO EDITOR"
+    },
+    "8a7cb447": {
+      "source_sha256": "598dca0367e06b2df9a1d9620b92d1e3dfa809b24bb74a7dc4d633402bd757f0",
+      "translation": "ENVIAR AVALIAÇÃO"
     },
     "8abe76fa": {
       "source_sha256": "bb3c5ae84728a15e8994931fac36f0dc641536204e28fd90c6d015b7acca7d13",
@@ -5388,6 +6092,10 @@
     "8b1ef415": {
       "source_sha256": "e464c6605abc1d85a32d469c3d05f322e0b1408579a3576933bb5913b6b0e180",
       "translation": "TENTAR NOVAMENTE"
+    },
+    "8b24e519": {
+      "source_sha256": "cdce6fe274143e83f5be5e18cc5db9090ce5bf8c688f2f226d440a8e8848a5e6",
+      "translation": "ENVIAR NOTA"
     },
     "8b3b9cf5": {
       "source_sha256": "d40e8b0e7a3c85773d29ab3e1da697ab80b6369700de415010687e00a0e986e9",
@@ -5509,6 +6217,10 @@
       "source_sha256": "1eb27c18b6a65d34e6625dcb1ede513294d342366c08652e322bd37d99e2c2d4",
       "translation": "CORRIDA MAIS LONGA"
     },
+    "8d8e325e": {
+      "source_sha256": "e43483cf5b99318d81fede8fa9fa8d807fb6627c8df89a8c5abbe36777743718",
+      "translation": "A POLÍCIA ESTÁ PERTO DEMAIS. VAMOS NOS ENCONTRAR NA LARGADA."
+    },
     "8daba1d4": {
       "source_sha256": "c21a245c471270e5ac97d7b99b35d66b87aea2f9167f9c303b3b3991d0b216f6",
       "translation": "ALTERAR VISÃO"
@@ -5581,6 +6293,10 @@
       "source_sha256": "6b5f6a9785f840fef97982b3eb834c3612c029d1aaae8fde6161b2f36d94322d",
       "translation": "Você instalou suspensão hidráulica. Na configuração padrão, pressione o direcional para baixo para ativá-la ou desativá-la."
     },
+    "8f5d8ed9": {
+      "source_sha256": "132d32b587ff55ee6f0d3bcb003efe4c9d858b5832fd36962ea6761b18c13a8b",
+      "translation": "TROCAR DISPOSITIVO DE ARMAZENAMENTO"
+    },
     "8f834ac3": {
       "source_sha256": "54dcb7680bc7dd9d2c6efc0798d7c2ee65fc29d98e9d9ec3103642d8d2101fdf",
       "translation": "ESTOU NA FIGUEROA ST., NO CENTRO."
@@ -5597,6 +6313,14 @@
       "source_sha256": "c29a80d54d125045fe94e1b7785b902026bdb0f3f6f8f2c95dfc70a5542a49be",
       "translation": "Deseja comprar este veículo?"
     },
+    "8ff4543e": {
+      "source_sha256": "72b0663d1475163f0519c15030d9c8aa7dbb75ccf89d5883d3b9845bca30a00f",
+      "translation": "CHAMAS REAIS"
+    },
+    "904063ab": {
+      "source_sha256": "da3ffab9f777548c4ff56830c37462d48828327370e00ea4ea173f64cf92f673",
+      "translation": "VEÍCULO ADICIONAL"
+    },
     "9041697b": {
       "source_sha256": "d00641213c2b7dfcad3b0936e255febf5d867052bf52847fe1b56556708737ab",
       "translation": "ME PROCURE NA THIRD STREET PROMENADE, EM SANTA MONICA."
@@ -5604,6 +6328,10 @@
     "904371e8": {
       "source_sha256": "732a0b332d5bc5aec56bea5cd2253274c5c12a30f335e16b9794a87644d25c11",
       "translation": "PORTAS"
+    },
+    "906a818d": {
+      "source_sha256": "3f846d49174319e17fd3bd3fc814b103d6448e5c2d204e474e126279e88f7116",
+      "translation": "CONFIG. DE SOM"
     },
     "906b1cf6": {
       "source_sha256": "2f9f1ec77b0039afac76aef3b91654fef014aa72236c14776316550737c21a2c",
@@ -5681,6 +6409,10 @@
       "source_sha256": "5888675d99b95617ba8cccd20dabe5554e91c71f3877c69d759bd8a5f162ae70",
       "translation": "TEMPO"
     },
+    "92c3ad5d": {
+      "source_sha256": "92567ae4bf216f7928c3bb42f869c1467a8ed87c6c51cd58c60662a1842e5fb3",
+      "translation": "ESTATÍSTICAS DO MEU CARRO"
+    },
     "92cb1ac5": {
       "source_sha256": "67366a741b9e78cd0cebd1d50ee4c301e88ac1e94842337a51d14dea735d4eb2",
       "translation": "ROAR emite uma onda sonora que tira os adversários do seu caminho."
@@ -5752,6 +6484,10 @@
     "93cad770": {
       "source_sha256": "732a0b332d5bc5aec56bea5cd2253274c5c12a30f335e16b9794a87644d25c11",
       "translation": "PORTAS"
+    },
+    "93d08d63": {
+      "source_sha256": "444edefce6f63afda6e3aeb22d690e7c7890bade3265e8c9a166bc79de4e06cc",
+      "translation": "Veja os melhores carros e sua classificação."
     },
     "93d5f268": {
       "source_sha256": "8c171785a96e51e4420a9ee8fa205fec15b8d4a5df345aa9820ae79ea4221752",
@@ -5889,6 +6625,10 @@
       "source_sha256": "00ca638f35a87e2554e4b85b3ee5cfdd23061e93d1bbd743872e08bef9fab8fd",
       "translation": "SEMPRE CHEGAM NOVAS PEÇAS VISUAIS À OFICINA. LEMBRE DE CONFERIR."
     },
+    "96dd3fb2": {
+      "source_sha256": "e22be09ac22df2cc807247e0e28fad31c234290010871523878966c58349ce6c",
+      "translation": "DANO PERMITIDO:"
+    },
     "96e8c560": {
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
       "translation": "ORIGINAL"
@@ -5933,6 +6673,10 @@
       "source_sha256": "ba7112ee28adf4d43699dbad25d7ff3cd8d816b5c8add839ff2b57fecdb23300",
       "translation": "BORDA"
     },
+    "97ca89ca": {
+      "source_sha256": "12dd3e0ec3867adea1fd1b79d4e7b6d8f3c8a7cc205addb7275adaf7a714a5e5",
+      "translation": "VOLUME DOS ADVERSÁRIOS"
+    },
     "97cbbe4b": {
       "source_sha256": "5a16fdc12285c0481728c5621e4f48f6fe5bd83485e4b17af82ea46f07d0dae1",
       "translation": "NÃO ESQUEÇA DE CORRER CONTRA O PESSOAL DO LAVA-RÁPIDO NA VENTURA."
@@ -5940,6 +6684,10 @@
     "97d420fa": {
       "source_sha256": "87c2b8ad8fd0cdf2b5b413cd4c85bc5148a452b0c667b2929132e9ff76eff8a4",
       "translation": "SUPERE O TEMPO REGISTRADO"
+    },
+    "9804980e": {
+      "source_sha256": "484ec0ad658e42123342e30a68680320fcba25a5c25514e60fb874014ad6b2d0",
+      "translation": "Deseja comprar este veículo por <D>RMR_PurchasePriceValue</D>?"
     },
     "9804b184": {
       "source_sha256": "64e1477f76d3ea8731fd95fa1fc939fbf2384744cad90b9e0f0263260a8090ca",
@@ -5953,6 +6701,10 @@
       "source_sha256": "441a48b196e22de35c8e4396301ed4925995e04066c4b5263e077bc072e34cd2",
       "translation": "SÉRIE PERDIDA"
     },
+    "9844879e": {
+      "source_sha256": "9838eed34ada9eb184e909dcb5fbf61dfbb0602bea437ffa500e1bd24abcf783",
+      "translation": "Deseja recusar esta missão de entrega?"
+    },
     "985f20b3": {
       "source_sha256": "4b45f2817e1ba526aea132b17583cac77c534bcf30f40ebd3793795c8489a8d9",
       "translation": "CORRIDAS DE CIRCUITO têm várias voltas e pontos de controle em ordem. O fim de cada volta é marcado por um ponto verde. O HUD mostra o número de voltas. O nitro, se instalado, é reabastecido no começo de cada volta. O último ponto da última volta é vermelho."
@@ -5960,6 +6712,10 @@
     "986c6ed5": {
       "source_sha256": "87c2b8ad8fd0cdf2b5b413cd4c85bc5148a452b0c667b2929132e9ff76eff8a4",
       "translation": "SUPERE O TEMPO REGISTRADO"
+    },
+    "98874f03": {
+      "source_sha256": "01c8fc7c0fd9f179671e3c26c301bf1ee0367448a6d42fdd71e6966b7ff71b08",
+      "translation": "PRÓXIMO/ANTERIOR"
     },
     "98946a80": {
       "source_sha256": "f81857bfc1e670ee2de90608c8a5f6cfade8b4605e6543030ae7cc762d11925b",
@@ -5980,6 +6736,10 @@
     "98c4be55": {
       "source_sha256": "9501795b52a2ea4aee044c402bb5482517248b11c8432fa3fe4ccda5ec9e78a5",
       "translation": "Deseja vender este veículo?"
+    },
+    "98c8574c": {
+      "source_sha256": "a652ce49f7ea07eac3eaf9b2427f10bb4ca6d8c5f6169f06aa4243facee6b0e1",
+      "translation": "1º"
     },
     "98cef216": {
       "source_sha256": "48c79e6700db8c5d339628219038b747441d1c71fd79a4f8c7b028c981fd3f2e",
@@ -6077,6 +6837,10 @@
       "source_sha256": "135aa8d9de0d9e9e36fe73d9aa2069eeb93b2178a09d8706296bd21e065deb5a",
       "translation": "Muito perto do próximo checkpoint"
     },
+    "9b7a5ca7": {
+      "source_sha256": "d4c8442f0cbde163e53511450c06bd3fb69231995258e5b7d13f080c1bbcb607",
+      "translation": "LIMITE DE TEMPO"
+    },
     "9b8c6967": {
       "source_sha256": "a0428f0b95cc765e9ee653594566c81de65d9f47dce4e89751452692fcbd10d7",
       "translation": "Encontre LEON em Hollywood e vença uma melhor de três."
@@ -6101,6 +6865,10 @@
       "source_sha256": "c61af006290cdd14d2e384ffdba8a1f794268a8840584b3a8b4c53e08a2332f2",
       "translation": "DOLBY DIGITAL 5.1"
     },
+    "9c27e8ac": {
+      "source_sha256": "4cf644d78bfc298f26ba4c170c7a1c04c3d1388e09fdd02534f23433a9a8f227",
+      "translation": "MAPA"
+    },
     "9c496cb9": {
       "source_sha256": "fb3bc64d1fd613616d8637016d857a191faf1292a07e4389eaef0db02657bafb",
       "translation": "3 DE 4"
@@ -6112,6 +6880,10 @@
     "9c6af03c": {
       "source_sha256": "d4959ea6336809bf92b204f68c1075edee7c51e1d3a547c1b3fc6a73bafae1d8",
       "translation": "MAPA GPS"
+    },
+    "9c9dea7e": {
+      "source_sha256": "44e0e6719148658f9054cb6d84c22183d15496a2ee30d5ed5be0fb650ac61dfe",
+      "translation": "TEMPO DA SOLICITAÇÃO ESGOTADO"
     },
     "9ce8327a": {
       "source_sha256": "3658bf24a5e0d2636b58ca65c7e1e58f23ff0b2040d6a88ffa6de301d3ff1849",
@@ -6128,6 +6900,10 @@
     "9d0dccb7": {
       "source_sha256": "19597054d73efb41ec055d1ab4e1b592e75b91fb3e326c03de94180e4ee96617",
       "translation": "CORRIDAS EM SÉRIE"
+    },
+    "9d207373": {
+      "source_sha256": "3a4d9b401fad7ed2ed1b787c7588f2509f34e9a4dc3c9bc1f87033aff0d4ac8b",
+      "translation": "Deseja salvar as alterações antes de voltar ao menu anterior?"
     },
     "9d364e47": {
       "source_sha256": "8e3891cbca187fe74fc976c5aab3e043a0f439a407586cac3e2f166d458b2f35",
@@ -6213,6 +6989,10 @@
       "source_sha256": "a323d5ac0216b1f8aa46872138ed60c0fde34dcd5413e9d8d2619dd83764b7b8",
       "translation": "Segure o freio de mão e acelere para fazer um BURNOUT. Solte o freio de mão para ganhar um impulso de velocidade."
     },
+    "9ed9683b": {
+      "source_sha256": "740b142fc886bab18f6995772721a8dacd8abf86f48a9f278c1398f442156394",
+      "translation": "VOCÊ OS DESPISTOU!"
+    },
     "9ee1fbed": {
       "source_sha256": "65daeb378bdec35d90224389f6e10917bcc0b94c90c489014ba156dd6cbf9350",
       "translation": "EXCLUIR"
@@ -6228,6 +7008,10 @@
     "9effee45": {
       "source_sha256": "0c4822b78201b4788d69951bc2989fb88dc67e64354f4c4dbe8dc57c39a7cc37",
       "translation": "ORIGINAL"
+    },
+    "9f000231": {
+      "source_sha256": "5ac976fbcc4c055ef4a1f5365b3614d1c8c9c84fedeca3ad063f3035301ec298",
+      "translation": "PROCURE UM HOOKMAN PARA RECEBER UMA MISSÃO."
     },
     "9f19d8c6": {
       "source_sha256": "001eee1bf50b05d098c9acd085ce48100ca64c9e63cf1a7f18c0bfbe79cac3a6",
@@ -6245,9 +7029,17 @@
       "source_sha256": "1fbebd56be39906eaf13ca14371ed811bbd2a57cc1a3fb16025a292461a1fa02",
       "translation": "APOSTAR DE NOVO"
     },
+    "9f2ddc1f": {
+      "source_sha256": "aa435bdcd2164b7b9744811761037ed798934093f6f20144eaf51cc68809f138",
+      "translation": "ALTERNAR LISTA DE JOGADORES"
+    },
     "9f6b06e4": {
       "source_sha256": "5e3ad08bd1107788d5cc693fb080765b66a9bbed5eeafe65de67bbb409e8b0eb",
       "translation": "PRÓXIMA CÂMERA"
+    },
+    "9f7a1750": {
+      "source_sha256": "ee44679ac29d62f4cc86bbbdfddfb3818d84a17c248755905e3014811e1a4339",
+      "translation": "TIRAR A 2ª FOTO"
     },
     "9f7e60d5": {
       "source_sha256": "a2f0a65332aec6ecfd69533b653b027aa8487391e06da5645b5703d420c3b945",
@@ -6285,6 +7077,10 @@
       "source_sha256": "ba0eebf379567c645b1edd9382142898e897046ba001ecc8c343ad19f338650f",
       "translation": "CARREGANDO"
     },
+    "9fe85794": {
+      "source_sha256": "f0762c4f3bfcd695e32e7fcd087dc2a60bc26cda108b4fc0a643445b397168c7",
+      "translation": "Tem certeza?"
+    },
     "9ffb88a3": {
       "source_sha256": "8312bca8bda59081352aa1699f3b88b291af9ac3ac385f6e254d125487d4b9d3",
       "translation": "SAIR DA CORRIDA"
@@ -6304,6 +7100,10 @@
     "a03b1c68": {
       "source_sha256": "eea0966a83a0e2be2f7166efc74295c0485fc6a68b6f97a3b9654480b6baef50",
       "translation": "REINICIAR ACERTO DE CONTAS"
+    },
+    "a041ee50": {
+      "source_sha256": "97eafa713c889236928d56bef5d1ef1fb9d0dbee9650f13e186afd80b1c65702",
+      "translation": "Este modelo de veículo está bloqueado. Avance na carreira para liberar veículos."
     },
     "a08afa8f": {
       "source_sha256": "584c5ab4b1b9fa8c550ba625097506287872ac7b475624b82b8ef823e79af43c",
@@ -6365,6 +7165,10 @@
       "source_sha256": "ea6b02b2af2595e3920427a50cb83ef6fe925e88922177db93159e9c25b5b990",
       "translation": "PREPARE-SE PARA CORRER"
     },
+    "a252ba9f": {
+      "source_sha256": "7767d5e4938cb979c6cea67efba5cc73f81e89b0e225f55adfa47f453122589f",
+      "translation": "TEMPO-ALVO"
+    },
     "a25bf5eb": {
       "source_sha256": "1fc9f9753f315692efe9f228edab20cfec16300a9f08c00ef706e8183381857b",
       "translation": "REINICIAR CONTRARRELÓGIO"
@@ -6377,6 +7181,10 @@
       "source_sha256": "10dceb6abf4a57eb3c26bc12d02ec935947417a4df92d2422181c500c060c6a5",
       "translation": "CONQUISTAS"
     },
+    "a27b6ab2": {
+      "source_sha256": "e0ca14aac396fc76aa30624acdd8772d9cb8ed8db73bf4d28018ca2ca5ce66f3",
+      "translation": "2º"
+    },
     "a294b6c1": {
       "source_sha256": "0dcac559fa0ae205cc35294bc4c8bae63368d0903de1d3d93f33505165dccf36",
       "translation": "SAIR DO CONTRARRELÓGIO"
@@ -6388,6 +7196,10 @@
     "a2cc7420": {
       "source_sha256": "b5c7aed7cd2a308523e7d2847b7815909e864b2fd9c4ea88b00d35adb2ecdfd7",
       "translation": "TODOS"
+    },
+    "a2d466f9": {
+      "source_sha256": "ef0e1e57ba7000f64ca7e87962663c2cdc12f60b39ac592336989f0e67f805bc",
+      "translation": "LIBERADO"
     },
     "a2df0223": {
       "source_sha256": "24c76de7fe08f79b932d6d2657a23dbdaab277a6a97a7e6b0824e17d9778fd39",
@@ -6441,6 +7253,10 @@
       "source_sha256": "deae7ed436ca00cf2e91415320d9d1e17b32431d22de8ba0b96c1bf551442467",
       "translation": "GANHE UM MILHÃO DE DÓLARES E SEJA SÓCIO DE KAROL"
     },
+    "a3955623": {
+      "source_sha256": "0c5cde026a1602251bcba0014a112d4fa1c2a29dcd3c06cdd2032b32af077135",
+      "translation": "AJUSTES DE CONTROLE"
+    },
     "a3c1b24d": {
       "source_sha256": "47cee1712a4efbf3982243b49c487d79ae481580c0ca861b3de3995a36c46fd9",
       "translation": "LONGE"
@@ -6493,6 +7309,10 @@
       "source_sha256": "ac0ea86fdcaf000c1d4ca8354db71bda7fad1038531b2133f58d9eb3443e82f6",
       "translation": "Visite a garagem em Old Hollywood e converse com KAROL, o proprietário."
     },
+    "a49d0765": {
+      "source_sha256": "ed2fd4e0b79801387d761cba1b977aedd71c0a29af1442a26353170a68de94a1",
+      "translation": "DINHEIRO"
+    },
     "a49eccd4": {
       "source_sha256": "9fecd2f26b8867747817d1c5d38c244e981c5027d50abda83727495f5d2cf175",
       "translation": "CONTRARRELÓGIO"
@@ -6500,6 +7320,10 @@
     "a4bcf6db": {
       "source_sha256": "b83b327f0b62e8168163c61f15fb0ac2c14169729e4f4184678337a15cd04dec",
       "translation": "INSTALAR"
+    },
+    "a4cc0b7f": {
+      "source_sha256": "68d291a69d4e4cb2fb18868eb835b4b116daa57e08e16a09db0f9aa2633ef148",
+      "translation": "TIRAR A 1ª FOTO"
     },
     "a4fd6189": {
       "source_sha256": "fb3bc64d1fd613616d8637016d857a191faf1292a07e4389eaef0db02657bafb",
@@ -6521,6 +7345,10 @@
       "source_sha256": "3221478e030e4fc26e38dc58b066322379d1b281e75cf7a1d7be453af320a581",
       "translation": "USOS DE NITRO"
     },
+    "a526c9bd": {
+      "source_sha256": "89e7c1d3068792903b36da62436de300666409ea9d80c36b402882a6880fe700",
+      "translation": "DESFAZER ALTERAÇÕES"
+    },
     "a560767d": {
       "source_sha256": "3ed3a250139ea1ecf2319a8d374e3bd8866227918c8b1fc19faa5b3cd3689532",
       "translation": "VAMOS CONVERSAR NO PÍER DE SANTA MONICA."
@@ -6528,6 +7356,10 @@
     "a56ba199": {
       "source_sha256": "91c1fd825c5ad49e89cc4fae75c9aa27ebb8ec5608044a4c1c8a162eb480fe88",
       "translation": "ESPORTIVO PREPARADO"
+    },
+    "a56bda2b": {
+      "source_sha256": "618c79503a3d1476211c8be7776e94e8723596a1e0b0204c050229983c9bfebd",
+      "translation": "QUALQUER"
     },
     "a5e9fe5c": {
       "source_sha256": "5c2a0cd8b67d33ea11b9186b07ed704d81a502a658c94d77710786db9e9f6eaa",
@@ -6572,6 +7404,10 @@
     "a6c88ffe": {
       "source_sha256": "50dcab4af89ff5914eadb205ace450cdc94e6e0275836eef9569df3b9ef41717",
       "translation": "O TORNEIO DUB DO VALLEY ESTÁ ABERTO. O PRÊMIO É UM DODGE CHALLENGER DUB EDITION!"
+    },
+    "a6d2ab78": {
+      "source_sha256": "b83f8b052704b9786e08f941c02132899452b4b6dc7933a84ca7b58c00a27b8b",
+      "translation": "Deseja correr valendo o carro? ATENÇÃO: o limite de carros apostados foi atingido. Você PERDERÁ PERMANENTEMENTE seu veículo mais antigo se SAIR, se ele for DESTRUÍDO ou se você PERDER esta corrida."
     },
     "a6ed11bc": {
       "source_sha256": "f9171164593756e56fb197327b529a4955590566560dbe62d586bff41be9d297",
@@ -6677,6 +7513,10 @@
       "source_sha256": "77e89fe3ed6300d58dfd88cd29282e0e8d2698a3af6b95de2ef50365d7ad3719",
       "translation": "CAMPEÃO DAS COLINAS"
     },
+    "a98c72be": {
+      "source_sha256": "1589cbbd3e01b655616bc36761899b951cf6c618e037baa327295086e5705ed2",
+      "translation": "Você não ganhará REP. nem dinheiro com power-ups ativados."
+    },
     "a9b75a02": {
       "source_sha256": "54ead6b354638aecdf2de4830facd3bb501fd690f4fcb255fd0f76dfc15e86d9",
       "translation": "VITÓRIAS EM CORRIDAS"
@@ -6692,6 +7532,10 @@
     "aa28649b": {
       "source_sha256": "ce80fba8920c363e1d9640b63418c1ab20031b9260a083e876f033625c537d14",
       "translation": "Você não tem dinheiro suficiente para comprar este veículo."
+    },
+    "aa74eac8": {
+      "source_sha256": "65caa58acc54fa84b2e3a657047bed05d3e5e171ea985d795010c32f1ddcc0b9",
+      "translation": "EQUIPES EQUILIBRADAS"
     },
     "aa75ab9b": {
       "source_sha256": "94d10e3a040b1c419b362b756e469a341f07b9eb3df54cc90c2848d789b044f6",
@@ -6728,6 +7572,10 @@
     "ab59d9eb": {
       "source_sha256": "abe1cdceb35fae6641f4917eeee08fe55a6fec271e9955783fd84725c7fd22b1",
       "translation": "HORAS NO MODO LIVRE"
+    },
+    "ab9808df": {
+      "source_sha256": "9ff394dcb323c2e6c8b6e5c615438c98823a118e217d964f5a1fea29c2575978",
+      "translation": "Erro ao inicializar os troféus. Saia do jogo."
     },
     "abc3c1c9": {
       "source_sha256": "639807a2e01886a2236b9fe1fe9bdbdea267b9c84c4acb3ab0858a6a13531b9a",
@@ -6781,6 +7629,10 @@
       "source_sha256": "0785d6c487b4e09273448b458cae09d75ed7a486e1158d928fd28541133fec5f",
       "translation": "CLASSE D"
     },
+    "acf98e48": {
+      "source_sha256": "f27f17e3f0632792bbe214cd86906910e331cfe9fd9d8349d4130431d92ba1aa",
+      "translation": "FOGO"
+    },
     "ad02338d": {
       "source_sha256": "c5d5f9c108147c51d40f6ae0423cb9d6cd3807bc46a0da1e59b23848c12468d4",
       "translation": "ESCALA HORIZONTAL: "
@@ -6801,9 +7653,17 @@
       "source_sha256": "0f449b237be2f93f9aac7525861c8d98f2965b513ed6bdaeffda028d4a51741f",
       "translation": "VENÇA O TORNEIO \"DUB\" DA PRAIA NO DIFÍCIL"
     },
+    "ad214d90": {
+      "source_sha256": "32e7945a0bcd409e0542d1a0dd3028559cce66319f5a3ae92287a7d3e4365128",
+      "translation": "VOCÊ SE LIVROU DA BOMBA!"
+    },
     "ad327322": {
       "source_sha256": "4b1e39fc4cb2158d855ef6739fcc049bd1481b061bfc53f06349730b15d12044",
       "translation": "ALTERE A ESCALA DA CAMADA OU DO GRUPO SELECIONADO."
+    },
+    "adcce381": {
+      "source_sha256": "7ce850c71961e004e2ccec234dbbe8b06731753c21452ff1a32f0dac72d40ae9",
+      "translation": "PRÓXIMO ALVO - WESTWOOD"
     },
     "ade7a1d3": {
       "source_sha256": "90003839e3dc4cd8f69e3fc9e6a48328a6b7ef5c8842028bce0027c6af58baca",
@@ -6824,6 +7684,10 @@
     "ae421aae": {
       "source_sha256": "f91b1f8149f64431bb8377b66f0c9c063f4f0fcc689c2257e475e1d7f28addb9",
       "translation": "O TORNEIO DAS COLINAS ESTÁ ABERTO NOVAMENTE."
+    },
+    "ae737644": {
+      "source_sha256": "bc84857984052ec914ca16ef3ec7f0f563007bf3601d60caddb5eaed002e8ddb",
+      "translation": "NUBLADO"
     },
     "ae79a3b2": {
       "source_sha256": "3580469d06f361ee17533bb26995d8874a57f3545d26d63cc140f3f1c4de47ff",
@@ -6897,6 +7761,10 @@
       "source_sha256": "2124ad228d81b427e9202cd7b662db44f3241fc0ff3917f1f59ff3446d4952f6",
       "translation": "Deseja dar seu veículo atual como parte do pagamento deste veículo?"
     },
+    "b03a694f": {
+      "source_sha256": "014cdee2dc216bf93290d8e829903ba6da27b2b4957f433e4652254edb0c203f",
+      "translation": "TRANSFERÊNCIA DE PESO"
+    },
     "b05fff3d": {
       "source_sha256": "046f60b896020a0a41a46a1a0c6fea37ad99c4532f45287c589f1adb56e7a9f4",
       "translation": "MUITO DIFÍCIL"
@@ -6932,6 +7800,10 @@
     "b0bfa740": {
       "source_sha256": "972e986353e9dd30f633a88d52967eea518ee5f89c59527f63e3d2604856a77b",
       "translation": "TORNEIO: BEACH"
+    },
+    "b0c7482c": {
+      "source_sha256": "e6490688e5d2e9018c54f7c15c3763828fa903f2ef611002bdad6b586a9e55b8",
+      "translation": "NÚMERO DE ADVERSÁRIOS"
     },
     "b0e13af1": {
       "source_sha256": "2fef8aa9d17a39bbf34f03a25249d030495e608513c7b6dc7650027980b858d0",
@@ -7053,6 +7925,10 @@
       "source_sha256": "7898c12127774eb79cac84bd802996c7f44fb405569737a41caaa1faccfeb58f",
       "translation": "4 DE 5"
     },
+    "b40a5748": {
+      "source_sha256": "6833687cd2c6bef74be699c28d6d0d0a9c66e17c07a99bb85ceb8c116ddb03d0",
+      "translation": "ESCOLHA INVÁLIDA"
+    },
     "b427dd3b": {
       "source_sha256": "1fd5f5a768d30b9b6651dc6e35f6702a918fa8c2d2bbdc7826e975156cf1c401",
       "translation": "JOGO"
@@ -7093,6 +7969,10 @@
       "source_sha256": "4b5f001fffd3366f7ed476e315893a12a1b98eb76c1b4f2da85fb1cea13cb52b",
       "translation": "Deseja reparar seu veículo antes de sair? O progresso das corridas deste torneio será perdido."
     },
+    "b55afe4a": {
+      "source_sha256": "2ac603c81fdc53b8a5fc43720ddaf97d0ffe39c964c31ab5729fa937ba050516",
+      "translation": "VEÍCULOS DO GRUPO 2"
+    },
     "b565ef95": {
       "source_sha256": "24cfaab9e4911dedc12928db7ef7116f8435ddee4abab7d4b0e6bfac9f16ce10",
       "translation": "DEFINIR LARGADA"
@@ -7121,6 +8001,10 @@
       "source_sha256": "d98ee0e5f9399db9381014c9f890f896d3fcb272c2a7a521d0a13aa23085a284",
       "translation": "ERRO"
     },
+    "b5c56842": {
+      "source_sha256": "1419679d40d6f7928973e1e42f132fff6100e18430c025d7b6c57ae9d2be8053",
+      "translation": "Uma Corrida de Referência tem um único checkpoint, de um lado da cidade até um ponto de referência do outro lado. Vence quem chegar primeiro ao checkpoint do ponto de referência."
+    },
     "b5ceb70e": {
       "source_sha256": "efbf8d11506e016e6799a5d50a35522e26efbd6b413229b0f5d81105b6e623d4",
       "translation": "CORRA CONTRA VICTOR NA FIGUEROA ST., NO CENTRO."
@@ -7144,6 +8028,10 @@
     "b61cc298": {
       "source_sha256": "39f17ec6ebcf3cec37a06d85dc61882be3898d7573f284b7b41222087b6b6a2c",
       "translation": "LARGADA"
+    },
+    "b6399df9": {
+      "source_sha256": "8cbb6e4adc68542eaa3d41f7d4f3aad5c4394c8ddd1eaf7cb20bcbc9a02d8044",
+      "translation": "SIM E REPARO RÁPIDO"
     },
     "b651c895": {
       "source_sha256": "8681d541614055dac560968cf8118022e5be8b10ff4fe83ad424ceed711e5579",
@@ -7177,6 +8065,10 @@
       "source_sha256": "65daeb378bdec35d90224389f6e10917bcc0b94c90c489014ba156dd6cbf9350",
       "translation": "EXCLUIR"
     },
+    "b787c135": {
+      "source_sha256": "763be60b06a8c062b3669717fc35e366749fc6fd5c4e1cafca6b1648ce18ad69",
+      "translation": "HORA DO DIA"
+    },
     "b7947e14": {
       "source_sha256": "ad1ac285a297379e4c2ce129b2ce9bea1f6bd455968f436a83fd6b37c9b2491b",
       "translation": "O que deseja ajustar?"
@@ -7196,6 +8088,10 @@
     "b7aa8687": {
       "source_sha256": "9c7eb54000af12e64f1b1dc30858114f7ecee1ebfcba21f1821ff3315dd6fcfa",
       "translation": "VOU CORRER CONTRA VOCÊ DE MOTO NAS COLINAS."
+    },
+    "b7ad21ca": {
+      "source_sha256": "14375b540bc0411c5ceef0499da6fe26dcbcfa0f5e9e0e78ea8dee87b8705dde",
+      "translation": "VOCÊ VENCEU!"
     },
     "b7c5560f": {
       "source_sha256": "a240d17fde8f44c68d6ec59186c3f0c01f6323bd457d6a01798abafe6aa5b2fd",
@@ -7236,6 +8132,14 @@
     "b840272a": {
       "source_sha256": "f9171164593756e56fb197327b529a4955590566560dbe62d586bff41be9d297",
       "translation": "SIM"
+    },
+    "b866b9e5": {
+      "source_sha256": "bb0f45a9dde0e49609bf84ae99e6706f941c5e52b71599470ae51d5887a68128",
+      "translation": "Você ativou trapaças que impedem o progresso na carreira e o ganho de REP. ou dinheiro. Deseja continuar?"
+    },
+    "b8bf3d5c": {
+      "source_sha256": "763be60b06a8c062b3669717fc35e366749fc6fd5c4e1cafca6b1648ce18ad69",
+      "translation": "HORA DO DIA"
     },
     "b8dbe7ee": {
       "source_sha256": "f00f153f42ca9b639ee17292f7ed98c2458e5dea1080201ae739983fd1e8249c",
@@ -7297,6 +8201,10 @@
       "source_sha256": "0e24076baf990d55aa1511d1af1d6741b19c9a2e9e9911f9ec7b5d5dbe5a5e9f",
       "translation": "DIFÍCIL"
     },
+    "ba225518": {
+      "source_sha256": "17f4447bc04eb2d1d5e13c2b2bbe24c148563daac4b1ddc7bbec431dc467fdc6",
+      "translation": "Deseja fazer o reparo completo?"
+    },
     "ba36579a": {
       "source_sha256": "2dc6a08584b7f0b46235b377462c67f8fce4087ddfa375ca6f6faba26f47b701",
       "translation": "ESPORTIVO AMERICANO"
@@ -7324,6 +8232,10 @@
     "baa0c026": {
       "source_sha256": "4325a27b45a8f14e8131fcf8d6dc321d483de0b3e3cd4e1fed2e90846e934f7c",
       "translation": "CRÉDITOS"
+    },
+    "baade343": {
+      "source_sha256": "fc1498306f453c69de325ce89c609a581788dc879c58621a150a2d549be936f9",
+      "translation": "LIMITE DE PONTOS"
     },
     "bac2e410": {
       "source_sha256": "1251bd7b19d4d4c9af0fdaee191023be5810db23eaa627b338631f335d478889",
@@ -7405,6 +8317,10 @@
       "source_sha256": "3638fa4a15407cfd6cdd4c9d5375419f531d68a862c467727afd1b7f6627bf64",
       "translation": "TUDO EM JOGO"
     },
+    "bc456c9e": {
+      "source_sha256": "497fae9ae92e03eef2d42779e8d88d53fd479e9b204cf53cab808e1e18b33ee8",
+      "translation": "QUADRO ANTERIOR/PRÓXIMO"
+    },
     "bc496655": {
       "source_sha256": "d9212b9f45003840dff6acca0f306979f24fd5c85ff2381145b8293308151a45",
       "translation": "REPETIR SÉRIE"
@@ -7437,6 +8353,10 @@
       "source_sha256": "5345f6537c10ff8b722310c2e633124aeb80474d9821df18fea109686fc676fc",
       "translation": "TOTAL: "
     },
+    "bd8ba29f": {
+      "source_sha256": "ac6203fbd9f6af47ac0974665fd3f833a9ccf5a9e3b27493dfa2ad19de376028",
+      "translation": "CORRIDA ERRADA"
+    },
     "bda8570d": {
       "source_sha256": "81aa45dd1d820121a71b6848985fda7046192e7029b31d5f5f9bd25006d167cb",
       "translation": "Os destinos do GPS ficam destacados no minimapa. A seta direcional aponta para o destino."
@@ -7460,6 +8380,10 @@
     "be13a6a6": {
       "source_sha256": "86f56fe8221f029db2c9755cc998669a7d873c32bfa83bc9431bafe0bb814400",
       "translation": "AVISO"
+    },
+    "be3cba7b": {
+      "source_sha256": "f93f595f9496d30b84a3c6fea411b13369c19475ec5cdb1dab2deae1bfd83587",
+      "translation": "TEMPO ESGOTADO"
     },
     "be451807": {
       "source_sha256": "71975ef757389d6a2f87b5975f0de268361e391bf921bb3e87d497ea2ddbd712",
@@ -7521,6 +8445,10 @@
       "source_sha256": "2de5cc8659e5727313f27bbb8deea943dde060199462fcd1b14804e64adc6840",
       "translation": "EDITAR CAMADA"
     },
+    "bf0a2f1a": {
+      "source_sha256": "5c6ff70abdb6db5182b98b124858126e91c8715c178bb94d8f3c54a06776567d",
+      "translation": "PREPARE-SE"
+    },
     "bf157133": {
       "source_sha256": "8639af10a530e17d2be27c9e60a19626e07a3cb5d9ca25c41f9e51f9c22110af",
       "translation": "DEGRADÊS"
@@ -7529,9 +8457,17 @@
       "source_sha256": "2ebd7ba49a638c7db085340eb8eb239118c3b37fd9036dacb3332a045ec51baf",
       "translation": "VEÍCULO"
     },
+    "bf3d5fd0": {
+      "source_sha256": "2248b9f2ad961f053f65829d21d6c5cae843c6f35b9be58efac5b59d820ebb53",
+      "translation": "DESTRUA CORREDORES:"
+    },
     "bf4c8448": {
       "source_sha256": "2887816187c337b60d183eb6638afe29e497a2b237a606d66867d3a293f16b0c",
       "translation": "3 DE 5"
+    },
+    "bf5290af": {
+      "source_sha256": "c39715189f2b401ee224cea71f027e09b3d4b5762df7cc5ba1fc7a7b22073f4c",
+      "translation": "PRÓXIMO ALVO - SANTA MONICA"
     },
     "bf5897f0": {
       "source_sha256": "d3c1d1df1df80bf8109b4f955e9fd6c1ca586ad2de38a597aec44b7b3d0c3186",
@@ -7557,6 +8493,10 @@
       "source_sha256": "8d3ad49a595126b65669a14c9d8de5d6ecde65f1bf5b531c63a4614cf47be206",
       "translation": "GANHE MAIS REP. NA CIDADE E VOU VER SE CONSIGO ALGUNS CARROS NOVOS."
     },
+    "c01f2ca0": {
+      "source_sha256": "5255e075f77f5f2b22cba6772473325c27ce916c0307a9d069237a35dc36eb75",
+      "translation": "RECEBENDO DINHEIRO"
+    },
     "c0203513": {
       "source_sha256": "ab02861c36cfbe6d4ce9022dd702f33a443c3f3be6a8667ed58315e35e536714",
       "translation": "VENÇA PETE COM UM SUPERESPORTIVO"
@@ -7576,6 +8516,10 @@
     "c0795a02": {
       "source_sha256": "791757ddb774867e89761899f3a2d0dc2c586ff6c968d18d52581e6176e1839d",
       "translation": "VENÇA 6 CORRIDAS COM UM CARRO DE LUXO"
+    },
+    "c08dc6e4": {
+      "source_sha256": "3c2ed5205037cbbcdbe73afa0a33cc9b6dc853c3633d65f57d1b9c93cb442d82",
+      "translation": "AVANÇAR QUADRO"
     },
     "c0991182": {
       "source_sha256": "57f7d78faac2d9661fca075fea2569ee2dc4072b1c599fa6420e2b311271cef5",
@@ -7605,6 +8549,10 @@
       "source_sha256": "f27ad56a9b2ed1a83ff9d650a08877d2c2e44c55efbf10538e4544c96d520e73",
       "translation": "RAIOS B"
     },
+    "c1538a8e": {
+      "source_sha256": "f4304f7f2aa68bd3b889941a1a91618742e5762342a6a9b5bd9207c636af2836",
+      "translation": "PRÓXIMO ALVO - HOLLYWOOD MALL"
+    },
     "c16870f7": {
       "source_sha256": "cf3731753633ae2cc027de5e0859c1748781dfe6bf72bd70be55d537c7d8dc35",
       "translation": "SEM DANOS"
@@ -7625,6 +8573,10 @@
       "source_sha256": "b8c79098e06425c50d4547e391cda593af1c51ea3d6a1b5210e5d1810a82af39",
       "translation": "NOVA APOSTA: <D>REWAGERAMOUNT</D>"
     },
+    "c1d2292b": {
+      "source_sha256": "b8b482eabdb689e04189f39683571f16566778b19d89e2179d4613d72430b9de",
+      "translation": "9º LUGAR"
+    },
     "c1dabe3e": {
       "source_sha256": "20463940d39b9e9af1fe677d829e7026254e5ff95ded5e70a74e6b556a2bc700",
       "translation": "TRÁFEGO"
@@ -7636,6 +8588,10 @@
     "c1f3dc9f": {
       "source_sha256": "3a0931580d18a6e0308c1135ee9c807f0aaa83cad286d951d3a8dfa6017aecf1",
       "translation": "SAIR"
+    },
+    "c215a006": {
+      "source_sha256": "a880ea12e4e3584e950d63ff4e8f201c1182009b1f2e42050a268b1de5d00ce4",
+      "translation": "Os checkpoints podem ser concluídos em qualquer ordem. Depois de todos, aparece um checkpoint final vermelho. Quem chegar primeiro a ele vence."
     },
     "c24e55a9": {
       "source_sha256": "e3a980f59b04e7a26e2db82f0f82a45a40b1972437067589fdf9ef742781a9b7",
@@ -7685,6 +8641,10 @@
       "source_sha256": "18e1bb874dad64df850e399860e9eb694649a39b50b3d6acc70eccd8c91659c6",
       "translation": "SAIR DA PARTIDA"
     },
+    "c32d3f1a": {
+      "source_sha256": "9d950db4e768a10d0504c6ec61be24273df9f540d9769675feb089299907a8a2",
+      "translation": "Deseja remover esta corrida da sua lista de favoritas?"
+    },
     "c34e5ba9": {
       "source_sha256": "b18d8fd2dc18bb3a3ae71922f2e85371817064f6e45a86b9d94d1a0c24f549cf",
       "translation": "2 DE 2"
@@ -7728,6 +8688,14 @@
     "c3eeb532": {
       "source_sha256": "c1d04bd0bf4f663dbd991d922cf462aad38026ff829cd4a8f95fcbd98cc5aed8",
       "translation": "CONTINUAR TORNEIO"
+    },
+    "c411fbc4": {
+      "source_sha256": "bcdc0c52d0e693a1a5781c7e1daba1c36723d356810412e4aa5968dc00707c4a",
+      "translation": "PRÓXIMO ALVO - FIGUEROA"
+    },
+    "c422adb6": {
+      "source_sha256": "6adbeb94c0a91c3c2f820a0660be1ddfc2333c881445489e5a51b895a05f9486",
+      "translation": "VEÍCULO DESTRUÍDO"
     },
     "c43747f8": {
       "source_sha256": "b842a849cdda253cb5b9cc12afbb5d60093c15d29b2076a3f07ddb245d030e7b",
@@ -7777,6 +8745,10 @@
       "source_sha256": "5c2e3861868e85d980fa4da53330603ef26e915a5d02052ffdb6cbc7b17e71a3",
       "translation": "Alguns recursos do Editor de Corridas podem não funcionar corretamente com um volante. Deseja criar uma corrida ou carregar uma corrida salva?"
     },
+    "c5582035": {
+      "source_sha256": "2333ba5b41f1f31f73b170dcce996d26a00ea28d0a5baf9627abfdcfafc3563c",
+      "translation": "PRÓXIMO VEÍCULO"
+    },
     "c558b2f6": {
       "source_sha256": "4388a758d577125562b6f5dc3a328488225f800d26345f6513864041972f17f0",
       "translation": "CORRIDAS COM CHECKPOINTS"
@@ -7797,6 +8769,10 @@
       "source_sha256": "c40c12d3e00713c88d7d481d977bbf5989c4c0109ed50ac52443494b071eaf29",
       "translation": "DOC recomenda ganhar experiência com um lowrider. Acumule REP. nessa categoria para receber um desafio."
     },
+    "c5dc8eb0": {
+      "source_sha256": "cc67e68d73384ffdef89aee60541ff0d739090915824b96490caf54cb28e1bbf",
+      "translation": "REMOVER PEÇAS E SAIR"
+    },
     "c5e599ad": {
       "source_sha256": "3eb5fe4e4bf608025a6da147f220c85e368b1cc98693323025ca4c938034aa97",
       "translation": "Dirija sem bater para carregar AGRO. Quanto mais usar a habilidade, mais cargas poderá acumular."
@@ -7808,6 +8784,10 @@
     "c64826ad": {
       "source_sha256": "83e466f7841f5b39a8a86a731cb154a934fd06c103d5ca6a3d405350c2f6f618",
       "translation": "Lista de músicas:"
+    },
+    "c669585c": {
+      "source_sha256": "2c19c1ca95b039efe36a8bc9e378ae229da15f1be522d642f7c115ba0ce0c74b",
+      "translation": "POS."
     },
     "c68af475": {
       "source_sha256": "ebdedafcd21bb66fad5d3cd55434985ad9c5fe67d423412976ab7dde83aa760b",
@@ -7897,6 +8877,14 @@
       "source_sha256": "ef3be0b0caeb1d00a08e2d74f182befb4e0792cd872de36dd4d76709966d717b",
       "translation": "ESPAÇO 6"
     },
+    "c855131c": {
+      "source_sha256": "9f9677d0e4a5ae78cdfcceff5e1ddf5762f302b80406e5c930ec3e017f979356",
+      "translation": "Você não tem um veículo no show do Avalie Meu Carro. Deseja enviar um?"
+    },
+    "c89e5aa9": {
+      "source_sha256": "8ca97e7eab864cf5183dc8ba4f964f0232ad1477354401d2ecbfc319645f81f1",
+      "translation": "DESTRUA TODOS OS CORREDORES"
+    },
     "c8a3f534": {
       "source_sha256": "9f88b2d06e39098d80e0904d744073f9d96270517ccffcde13809d239a75f1c2",
       "translation": "VOLTAR AO EDITOR DE CORRIDAS"
@@ -7944,6 +8932,10 @@
     "c9ae37bb": {
       "source_sha256": "1b3f2423b144713f7a4a6d2f994092e1d76b85d483044e4a4f912bfc7e4467fa",
       "translation": "Dispute uma série de corridas neste ponto de encontro. Vence quem ganhar 3 corridas primeiro."
+    },
+    "c9b7230b": {
+      "source_sha256": "0e9c0d21a2a4a87b4d289f963a9f562f1ad7b9c013cd0504da54ac767dcf805e",
+      "translation": "PRÓXIMO ALVO - VENTURA"
     },
     "c9b7d31f": {
       "source_sha256": "8aec4b812b783f102ad26c0cc4f64189f840b38dd1fac8de70d541e2a9923311",
@@ -8024,6 +9016,10 @@
     "cc3ef4bb": {
       "source_sha256": "a4d3460b3c1cc682e840f2a5570e42b15aad89b5196a87ea49df18c95ed2127b",
       "translation": "ME ENCONTRE NO PÍER DE SANTA MONICA."
+    },
+    "cc688a35": {
+      "source_sha256": "5435d63d17236b89f816f0f99e2d8cc453fe488827cfeaea243319bce0db49b6",
+      "translation": "CIDADE INTEIRA"
     },
     "cc740d7e": {
       "source_sha256": "1c98c1e73f47cf3fa421a0a6a4924956f60e9df73dd27df04bd031c4d9686118",
@@ -8165,17 +9161,33 @@
       "source_sha256": "3bbca191d6b105fa0e8f043349d78b0432def7ad51848a325bff8da946534620",
       "translation": "NÃO ESQUEÇA. MELHOR DE 3. VENHA ME ENCONTRAR."
     },
+    "cf883e32": {
+      "source_sha256": "59a410abc6771d5ae160b00e02cbd6bb629d76ca5a9c6c70e49fa44b61c474fc",
+      "translation": "TRASEIRA DA MOTO"
+    },
     "cf8d48ab": {
       "source_sha256": "99bcd92a09640f8545b8ad3d02acd1471a821d969c99e0e62866a15370f4850d",
       "translation": "Deseja reparar seu veículo antes de correr novamente?"
+    },
+    "cf965b91": {
+      "source_sha256": "104aeba63ed3e84fc23aac6f58aa4c8b2ae8fd73bec568541466548a4c2f5bb0",
+      "translation": "SEU TEMPO"
     },
     "cf9e6f90": {
       "source_sha256": "c863411b27ca22752102d3fe84d19e94df761e12a4629beffc1910b9accce462",
       "translation": "EXCLUIR CAMADAS"
     },
+    "cfa50b36": {
+      "source_sha256": "39a40026763d321d830bb1212b73728f2adc69e929dd69f2ede2f66a4519215a",
+      "translation": "ANTERIOR"
+    },
     "cfb94f38": {
       "source_sha256": "af882ed560d1ab0b45622d4ac530c29142130d52de9b23f5ba9795ff50c1a9ac",
       "translation": "COLECIONÁVEL 9"
+    },
+    "cfd72b77": {
+      "source_sha256": "c4c281e3bb146361915039acc0753db5b1592e61791227d05821cb242ce8857a",
+      "translation": "VER OS MELHORES"
     },
     "cfec912c": {
       "source_sha256": "9f4029f12dbccd50d4293af18ba904990dc089ebf8ce9e248d44c89208e7acac",
@@ -8213,9 +9225,17 @@
       "source_sha256": "8263e96887e508fff4cec4d217557076807a11ecbdf155b98a734b40434afe9a",
       "translation": "JOGADORES RECENTES"
     },
+    "d08f73ca": {
+      "source_sha256": "5877f8514029143b824134dbcb4579e1227da5cfe70cbdeeda9ce47f191238a7",
+      "translation": "LETRAS AMARELAS"
+    },
     "d0dbfb3b": {
       "source_sha256": "31b6759a2ade927a9dda67b91d37a36dbebd380d560a3cfc98468585dc58dd14",
       "translation": "ENCONTRE BOOKE"
+    },
+    "d0f294b9": {
+      "source_sha256": "4c5ad4a12a24270a827a5baffca38754c1126c9ec4e938fb109a1efc489e1068",
+      "translation": "ÚLTIMO ELIMINADO"
     },
     "d0fed25d": {
       "source_sha256": "93e40940ade6f35e1aaf97ea9e64ff2c06eed5b231f31056eb729882a113e82f",
@@ -8241,9 +9261,17 @@
       "source_sha256": "9d6dacb26ccbd812651fde9cb63f87193f11a3f57f97ec8c70081d906fb813fb",
       "translation": "Deseja consertar o veículo antes de REINICIAR? Todo o progresso atual será perdido."
     },
+    "d18484e6": {
+      "source_sha256": "90fe788dc4a4ffa872655163fa86e59201a8b426ab349565a03716aa6791eaab",
+      "translation": "DESPISTE ESSES CARAS!"
+    },
     "d1b0c17c": {
       "source_sha256": "3c6dbc3bc37e7e6472335e01fcc938468ac4597085625fe00656ecc394b71e1c",
       "translation": "TORNEIO"
+    },
+    "d1b55414": {
+      "source_sha256": "a14f0290309e1d8c6f97b6ed583a92948706c0e06c1b11f79820e9172835f811",
+      "translation": "Você precisa comprar o conteúdo adicional para comprar este veículo."
     },
     "d1b5881d": {
       "source_sha256": "9c7918ff20d664c98cb44d4a88fbca0d4170b5860393ab7ce64d2234306baca6",
@@ -8293,6 +9321,10 @@
       "source_sha256": "86f56fe8221f029db2c9755cc998669a7d873c32bfa83bc9431bafe0bb814400",
       "translation": "AVISO"
     },
+    "d31d2e21": {
+      "source_sha256": "9819694337762d622ea2347e7460df15eea2b50b84866421398fc6eb5e5ca729",
+      "translation": "PRÓXIMO ALVO - CENTURY CITY"
+    },
     "d32c8f47": {
       "source_sha256": "4ac215f86654a0ecba7cd59e774d3101a9aaeff6a9d02f881d592f26c236b426",
       "translation": "PRÓXIMA CORRIDA DA SÉRIE"
@@ -8308,6 +9340,10 @@
     "d3a5514f": {
       "source_sha256": "6276cd17acb53884514b9ac38ab79746b5974e9600d0f930942b94ada54126e3",
       "translation": "ELETRÔNICA"
+    },
+    "d3d84af2": {
+      "source_sha256": "56bf82f0ab58f7f7216c70f4634d9aa1c54f5e33fccbc35c275a7357fd65dd76",
+      "translation": "Erro de arquivo: arquivo não encontrado"
     },
     "d4192bbb": {
       "source_sha256": "3166637b96f60b40cf61b45d4b92bee61cad9794fbda79c30f17544aefcf562a",
@@ -8332,6 +9368,10 @@
     "d474dcfa": {
       "source_sha256": "4ec19e8842c16a2790439466bdebde9c9d8754bdea80f3830fe834a1eadef1da",
       "translation": "TOTAL DE VITÓRIAS"
+    },
+    "d4b47e23": {
+      "source_sha256": "2b8c5323bae882d0e19354aa3763e55addeb1a0ae8abad1f1922c25a6eda68e4",
+      "translation": "Seu veículo foi destruído. Você precisará consertá-lo."
     },
     "d4d0c04c": {
       "source_sha256": "a6e0cde948de4abcb3965eb870535e7011ca05f71b5c4f2a5758026d8831ca81",
@@ -8473,6 +9513,10 @@
       "source_sha256": "b9a75cf5f9b928144d74aaaec18162ba41d14ddfd01826f41d7ba871861d6c96",
       "translation": "NÃO ESQUEÇA! GANHA QUEM VENCER DUAS CORRIDAS. VÁ PARA A OCEAN AVE."
     },
+    "d884d570": {
+      "source_sha256": "5e97c8c6e552c02014725c54cf1697a997cc9611453ddf8576be2fc129e32b45",
+      "translation": "PISQUE OS FAROIS PARA SE ENCONTRAR NA LARGADA"
+    },
     "d886e93d": {
       "source_sha256": "8eee6cf2b9d44a3cc7ce770f39e9d17d09ed6e2351f081161a6b151fb87943e0",
       "translation": "VENÇA O TORNEIO"
@@ -8484,6 +9528,14 @@
     "d8d5627c": {
       "source_sha256": "edf476f68bc935ef3c6b0e43bdf442fc06905f7fa5ad8bb9ad475cffaac610fc",
       "translation": "REVEZAMENTO EM DUPLA"
+    },
+    "d91e0b87": {
+      "source_sha256": "ef23643747c2933300116eb9c0e8d6f6d8546a1fe38ee0c6900cec18458c0450",
+      "translation": "Selecione uma foto para ver."
+    },
+    "d944179e": {
+      "source_sha256": "0a71910af60d6e0dc0275d2f9837952d9a2f1b8bac0181ee10fb1ddfaa39edf5",
+      "translation": "MOTOR ESPORTIVO"
     },
     "d94f9dae": {
       "source_sha256": "eaa589322731009980d99891b5c7850ac5172dda7cdf73a533ab403332d7e944",
@@ -8525,6 +9577,10 @@
       "source_sha256": "7e16a044a4b6a85ab3c777691e2d93023e354d128645e7e44d2f91e02d4d762f",
       "translation": "ESPAÇO 7"
     },
+    "daa7b138": {
+      "source_sha256": "7b336b9d61e277e66994270299d915927c36e9426066f451bf5803c44703254d",
+      "translation": "PRÓXIMA MÚSICA"
+    },
     "daa9408b": {
       "source_sha256": "e00cad5ab41c758a86b902a1f4caf8897d65d08630686e4c0f987354a7ed987c",
       "translation": "KAROL indica um mecânico de South Central. Ele é um velho amigo que conhece bem as corridas da região."
@@ -8544,6 +9600,14 @@
     "db5994c7": {
       "source_sha256": "fd6502ea318df139a74492b2f6aaf3ff968df4251bca720c9c0b7690450bd18a",
       "translation": "RESULTADOS DA ENTREGA"
+    },
+    "db679472": {
+      "source_sha256": "9fe2f2439f81f8c8435798370ff4c243250824b0ba4e9639369412db9a60c1e8",
+      "translation": "Remover?"
+    },
+    "db701360": {
+      "source_sha256": "217e4f94434d0274021940a572fda8bdba6fd8eb3a3d16e57e7d8e1de181620b",
+      "translation": "VER FOTO"
     },
     "db9bbf5f": {
       "source_sha256": "02b41b73f655bc839aacf108e560ec7ef34c68cd618c4519843740553df15bdb",
@@ -8613,6 +9677,10 @@
       "source_sha256": "baf1cdc4f3c9da7e73f92e6f9d8bb7cab38f19d70ee440e0f1a1bc8807049e94",
       "translation": "MISSÕES"
     },
+    "dcfad440": {
+      "source_sha256": "ece754d5931ebc766f83bd848395d0eb9c99c947fc3f9e42462e5932173e2df8",
+      "translation": "AJUSTES DO JOGO"
+    },
     "dcfdac55": {
       "source_sha256": "99f48b1315391d37e35c02725ba52ce1092e121dc09ad4663cf7be00d9519685",
       "translation": "ESTATÍSTICAS DA CARREIRA"
@@ -8652,6 +9720,10 @@
     "ddb9ac46": {
       "source_sha256": "ef18aeb53302a2a2e76c424a24df8412fed51afd6a13b6a19662804eb041247f",
       "translation": "4 DE 4"
+    },
+    "ddc05016": {
+      "source_sha256": "493c30eb8e3fb4d651c117af77f91b28bd71c1f43172bb77159ded3905a7728d",
+      "translation": "3º"
     },
     "ddc9f865": {
       "source_sha256": "f35057967f2e296038b88ec62684ec5193d2661e1c1ea89976cbfa10d757cb83",
@@ -8709,6 +9781,10 @@
       "source_sha256": "5a8a8db67174bfd46f0783d010b9bc1fe78b40127f601c61ac2936f6fefddaad",
       "translation": "VAMOS CORRER COM MUSCLE CARS NA OCEAN AVE., EM SANTA MONICA."
     },
+    "df7c82e0": {
+      "source_sha256": "50d3f884e82e94e02de94c3ae8c6cc3ee0bb4335b3ad27e6c50ff4e4071fc0e3",
+      "translation": "MÚSICA PAUSADA"
+    },
     "df854014": {
       "source_sha256": "0da82f4bf5eeec94a02781a5659e9380ee205c1522d1188b342aeddf5159243c",
       "translation": "QUEIJO EM DOBRO"
@@ -8756,6 +9832,14 @@
     "e0c9886d": {
       "source_sha256": "b8e3ab9e56a2c907b5f1c1234a1a726cd035363f01ab78473e60d1548ce142e1",
       "translation": "VAMOS CORRER DE MOTO NAS COLINAS."
+    },
+    "e0d4b4ce": {
+      "source_sha256": "16b7940e30c20d40fbf33678ab8eba9d289148d7932dd3fa8c6d92cdf9947b17",
+      "translation": "MELHOR"
+    },
+    "e0dffd93": {
+      "source_sha256": "187bc35d95a3ee0456d9f11f522a8712f35216b6df46db2c7330566c4f2e9486",
+      "translation": "SÓ MOTOS"
     },
     "e110bf2e": {
       "source_sha256": "53af7e38d5c0bb01ff5a30baed4361f8e717ce729b77fbeafa1f051fdd8431ff",
@@ -8821,6 +9905,10 @@
       "source_sha256": "f5fd62fe0af28c6203a6e6fa691f56971a742cb7f44a75c758dbdfd163509e70",
       "translation": "CARRINHO"
     },
+    "e2138618": {
+      "source_sha256": "4a789399d672863a9f832d1bcf97c2f6678fc3f16fda068bd5827d878cef0cbb",
+      "translation": "REPARO COMPLETO"
+    },
     "e25df9ab": {
       "source_sha256": "23794d91c53ae875c8e247d72561e35d9d06ee07c70c9e0dbcc977a6d161504a",
       "translation": "NÃO"
@@ -8881,6 +9969,10 @@
       "source_sha256": "e6205bc8ab80302276cc2b94e571d9aeafa567c0517146ac4396a4f6a8cead1a",
       "translation": "MOVER MAPA"
     },
+    "e40052b3": {
+      "source_sha256": "c4c281e3bb146361915039acc0753db5b1592e61791227d05821cb242ce8857a",
+      "translation": "VER OS MELHORES"
+    },
     "e406494a": {
       "source_sha256": "e4efc0edc02146a5c69f89f2677615b9756c3916047c10e77be8e171512dee0b",
       "translation": "QUANDO PUDER, ENCONTRE DOC NA OFICINA DELE EM SOUTH CENTRAL."
@@ -8917,6 +10009,10 @@
       "source_sha256": "0358881d46dc2394d6fa00ca2742241b7431c55010d5e1eabd0d244bea0b5998",
       "translation": "CORRIDA COM CHECKPOINTS"
     },
+    "e4aa513b": {
+      "source_sha256": "ab61f5f9c735ad442d99a7ea45b5d09965439c87cb26ffc08e3009e6a91d1d62",
+      "translation": "PRÓXIMO ALVO - OLD HOLLYWOOD"
+    },
     "e4bc9f69": {
       "source_sha256": "38fa0c0bb1f500d072f81b2affbd7ac7ae0c42a3b270e4d012febdac8852f3a9",
       "translation": "VOLTAR AO MODO LIVRE"
@@ -8944,6 +10040,10 @@
     "e527585e": {
       "source_sha256": "ee473847f1ac4a3aaa57412026a0f2478e8c06b2cfcea4a17cd0e545cf314293",
       "translation": "GRUPO 1: DESEMPENHO NÍVEL 1"
+    },
+    "e541c4f1": {
+      "source_sha256": "1ed0d64815b1cbd9f5a5dd6acd6d1bf31555cab4229499f4b3c3d98f5f3199de",
+      "translation": "FAIXA BRANCA"
     },
     "e5538589": {
       "source_sha256": "d35ec8fcfe8ae5940f73072d24da84aa383a46e42e69a561d6f3f5ed6c978024",
@@ -9001,9 +10101,17 @@
       "source_sha256": "3f254d4afb3139b4ca67ffcda73bb797bc9e77be29982397d219da7b8111bc68",
       "translation": "1 DE 4"
     },
+    "e66a44b2": {
+      "source_sha256": "8f6ff419013d077d5ab2d229368608daf4c92b1cbcd4054d34c553b81fd71a55",
+      "translation": "NOVO MELHOR TEMPO"
+    },
     "e66bfa91": {
       "source_sha256": "a256492f962afb0a33c6727c3f85cf9aae6cb860a1892ad2beea059f8ec7e0cc",
       "translation": "DESAFIO DE CORRIDA"
+    },
+    "e66e511f": {
+      "source_sha256": "eb2570a719682e2ce12687749f3317006a02316c4b91693ecccfd7300ab06152",
+      "translation": "Corridas favoritas são as que você salvou. Você pode adicionar e remover corridas no menu de pausa."
     },
     "e6783203": {
       "source_sha256": "3397886a301e6d85eba6bb6635ffdf8e558f80b0b69f81d95d5b2ed5d032d5fd",
@@ -9028,6 +10136,10 @@
     "e6e5b848": {
       "source_sha256": "8eee6cf2b9d44a3cc7ce770f39e9d17d09ed6e2351f081161a6b151fb87943e0",
       "translation": "VENÇA O TORNEIO"
+    },
+    "e70b02d9": {
+      "source_sha256": "c4e0800bca0e360b51a09b83312e75a8127c76406ca6a21df15af6e3d52a860a",
+      "translation": "PEGO!"
     },
     "e70c24c5": {
       "source_sha256": "d4c78b6b67fc77e3a7a11a19ecbf0e87990f30232c75feed0a25a0949da8c38b",
@@ -9161,9 +10273,17 @@
       "source_sha256": "fffe2ec6126559325fd8bf64319f172d100dda225e9bae4a0ff4273aedd13543",
       "translation": "VITÓRIAS EM RODOVIAS"
     },
+    "e9fc9262": {
+      "source_sha256": "0ecba1370ba1753f1ec67acb1e297f01ea8f8bfb984636436f6c4576771b0f28",
+      "translation": "ADICIONAR"
+    },
     "ea1ae51e": {
       "source_sha256": "e2436461c1b416dd414b9288f2d267ed036580d8e1556bf96c69861e5fc11752",
       "translation": "ABERTURA VERTICAL"
+    },
+    "ea8fab91": {
+      "source_sha256": "0a63347851e2eb9068176f5407acfe2b7cdf084430f24febe50b2c87b3ce269f",
+      "translation": "VER OPÇÕES"
     },
     "ea9fdb27": {
       "source_sha256": "43a35b8b789a4f259397bbbbed9444e3a732482e0ef2e99066fe2c9babd955b9",
@@ -9192,6 +10312,10 @@
     "eb132fb7": {
       "source_sha256": "67e3604183c7a717d8332e723511df4b18d7509371fe171a119f32e665bfbcbf",
       "translation": "SAIR DO EDITOR DE CORRIDAS"
+    },
+    "eb17e20a": {
+      "source_sha256": "22a495e62ecc1410ffc7a8adb80da2e6fb3e2974e04d5b0f1b74aeab50f3c472",
+      "translation": "BOA! PAGAMENTO RECEBIDO: $ <D>PB_AMOUNT</D>"
     },
     "eb219949": {
       "source_sha256": "742511c69d20d7c17047434a1b781585cbe07533b4f27e6764b2fa31d2307eb0",
@@ -9269,6 +10393,10 @@
       "source_sha256": "1fdaf780355e193afd938f50710aae4bb0cf14a02733f87fca5d5db7b9c06fd0",
       "translation": "BATERAM SEU TEMPO NO CENTRO. VENÇA O RECORDE ATUAL E GANHE UM 3000 GT 1999."
     },
+    "ec06e742": {
+      "source_sha256": "340512ee9d2561a345c60f1979b65ead6fc9b4ed4915417093d29ec6599ddcdb",
+      "translation": "ESPAÇOS PRIVADOS"
+    },
     "ec1c1de9": {
       "source_sha256": "73bfb0b10ea6b04af39c2bad20d5296a9e1fd6f844dd78a91553b217eae04aa5",
       "translation": "NÃO TERMINOU"
@@ -9308,6 +10436,10 @@
     "ecfc692d": {
       "source_sha256": "7f8044754359068a691fbe3df5890cd4ba437dacf8b9f82eef25de10f448d71c",
       "translation": "VENÇA 6 CORRIDAS EM DOWNTOWN"
+    },
+    "ed00a767": {
+      "source_sha256": "0d803f278f12a627d2ea857499a3477806f3b3f0a3e01df2209a9c8e01c4a165",
+      "translation": "PARCIALMENTE NUBLADO"
     },
     "ed152e4b": {
       "source_sha256": "d450407cb2c103e83ac9c969ec60bf6bac4021cf20b07267936649561f4cd717",
@@ -9381,6 +10513,10 @@
       "source_sha256": "c1d04bd0bf4f663dbd991d922cf462aad38026ff829cd4a8f95fcbd98cc5aed8",
       "translation": "CONTINUAR TORNEIO"
     },
+    "ee97a55c": {
+      "source_sha256": "03ba8901463bb244c11435858bcf5fbcd165b2805b96a50afddcd0f481628863",
+      "translation": "VAMOS CORRER. VOCÊ ESCOLHE O LOCAL."
+    },
     "ee9a6930": {
       "source_sha256": "53af7e38d5c0bb01ff5a30baed4361f8e717ce729b77fbeafa1f051fdd8431ff",
       "translation": "EDITOR DE CORRIDAS"
@@ -9437,6 +10573,10 @@
       "source_sha256": "3105d868bce3c4bfc244a690b9cd562feb782a6dbcc2812374d4cc8e84524f01",
       "translation": "O controle Xbox 360 foi desconectado. Verifique a conexão do controle."
     },
+    "ef51e8c3": {
+      "source_sha256": "763be60b06a8c062b3669717fc35e366749fc6fd5c4e1cafca6b1648ce18ad69",
+      "translation": "HORA DO DIA"
+    },
     "efea8962": {
       "source_sha256": "c535390b8f61c4d8b1ffbe6986c200ce63336cadf58a13206bb01eb71814c4ec",
       "translation": "CHECKPOINTS EM ORDEM LIVRE"
@@ -9485,6 +10625,10 @@
       "source_sha256": "b2a8578bcec0ebe507c94de257a1b6fa487d6b58efb5561a0ebfdfcf732d3455",
       "translation": "TORNEIO VENCIDO"
     },
+    "f113cc07": {
+      "source_sha256": "9f9bdd82a440e75a87ab144849649f70288201421c45747aa81909a28311fee6",
+      "translation": "COLAR"
+    },
     "f115c743": {
       "source_sha256": "f762a9b2166edc15f82382fea07e39d3cbe9d94369084abad4d1af8d15f4cf8f",
       "translation": "VAMOS DISPUTAR UMA MELHOR DE 3 NO CENTRO."
@@ -9525,6 +10669,10 @@
       "source_sha256": "e00cc19951edbe8bbb9a756d9df21b26f5f68fd5d1c11ec67f7d7bdf60957faf",
       "translation": "OSWALDO se diz o campeão das motos. Sua Ninja é uma das mais rápidas da cidade. Desafie-o de moto na Mulholland Dr."
     },
+    "f2435ba3": {
+      "source_sha256": "a42f670c100dd330b2091ffaf06dd4886fb308b3052cf562789470f15ebafc7d",
+      "translation": "MOTO ESPORTIVA"
+    },
     "f243eb99": {
       "source_sha256": "24deeb2194194260136bd81c9bb6f5a67d5d325a42b525bdc52e7ac3d4601c8f",
       "translation": "ZONE"
@@ -9532,6 +10680,10 @@
     "f246ccce": {
       "source_sha256": "0279f8628acd4a1ae9b6471fa643552645961c2245ab77d0165a99d3bf90bc97",
       "translation": "PROPOR DESAFIO"
+    },
+    "f25fa527": {
+      "source_sha256": "58da3a554c5be893ce9dda693effdfd789b54f07115e6f4ad86dc29a453b5409",
+      "translation": "LETRAS BRANCAS"
     },
     "f2ed794b": {
       "source_sha256": "e898e370aa71eb1ec790d411a9bbaf526465b2bca6033f65eaef39ab3a2cab3b",
@@ -9545,9 +10697,17 @@
       "source_sha256": "89a89a577311b1dda02ba54dbab54f9c063835c3ca4257071d1de7b84247e04c",
       "translation": "VENÇA APOSTAS EM SANTA MONICA."
     },
+    "f32c61ca": {
+      "source_sha256": "a7d72442894a8d4c885be793d96bef28ecd6921ad167a6fa1b30cfd762a94082",
+      "translation": "MUDAR ESTILO DE CONTROLE"
+    },
     "f33185d0": {
       "source_sha256": "8770406c06d0faf5f209327d07574d480b5d0a5d24a09a6ba0d883ba4a61c52e",
       "translation": "Nenhum save de Midnight Club: Los Angeles foi encontrado. O que deseja fazer?"
+    },
+    "f348a713": {
+      "source_sha256": "1732ef2228a07d422cb5589b383c794764eac4863680207aa7d9bf4eac9382ee",
+      "translation": "SAIR"
     },
     "f36d8f64": {
       "source_sha256": "32926481af2ba97a3aaaf7fc10d8b06b80f85b642fa7dbce7d6a0667fc926de1",
@@ -9581,6 +10741,10 @@
       "source_sha256": "1e9de5ba0f98217e59c52d3da3094480c4f20602a623c9ebff704e3ee507d429",
       "translation": "PLACAS"
     },
+    "f3fcdf0a": {
+      "source_sha256": "3cfee73659e51d44fe4288f400e994db3950d79bd65856e093bfcd0a411b1679",
+      "translation": "CHUVOSO"
+    },
     "f40abc92": {
       "source_sha256": "7886016c640975f8362f7bb792dd26be3af962887943f1a28658d0c4c52a8fe7",
       "translation": "ALTERAR"
@@ -9592,6 +10756,14 @@
     "f4255ed6": {
       "source_sha256": "f384d52c66944f7f95c6305e7b2d2a93fa7d333c0c745b343b462eaf0708c060",
       "translation": "NIKOLAI, amigo de BOOKE, quer correr na Sunset Strip com seu Camaro SS 1969. Quem vencer a melhor de três fica com o Camaro."
+    },
+    "f44d0e20": {
+      "source_sha256": "7247e507fbf9ffddcacfed583e9be81ce26f55cd12e0c4d04baa33de393b58c7",
+      "translation": "8º LUGAR"
+    },
+    "f455654e": {
+      "source_sha256": "37666b8030487b59b9deb4687c579f1bddc23a6fa56bdc96d3d9dcf7454a003e",
+      "translation": "LIMITE DE DANO EXCEDIDO"
     },
     "f4576e53": {
       "source_sha256": "eea0966a83a0e2be2f7166efc74295c0485fc6a68b6f97a3b9654480b6baef50",
@@ -9697,6 +10869,10 @@
       "source_sha256": "ef2080a91f14e381063d1cee765454d598b3d4ab4f9c841adfea55d2c10bf8b8",
       "translation": "BUSCANDO TORNEIO"
     },
+    "f6b8f558": {
+      "source_sha256": "5f96d7d6500b5a15ec729ff64da844cf4ec44afb81df304d2c487012fc9b4653",
+      "translation": "PRÓXIMO ALVO - WEST HOLLYWOOD"
+    },
     "f6b934d1": {
       "source_sha256": "c595d6aa7128a7d7807cc0496d7f07b5a5a587d6b47b00ff482d4411fbc16e49",
       "translation": "CHEGARAM NOVOS VEÍCULOS AO CONTRARRELÓGIO DE SOUTH CENTRAL. VÁ BATER NOVOS RECORDES."
@@ -9776,6 +10952,10 @@
     "f8029ac4": {
       "source_sha256": "13835088718f17af8887b02c53d687bfbccda642ff08f13b49be419183a9d756",
       "translation": "VIATURA POLICIAL"
+    },
+    "f81afa61": {
+      "source_sha256": "37666b8030487b59b9deb4687c579f1bddc23a6fa56bdc96d3d9dcf7454a003e",
+      "translation": "LIMITE DE DANO EXCEDIDO"
     },
     "f849c309": {
       "source_sha256": "a950a380a0eafdd1d45d6a806c5fa8171a5bc0d6d205cdbec395611e2f1d45b3",
@@ -9857,6 +11037,10 @@
       "source_sha256": "0fc4d0c29c8b3d37663a61a656e44e8d1955610fed038528ea9a109aca200969",
       "translation": "PONTO DE ENCONTRO"
     },
+    "fa13d3cb": {
+      "source_sha256": "4fffd6d03f2004a7b21179eda4c584fe981f618811923b3b2aca7e1a9cfbaae5",
+      "translation": "ATUALIZAR LISTA"
+    },
     "fa1c845f": {
       "source_sha256": "5c7d13f7449c2448b520638b1f8dd3257a899ff584aa6cb0805f0fef3d388474",
       "translation": "ALTERNAR CÂMERA"
@@ -9924,6 +11108,10 @@
     "fb816495": {
       "source_sha256": "ad1ac285a297379e4c2ce129b2ce9bea1f6bd455968f436a83fd6b37c9b2491b",
       "translation": "O que deseja ajustar?"
+    },
+    "fbd2f3e6": {
+      "source_sha256": "f1511c0ca478f3eff172d71d80717724ae3e92d856f8d2f89b20ac220547a808",
+      "translation": "ESTE VEÍCULO NÃO ESTÁ À VENDA."
     },
     "fc0a5851": {
       "source_sha256": "0ce770318c438ba39fa6bab8cb1ada4861faa15ee9df6449680aef202a6062ed",
@@ -9997,6 +11185,10 @@
       "source_sha256": "99f48b1315391d37e35c02725ba52ce1092e121dc09ad4663cf7be00d9519685",
       "translation": "ESTATÍSTICAS DA CARREIRA"
     },
+    "fddca370": {
+      "source_sha256": "6efb1c6ec4447e4c59231341213de4054659e3109767cb19978ccefb5ee2080b",
+      "translation": "AMANHECER"
+    },
     "fe384cbe": {
       "source_sha256": "86f56fe8221f029db2c9755cc998669a7d873c32bfa83bc9431bafe0bb814400",
       "translation": "AVISO"
@@ -10016,6 +11208,14 @@
     "fe99b7ae": {
       "source_sha256": "2c380d7ea4613e5e929822a65afc1bcae6386a313ba006e08b4f8ddf23f49a0b",
       "translation": "Deseja reparar seu veículo antes de sair? O progresso atual será perdido."
+    },
+    "fe9f11bb": {
+      "source_sha256": "aeed4d26bb5f0c312bc8a9ee9ce362899252110089263414690ae7b5d6625427",
+      "translation": "Iniciando"
+    },
+    "fea5b538": {
+      "source_sha256": "b07316df88ab878055b7b246ab1e2e510075a1cf970d045f28d894b6495dc7b4",
+      "translation": "CONTROLES NÃO ATRIBUÍDOS"
     },
     "fed6914a": {
       "source_sha256": "6408784e90921223c1a96a442ff1cd72de3d692ced3032f02d401eeed177d936",
@@ -10037,9 +11237,17 @@
       "source_sha256": "2887816187c337b60d183eb6638afe29e497a2b237a606d66867d3a293f16b0c",
       "translation": "3 DE 5"
     },
+    "fef6484c": {
+      "source_sha256": "fc1fca1cbacb02b337f6626771fdd9113d82cb01ad52a85586aa131e5d8cba5d",
+      "translation": "COLECIONÁVEL <D>NUM_COLLECTABLE_COLLECTED</D> DE 60 ENCONTRADO"
+    },
     "fefe27b2": {
       "source_sha256": "3769edc3696bdb51cfc73984060eb26b3d254975f0892509fe216e4ab443e98c",
       "translation": "NÃO ESQUEÇA. ESTOU NA CRENSHAW."
+    },
+    "ff3c23fe": {
+      "source_sha256": "e65885e0bf07a4682bb9b40626d23992705a9746a8f812f548f997b9394433f6",
+      "translation": "5º LUGAR"
     },
     "ff3c76d6": {
       "source_sha256": "f714099292d777510026ce06d05e5107eea90a1961363093267a5d4b90b5ad89",

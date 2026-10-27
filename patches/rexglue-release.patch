@@ -1279,7 +1279,7 @@ index da8e432..c5e329a 100644
    virtual void PrepareForWait();
    virtual void ReturnFromWait();
 diff --git a/include/rex/graphics/d3d12/command_processor.h b/include/rex/graphics/d3d12/command_processor.h
-index 96d362b..13c4af8 100644
+index 96d362b..72d566b 100644
 --- a/include/rex/graphics/d3d12/command_processor.h
 +++ b/include/rex/graphics/d3d12/command_processor.h
 @@ -14,8 +14,10 @@
@@ -1549,6 +1549,14 @@ index 96d362b..13c4af8 100644
  
    struct FxaaConstants {
      uint32_t size[2];
+@@ -603,6 +784,7 @@ class D3D12CommandProcessor : public CommandProcessor {
+     uint32_t pixel_size_log2;
+     uint32_t tile_count;
+     uint32_t half_pixel_offset;
++    uint32_t box_filter;
+   };
+   enum class ResolveDownscaleRootParameter : UINT {
+     kConstants,
 diff --git a/include/rex/graphics/d3d12/deferred_command_list.h b/include/rex/graphics/d3d12/deferred_command_list.h
 index 7f1eb7f..9dd18f3 100644
 --- a/include/rex/graphics/d3d12/deferred_command_list.h
@@ -2078,7 +2086,7 @@ index 4d845c7..376f779 100644
  
  }  // namespace rex::graphics::d3d12
 diff --git a/include/rex/graphics/flags.h b/include/rex/graphics/flags.h
-index 2cf24c4..9e98ea8 100644
+index 2cf24c4..bb7df45 100644
 --- a/include/rex/graphics/flags.h
 +++ b/include/rex/graphics/flags.h
 @@ -18,6 +18,8 @@ REXCVAR_DECLARE(bool, vsync);
@@ -2090,7 +2098,15 @@ index 2cf24c4..9e98ea8 100644
  
  // GPU Resolution / Readback / Queries
  REXCVAR_DECLARE(int32_t, resolution_scale);
-@@ -43,6 +45,7 @@ REXCVAR_DECLARE(bool, native_2x_msaa);
+@@ -27,6 +29,7 @@ REXCVAR_DECLARE(bool, resolve_resolution_scale_fill_half_pixel_offset);
+ REXCVAR_DECLARE(bool, draw_resolution_scaled_texture_offsets);
+ REXCVAR_DECLARE(std::string, readback_resolve);
+ REXCVAR_DECLARE(bool, readback_resolve_half_pixel_offset);
++REXCVAR_DECLARE(bool, readback_resolve_box_filter);
+ REXCVAR_DECLARE(bool, readback_memexport);
+ REXCVAR_DECLARE(bool, readback_memexport_fast);
+ REXCVAR_DECLARE(bool, occlusion_query_enable);
+@@ -43,6 +46,7 @@ REXCVAR_DECLARE(bool, native_2x_msaa);
  REXCVAR_DECLARE(bool, snorm16_render_target_full_range);
  REXCVAR_DECLARE(bool, mrt_edram_used_range_clamp_to_min);
  REXCVAR_DECLARE(bool, direct_host_resolve);
@@ -7483,7 +7499,7 @@ index 0d8f8af..fd40b4a 100644
      target_link_libraries(rexgpu-xenos PRIVATE
          d3d12
 diff --git a/src/graphics/command_processor.cpp b/src/graphics/command_processor.cpp
-index a744375..cbfa3c2 100644
+index a744375..b320c4b 100644
 --- a/src/graphics/command_processor.cpp
 +++ b/src/graphics/command_processor.cpp
 @@ -25,6 +25,8 @@
@@ -7538,7 +7554,20 @@ index a744375..cbfa3c2 100644
  
  REXCVAR_DEFINE_BOOL(clear_memory_page_state, true, "GPU",
                      "Refresh page-valid state from GPU-written memory at frame end. "
-@@ -80,6 +116,21 @@ REXCVAR_DEFINE_BOOL(async_shader_compilation, true, "GPU",
+@@ -59,6 +95,12 @@ REXCVAR_DEFINE_BOOL(readback_resolve_half_pixel_offset, false, "GPU",
+                     "scaled block during resolve readback downscale")
+     .lifecycle(rex::cvar::Lifecycle::kHotReload);
+ 
++REXCVAR_DEFINE_BOOL(readback_resolve_box_filter, false, "GPU",
++                    "When draw resolution scaling is active, average the samples of each "
++                    "scaled block (8-bit-per-channel formats only) during resolve readback "
++                    "downscale instead of picking one of them, avoiding aliasing")
++    .lifecycle(rex::cvar::Lifecycle::kHotReload);
++
+ REXCVAR_DEFINE_BOOL(readback_memexport, true, "GPU",
+                     "Enable CPU readback of shader memexport writes for guest memory "
+                     "coherency (can reduce correctness issues, but may add GPU/CPU sync cost)")
+@@ -80,6 +122,21 @@ REXCVAR_DEFINE_BOOL(async_shader_compilation, true, "GPU",
                      "pipelines are being prepared.")
      .lifecycle(rex::cvar::Lifecycle::kHotReload);
  
@@ -7560,7 +7589,7 @@ index a744375..cbfa3c2 100644
  namespace rex::graphics {
  
  using namespace rex::graphics::xenos;
-@@ -355,10 +406,21 @@ void CommandProcessor::WriteRegister(uint32_t index, uint32_t value) {
+@@ -355,10 +412,21 @@ void CommandProcessor::WriteRegister(uint32_t index, uint32_t value) {
  
    // Volatile for the WAIT_REG_MEM loop.
    const_cast<volatile uint32_t&>(regs.values[index]) = value;
@@ -7571,18 +7600,18 @@ index a744375..cbfa3c2 100644
      REXGPU_DEBUG("GPU: Write to unknown register ({:04X} = {:08X})", index, value);
    }
 +#endif
- 
++
 +  if (!REXCVAR_GET(gpu_regwrite_bulk) || IsSpecialRegister(index)) {
 +    HandleSpecialRegisterWrite(index, value);
 +  }
 +}
-+
+ 
 +void CommandProcessor::HandleSpecialRegisterWrite(uint32_t index, uint32_t value) {
 +  RegisterFile& regs = *register_file_;
    // Scratch register writeback.
    if (index >= XE_GPU_REG_SCRATCH_REG0 && index <= XE_GPU_REG_SCRATCH_REG7) {
      uint32_t scratch_reg = index - XE_GPU_REG_SCRATCH_REG0;
-@@ -702,6 +764,13 @@ bool CommandProcessor::ExecutePacketType0(memory::RingBuffer* reader, uint32_t p
+@@ -702,6 +770,13 @@ bool CommandProcessor::ExecutePacketType0(memory::RingBuffer* reader, uint32_t p
  
    uint32_t base_index = (packet & 0x7FFF);
    uint32_t write_one_reg = (packet >> 15) & 0x1;
@@ -7596,7 +7625,7 @@ index a744375..cbfa3c2 100644
    for (uint32_t m = 0; m < count; m++) {
      uint32_t reg_data = reader->ReadAndSwap<uint32_t>();
      uint32_t target_index = write_one_reg ? base_index : base_index + m;
-@@ -906,6 +975,17 @@ bool CommandProcessor::ExecutePacketType3_NOP(memory::RingBuffer* reader, uint32
+@@ -906,6 +981,17 @@ bool CommandProcessor::ExecutePacketType3_NOP(memory::RingBuffer* reader, uint32
                                                uint32_t count) {
    // skip N 32-bit words to get to the next packet
    // No-op, ignore some data.
@@ -7614,7 +7643,7 @@ index a744375..cbfa3c2 100644
    reader->AdvanceRead(count * sizeof(uint32_t));
    return true;
  }
-@@ -942,6 +1022,8 @@ bool CommandProcessor::ExecutePacketType3_XE_SWAP(memory::RingBuffer* reader, ui
+@@ -942,6 +1028,8 @@ bool CommandProcessor::ExecutePacketType3_XE_SWAP(memory::RingBuffer* reader, ui
      }
      last_frame_tick = now;
    }
@@ -7623,7 +7652,7 @@ index a744375..cbfa3c2 100644
  #endif
    rex::perf::Profiler::Flip();
  
-@@ -958,12 +1040,646 @@ bool CommandProcessor::ExecutePacketType3_XE_SWAP(memory::RingBuffer* reader, ui
+@@ -958,12 +1046,646 @@ bool CommandProcessor::ExecutePacketType3_XE_SWAP(memory::RingBuffer* reader, ui
    uint32_t frontbuffer_height = reader->ReadAndSwap<uint32_t>();
    reader->AdvanceRead((count - 4) * sizeof(uint32_t));
  
@@ -8270,7 +8299,7 @@ index a744375..cbfa3c2 100644
  bool CommandProcessor::ExecutePacketType3_INDIRECT_BUFFER(memory::RingBuffer* reader,
                                                            uint32_t packet, uint32_t count) {
    // indirect buffer dispatch
-@@ -1378,8 +2094,20 @@ bool CommandProcessor::ExecutePacketType3Draw(memory::RingBuffer* reader, uint32
+@@ -1378,8 +2100,20 @@ bool CommandProcessor::ExecutePacketType3Draw(memory::RingBuffer* reader, uint32
  
        bool major_mode_explicit =
            xenos::IsMajorModeExplicit(vgt_draw_initiator.major_mode, vgt_draw_initiator.prim_type);
@@ -8292,7 +8321,7 @@ index a744375..cbfa3c2 100644
          auto vgt_output_path_cntl = register_file_->Get<reg::VGT_OUTPUT_PATH_CNTL>();
          auto vgt_hos_cntl = register_file_->Get<reg::VGT_HOS_CNTL>();
 diff --git a/src/graphics/d3d12/command_processor.cpp b/src/graphics/d3d12/command_processor.cpp
-index 19874a5..980cbf7 100644
+index 19874a5..9a4f316 100644
 --- a/src/graphics/d3d12/command_processor.cpp
 +++ b/src/graphics/d3d12/command_processor.cpp
 @@ -10,6 +10,7 @@
@@ -9380,7 +9409,20 @@ index 19874a5..980cbf7 100644
    return true;
  }
  
-@@ -3117,7 +3971,7 @@ void D3D12CommandProcessor::CheckSubmissionFence(uint64_t await_submission) {
+@@ -3042,6 +3896,12 @@ bool D3D12CommandProcessor::IssueCopy_ReadbackResolvePath() {
+                                    (constants.scale_x > 1 || constants.scale_y > 1))
+                                       ? 1u
+                                       : 0u;
++    constants.box_filter =
++        (REXCVAR_GET(readback_resolve_box_filter) &&
++         (copy_dest_info.copy_dest_format == xenos::ColorFormat::k_8_8_8_8 ||
++          copy_dest_info.copy_dest_format == xenos::ColorFormat::k_8_8_8_8_A))
++            ? 1u
++            : 0u;
+     deferred_command_list_.D3DSetComputeRoot32BitConstants(
+         UINT(ResolveDownscaleRootParameter::kConstants), sizeof(constants) / sizeof(uint32_t),
+         &constants, 0);
+@@ -3117,7 +3977,7 @@ void D3D12CommandProcessor::CheckSubmissionFence(uint64_t await_submission) {
        if (SUCCEEDED(direct_queue->Signal(queue_operations_since_submission_fence_, fence_value) &&
                      SUCCEEDED(queue_operations_since_submission_fence_->SetEventOnCompletion(
                          fence_value, fence_completion_event_)))) {
@@ -9389,7 +9431,7 @@ index 19874a5..980cbf7 100644
          WaitForSingleObject(fence_completion_event_, INFINITE);
          queue_operations_done_since_submission_signal_ = false;
        } else {
-@@ -3136,7 +3990,7 @@ void D3D12CommandProcessor::CheckSubmissionFence(uint64_t await_submission) {
+@@ -3136,7 +3996,7 @@ void D3D12CommandProcessor::CheckSubmissionFence(uint64_t await_submission) {
    if (submission_completed_ < await_submission) {
      if (SUCCEEDED(
              submission_fence_->SetEventOnCompletion(await_submission, fence_completion_event_))) {
@@ -9398,7 +9440,7 @@ index 19874a5..980cbf7 100644
        WaitForSingleObject(fence_completion_event_, INFINITE);
        submission_completed_ = submission_fence_->GetCompletedValue();
      }
-@@ -3297,6 +4151,7 @@ bool D3D12CommandProcessor::BeginSubmission(bool is_guest_command) {
+@@ -3297,6 +4157,7 @@ bool D3D12CommandProcessor::BeginSubmission(bool is_guest_command) {
  
    if (!submission_open_) {
      submission_open_ = true;
@@ -9406,7 +9448,7 @@ index 19874a5..980cbf7 100644
  
      // Start a new deferred command list - will submit it to the real one in the
      // end of the submission (when async pipeline creation requests are
-@@ -3331,6 +4186,7 @@ bool D3D12CommandProcessor::BeginSubmission(bool is_guest_command) {
+@@ -3331,6 +4192,7 @@ bool D3D12CommandProcessor::BeginSubmission(bool is_guest_command) {
  
    if (is_opening_frame) {
      frame_open_ = true;
@@ -9414,7 +9456,7 @@ index 19874a5..980cbf7 100644
  
      // Reset bindings that depend on the data stored in the pools.
      std::memset(current_float_constant_map_vertex_, 0, sizeof(current_float_constant_map_vertex_));
-@@ -3423,12 +4279,35 @@ bool D3D12CommandProcessor::EndSubmission(bool is_swap) {
+@@ -3423,12 +4285,35 @@ bool D3D12CommandProcessor::EndSubmission(bool is_swap) {
      // happens between Xenia submissions.
      ID3D12CommandAllocator* command_allocator =
          command_allocator_writable_first_->command_allocator;
@@ -9456,7 +9498,7 @@ index 19874a5..980cbf7 100644
      command_allocator_writable_first_->last_usage_submission = submission_current_;
      if (command_allocator_submitted_last_) {
        command_allocator_submitted_last_->next = command_allocator_writable_first_;
-@@ -3442,7 +4321,7 @@ bool D3D12CommandProcessor::EndSubmission(bool is_swap) {
+@@ -3442,7 +4327,7 @@ bool D3D12CommandProcessor::EndSubmission(bool is_swap) {
        command_allocator_writable_last_ = nullptr;
      }
  
@@ -9465,7 +9507,7 @@ index 19874a5..980cbf7 100644
  
      submission_open_ = false;
  
-@@ -3497,10 +4376,42 @@ bool D3D12CommandProcessor::EndSubmission(bool is_swap) {
+@@ -3497,10 +4382,42 @@ bool D3D12CommandProcessor::EndSubmission(bool is_swap) {
  }
  
  bool D3D12CommandProcessor::CanEndSubmissionImmediately() const {
@@ -9509,7 +9551,7 @@ index 19874a5..980cbf7 100644
    while (command_allocator_submitted_first_) {
      auto next = command_allocator_submitted_first_->next;
      command_allocator_submitted_first_->command_allocator->Release();
-@@ -3640,7 +4551,8 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
+@@ -3640,7 +4557,8 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
        normalized_depth_control.stencil_enable || normalized_depth_control.z_enable;
    if (edram_rov_used && depth_stencil_enabled) {
      for (uint32_t i = 0; i < 4; ++i) {
@@ -9519,7 +9561,7 @@ index 19874a5..980cbf7 100644
            (rt_keep_masks[i][0] != UINT32_MAX || rt_keep_masks[i][1] != UINT32_MAX)) {
          depth_stencil_enabled = false;
          break;
-@@ -3700,6 +4612,30 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
+@@ -3700,6 +4618,30 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
        }
      }
    }
@@ -9550,7 +9592,7 @@ index 19874a5..980cbf7 100644
    if (edram_rov_used && depth_stencil_enabled) {
      flags |= DxbcShaderTranslator::kSysFlag_ROVDepthStencil;
      if (normalized_depth_control.z_enable) {
-@@ -3774,6 +4710,10 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
+@@ -3774,6 +4716,10 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
      }
    }
  
@@ -9561,7 +9603,7 @@ index 19874a5..980cbf7 100644
    // Conversion to Direct3D 12 normalized device coordinates.
    for (uint32_t i = 0; i < 3; ++i) {
      dirty |= system_constants_.ndc_scale[i] != viewport_info.ndc_scale[i];
-@@ -3894,7 +4834,9 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
+@@ -3894,7 +4840,9 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
        dirty |= system_constants_.edram_rt_keep_mask[i][1] != rt_keep_masks[i][1];
        system_constants_.edram_rt_keep_mask[i][1] = rt_keep_masks[i][1];
        if (rt_keep_masks[i][0] != UINT32_MAX || rt_keep_masks[i][1] != UINT32_MAX) {
@@ -9572,7 +9614,7 @@ index 19874a5..980cbf7 100644
          dirty |= system_constants_.edram_rt_base_dwords_scaled[i] != rt_base_dwords_scaled;
          system_constants_.edram_rt_base_dwords_scaled[i] = rt_base_dwords_scaled;
          uint32_t format_flags = RenderTargetCache::AddPSIColorFormatFlags(color_info.color_format);
-@@ -3914,7 +4856,9 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
+@@ -3914,7 +4862,9 @@ void D3D12CommandProcessor::UpdateSystemConstantValues(
    }
  
    if (edram_rov_used) {
@@ -28640,6 +28682,791 @@ index 0000000..711b48b
 +    0x0010002A, 0x00000002, 0x00004001, 0x00010000, 0x0010001A, 0x00000000, 0x09000023, 0x00100022,
 +    0x00000001, 0x0010003A, 0x00000002, 0x00004001, 0x01000000, 0x0010001A, 0x00000000, 0x080000A4,
 +    0x0021E0F2, 0x00000000, 0x00000000, 0x00100006, 0x00000000, 0x00100E46, 0x00000001, 0x0100003E,
++};
+diff --git a/src/graphics/shaders/bytecode/d3d12_5_1/resolve_downscale_cs.h b/src/graphics/shaders/bytecode/d3d12_5_1/resolve_downscale_cs.h
+index da071c5..dd187ea 100644
+--- a/src/graphics/shaders/bytecode/d3d12_5_1/resolve_downscale_cs.h
++++ b/src/graphics/shaders/bytecode/d3d12_5_1/resolve_downscale_cs.h
+@@ -21,13 +21,13 @@ dcl_resource_raw T0[0:0], space=0
+ dcl_uav_raw U0[0:0], space=0
+ dcl_input vThreadGroupID.x
+ dcl_input vThreadIDInGroup.xy
+-dcl_temps 2
++dcl_temps 4
+ dcl_tgsm_structured g0, 4, 1024
+ dcl_thread_group 32, 32, 1
+ uge r0.x, vThreadGroupID.x, CB0[0][0].w
+ if_nz r0.x
+-  ret
+-endif
++  ret 
++endif 
+ imad r0.x, vThreadIDInGroup.y, l(32), vThreadIDInGroup.x
+ ishl r0.yz, l(0, 1, 1024, 0), CB0[0][0].zzzz
+ imul null, r0.w, CB0[0][0].y, CB0[0][0].x
+@@ -35,193 +35,591 @@ ine r1.y, CB0[0][1].x, l(0)
+ ult r1.z, l(1), r0.w
+ and r1.y, r1.z, r1.y
+ if_nz r1.y
+-  ushr r1.yz, CB0[0][0].xxyx, l(0, 1, 1, 0)
+-  imad r1.y, r1.z, CB0[0][0].x, r1.y
+-else
++  ushr r1.yw, CB0[0][0].xxxy, l(0, 1, 0, 1)
++  imad r1.y, r1.w, CB0[0][0].x, r1.y
++else 
+   mov r1.y, l(0)
+-endif
+-imul null, r1.xz, r0.wwyw, r0.zzxz
+-imul null, r0.w, r0.w, r1.z
+-imad r0.w, vThreadGroupID.x, r1.x, r0.w
+-imad r0.y, r1.y, r0.y, r0.w
+-ult r0.w, CB0[0][0].z, l(2)
+-if_nz r0.w
++endif 
++imul null, r1.xw, r0.wwwy, r0.zzzx
++imul null, r2.x, r0.w, r1.w
++imad r1.x, vThreadGroupID.x, r1.x, r2.x
++imad r0.y, r1.y, r0.y, r1.x
++ult r1.y, CB0[0][0].z, l(2)
++if_nz r1.y
+   if_z CB0[0][0].z
+-    and r0.w, r0.y, l(-4)
+-    ld_raw r0.w, r0.w, T0[0].xxxx
+-    bfi r1.xw, l(2, 0, 0, 2), l(3, 0, 0, 3), r0.yyyx, l(0, 0, 0, 0)
+-    ushr r0.w, r0.w, r1.x
+-    ushr r1.x, r0.x, l(2)
+-    and r1.z, r0.x, l(3)
+-    bfi r0.w, l(8), r1.w, r0.w, l(0)
+-    if_z r1.z
+-      store_structured g0.x, r1.x, l(0), r0.w
+-    endif
++    and r1.y, r0.y, l(-4)
++    ld_raw r1.y, r1.y, T0[0].xxxx
++    bfi r1.w, l(2), l(3), r0.y, l(0)
++    ushr r1.y, r1.y, r1.w
++    ushr r2.x, r0.x, l(2)
++    and r1.w, r0.x, l(3)
++    bfi r2.z, l(2), l(3), r0.x, l(0)
++    bfi r1.y, l(8), r2.z, r1.y, l(0)
++    if_z r1.w
++      store_structured g0.x, r2.x, l(0), r1.y
++    endif 
+     sync_g_t
+-    if_nz r1.z
+-      mov r1.y, l(0)
+-      atomic_or g0, r1.xyxx, r0.w
+-    endif
++    if_nz r1.w
++      mov r2.y, l(0)
++      atomic_or g0, r2.xyxx, r1.y
++    endif 
+     sync_g_t
+-    if_z r1.z
+-      and r0.w, r0.x, l(1020)
+-      imad r0.w, vThreadGroupID.x, l(1024), r0.w
+-      ld_structured r1.x, r1.x, l(0), g0.xxxx
+-      store_raw U0[0].x, r0.w, r1.x
+-    endif
+-  else
+-    and r0.w, r0.y, l(-4)
+-    ld_raw r0.w, r0.w, T0[0].xxxx
+-    ishl r1.x, r0.y, l(3)
+-    and r1.x, r1.x, l(16)
+-    ushr r0.w, r0.w, r1.x
+-    ushr r1.x, r0.x, l(1)
+-    and r1.z, r0.x, l(1)
++    if_z r1.w
++      and r1.y, r0.x, l(1020)
++      imad r1.y, vThreadGroupID.x, l(1024), r1.y
++      ld_structured r1.w, r2.x, l(0), g0.xxxx
++      store_raw U0[0].x, r1.y, r1.w
++    endif 
++  else 
++    and r1.y, r0.y, l(-4)
++    ld_raw r1.y, r1.y, T0[0].xxxx
++    ishl r1.w, r0.y, l(3)
++    and r1.w, r1.w, l(16)
++    ushr r1.y, r1.y, r1.w
++    ushr r2.x, r0.x, l(1)
++    and r1.w, r0.x, l(1)
+     bfi r0.x, l(1), l(4), r0.x, l(0)
+-    bfi r0.x, l(16), r0.x, r0.w, l(0)
+-    if_z r1.z
+-      store_structured g0.x, r1.x, l(0), r0.x
+-    endif
++    bfi r0.x, l(16), r0.x, r1.y, l(0)
++    if_z r1.w
++      store_structured g0.x, r2.x, l(0), r0.x
++    endif 
+     sync_g_t
+-    if_nz r1.z
+-      mov r1.y, l(0)
+-      atomic_or g0, r1.xyxx, r0.x
+-    endif
++    if_nz r1.w
++      mov r2.y, l(0)
++      atomic_or g0, r2.xyxx, r0.x
++    endif 
+     sync_g_t
+-    if_z r1.z
+-      ishl r0.x, r1.x, l(2)
++    if_z r1.w
++      ishl r0.x, r2.x, l(2)
+       imad r0.x, vThreadGroupID.x, l(2048), r0.x
+-      ld_structured r0.w, r1.x, l(0), g0.xxxx
+-      store_raw U0[0].x, r0.x, r0.w
+-    endif
+-  endif
+-else
+-  imad r0.z, vThreadGroupID.x, r0.z, r1.z
++      ld_structured r1.y, r2.x, l(0), g0.xxxx
++      store_raw U0[0].x, r0.x, r1.y
++    endif 
++  endif 
++else 
++  imad r0.z, vThreadGroupID.x, r0.z, r1.w
+   ieq r0.x, CB0[0][0].z, l(2)
+   if_nz r0.x
+-    ld_raw r0.x, r0.y, T0[0].xxxx
++    ine r0.x, CB0[0][1].y, l(0)
++    and r0.x, r1.z, r0.x
++    if_nz r0.x
++      mov r2.xyzw, l(0,0,0,0)
++      mov r0.x, l(0)
++      loop 
++        uge r1.y, r0.x, r0.w
++        breakc_nz r1.y
++        ishl r1.y, r0.x, l(2)
++        iadd r1.y, r1.y, r1.x
++        ld_raw r1.y, r1.y, T0[0].xxxx
++        and r3.x, r1.y, l(255)
++        ubfe r3.yz, l(0, 8, 8, 0), l(0, 8, 16, 0), r1.yyyy
++        ushr r3.w, r1.y, l(24)
++        iadd r2.xyzw, r2.xyzw, r3.xyzw
++        iadd r0.x, r0.x, l(1)
++      endloop 
++      ushr r0.x, r0.w, l(1)
++      iadd r1.xyzw, r0.xxxx, r2.xyzw
++      udiv r1.xyzw, null, r1.xyzw, r0.wwww
++      ishl r1.yzw, r1.yyzw, l(0, 8, 16, 24)
++      or r0.x, r1.y, r1.x
++      or r0.x, r1.z, r0.x
++      or r0.x, r1.w, r0.x
++    else 
++      ld_raw r0.x, r0.y, T0[0].xxxx
++    endif 
+     store_raw U0[0].x, r0.z, r0.x
+-  else
++  else 
+     ieq r0.x, CB0[0][0].z, l(3)
+     if_nz r0.x
+       ld_raw r0.xy, r0.y, T0[0].xyxx
+       store_raw U0[0].xy, r0.z, r0.xyxx
+-    endif
+-  endif
+-endif
+-ret
++    endif 
++  endif 
++endif 
++ret 
+ // Approximately 0 instruction slots used
+ #endif
+ 
+-const BYTE resolve_downscale_cs[] = {
+-    68,  88,  66, 67, 235, 139, 102, 94, 189, 150, 220, 235, 94,  229, 59, 205, 74,  78,  159, 167,
+-    1,   0,   0,  0,  164, 8,   0,   0,  3,   0,   0,   0,   44,  0,   0,  0,   60,  0,   0,   0,
+-    76,  0,   0,  0,  73,  83,  71,  78, 8,   0,   0,   0,   0,   0,   0,  0,   8,   0,   0,   0,
+-    79,  83,  71, 78, 8,   0,   0,   0,  0,   0,   0,   0,   8,   0,   0,  0,   83,  72,  69,  88,
+-    80,  8,   0,  0,  81,  0,   5,   0,  20,  2,   0,   0,   106, 8,   8,  1,   89,  0,   0,   7,
+-    70,  142, 48, 0,  0,   0,   0,   0,  0,   0,   0,   0,   0,   0,   0,  0,   2,   0,   0,   0,
+-    0,   0,   0,  0,  161, 0,   0,   6,  70,  126, 48,  0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  157, 0,   0,   6,   70,  238, 49, 0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  0,   0,   0,   0,   95,  0,   0,  2,   18,  16,  2,   0,
+-    95,  0,   0,  2,  50,  32,  2,   0,  104, 0,   0,   2,   2,   0,   0,  0,   160, 0,   0,   5,
+-    0,   240, 17, 0,  0,   0,   0,   0,  4,   0,   0,   0,   0,   4,   0,  0,   155, 0,   0,   4,
+-    32,  0,   0,  0,  32,  0,   0,   0,  1,   0,   0,   0,   80,  0,   0,  8,   18,  0,   16,  0,
+-    0,   0,   0,  0,  10,  16,  2,   0,  58,  128, 48,  0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  31,  0,   4,   3,  10,  0,   16,  0,   0,   0,   0,  0,   62,  0,   0,   1,
+-    21,  0,   0,  1,  35,  0,   0,   7,  18,  0,   16,  0,   0,   0,   0,  0,   26,  32,  2,   0,
+-    1,   64,  0,  0,  32,  0,   0,   0,  10,  32,  2,   0,   41,  0,   0,  12,  98,  0,   16,  0,
+-    0,   0,   0,  0,  2,   64,  0,   0,  0,   0,   0,   0,   1,   0,   0,  0,   0,   4,   0,   0,
+-    0,   0,   0,  0,  166, 138, 48,  0,  0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    38,  0,   0,  12, 0,   208, 0,   0,  130, 0,   16,  0,   0,   0,   0,  0,   26,  128, 48,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  0,   0,   0,   0,   10,  128, 48, 0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  39,  0,   0,   9,   34,  0,   16, 0,   1,   0,   0,   0,
+-    10,  128, 48, 0,  0,   0,   0,   0,  0,   0,   0,   0,   1,   0,   0,  0,   1,   64,  0,   0,
+-    0,   0,   0,  0,  79,  0,   0,   7,  66,  0,   16,  0,   1,   0,   0,  0,   1,   64,  0,   0,
+-    1,   0,   0,  0,  58,  0,   16,  0,  0,   0,   0,   0,   1,   0,   0,  7,   34,  0,   16,  0,
+-    1,   0,   0,  0,  42,  0,   16,  0,  1,   0,   0,   0,   26,  0,   16, 0,   1,   0,   0,   0,
+-    31,  0,   4,  3,  26,  0,   16,  0,  1,   0,   0,   0,   85,  0,   0,  12,  98,  0,   16,  0,
+-    1,   0,   0,  0,  6,   129, 48,  0,  0,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    2,   64,  0,  0,  0,   0,   0,   0,  1,   0,   0,   0,   1,   0,   0,  0,   0,   0,   0,   0,
+-    35,  0,   0,  11, 34,  0,   16,  0,  1,   0,   0,   0,   42,  0,   16, 0,   1,   0,   0,   0,
+-    10,  128, 48, 0,  0,   0,   0,   0,  0,   0,   0,   0,   0,   0,   0,  0,   26,  0,   16,  0,
+-    1,   0,   0,  0,  18,  0,   0,   1,  54,  0,   0,   5,   34,  0,   16, 0,   1,   0,   0,   0,
+-    1,   64,  0,  0,  0,   0,   0,   0,  21,  0,   0,   1,   38,  0,   0,  8,   0,   208, 0,   0,
+-    82,  0,   16, 0,  1,   0,   0,   0,  246, 13,  16,  0,   0,   0,   0,  0,   166, 8,   16,  0,
+-    0,   0,   0,  0,  38,  0,   0,   8,  0,   208, 0,   0,   130, 0,   16, 0,   0,   0,   0,   0,
+-    58,  0,   16, 0,  0,   0,   0,   0,  42,  0,   16,  0,   1,   0,   0,  0,   35,  0,   0,   8,
+-    130, 0,   16, 0,  0,   0,   0,   0,  10,  16,  2,   0,   10,  0,   16, 0,   1,   0,   0,   0,
+-    58,  0,   16, 0,  0,   0,   0,   0,  35,  0,   0,   9,   34,  0,   16, 0,   0,   0,   0,   0,
+-    26,  0,   16, 0,  1,   0,   0,   0,  26,  0,   16,  0,   0,   0,   0,  0,   58,  0,   16,  0,
+-    0,   0,   0,  0,  79,  0,   0,   9,  130, 0,   16,  0,   0,   0,   0,  0,   42,  128, 48,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  0,   0,   0,   0,   1,   64,  0,  0,   2,   0,   0,   0,
+-    31,  0,   4,  3,  58,  0,   16,  0,  0,   0,   0,   0,   31,  0,   0,  5,   42,  128, 48,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  0,   0,   0,   0,   1,   0,   0,  7,   130, 0,   16,  0,
+-    0,   0,   0,  0,  26,  0,   16,  0,  0,   0,   0,   0,   1,   64,  0,  0,   252, 255, 255, 255,
+-    165, 0,   0,  8,  130, 0,   16,  0,  0,   0,   0,   0,   58,  0,   16, 0,   0,   0,   0,   0,
+-    6,   112, 32, 0,  0,   0,   0,   0,  0,   0,   0,   0,   140, 0,   0,  20,  146, 0,   16,  0,
+-    1,   0,   0,  0,  2,   64,  0,   0,  2,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    2,   0,   0,  0,  2,   64,  0,   0,  3,   0,   0,   0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    3,   0,   0,  0,  86,  1,   16,  0,  0,   0,   0,   0,   2,   64,  0,  0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  0,   0,   0,   0,   85,  0,   0,  7,   130, 0,   16,  0,
+-    0,   0,   0,  0,  58,  0,   16,  0,  0,   0,   0,   0,   10,  0,   16, 0,   1,   0,   0,   0,
+-    85,  0,   0,  7,  18,  0,   16,  0,  1,   0,   0,   0,   10,  0,   16, 0,   0,   0,   0,   0,
+-    1,   64,  0,  0,  2,   0,   0,   0,  1,   0,   0,   7,   66,  0,   16, 0,   1,   0,   0,   0,
+-    10,  0,   16, 0,  0,   0,   0,   0,  1,   64,  0,   0,   3,   0,   0,  0,   140, 0,   0,   11,
+-    130, 0,   16, 0,  0,   0,   0,   0,  1,   64,  0,   0,   8,   0,   0,  0,   58,  0,   16,  0,
+-    1,   0,   0,  0,  58,  0,   16,  0,  0,   0,   0,   0,   1,   64,  0,  0,   0,   0,   0,   0,
+-    31,  0,   0,  3,  42,  0,   16,  0,  1,   0,   0,   0,   168, 0,   0,  9,   18,  240, 17,  0,
+-    0,   0,   0,  0,  10,  0,   16,  0,  1,   0,   0,   0,   1,   64,  0,  0,   0,   0,   0,   0,
+-    58,  0,   16, 0,  0,   0,   0,   0,  21,  0,   0,   1,   190, 24,  0,  1,   31,  0,   4,   3,
+-    42,  0,   16, 0,  1,   0,   0,   0,  54,  0,   0,   5,   34,  0,   16, 0,   1,   0,   0,   0,
+-    1,   64,  0,  0,  0,   0,   0,   0,  170, 0,   0,   7,   0,   240, 17, 0,   0,   0,   0,   0,
+-    70,  0,   16, 0,  1,   0,   0,   0,  58,  0,   16,  0,   0,   0,   0,  0,   21,  0,   0,   1,
+-    190, 24,  0,  1,  31,  0,   0,   3,  42,  0,   16,  0,   1,   0,   0,  0,   1,   0,   0,   7,
+-    130, 0,   16, 0,  0,   0,   0,   0,  10,  0,   16,  0,   0,   0,   0,  0,   1,   64,  0,   0,
+-    252, 3,   0,  0,  35,  0,   0,   8,  130, 0,   16,  0,   0,   0,   0,  0,   10,  16,  2,   0,
+-    1,   64,  0,  0,  0,   4,   0,   0,  58,  0,   16,  0,   0,   0,   0,  0,   167, 0,   0,   9,
+-    18,  0,   16, 0,  1,   0,   0,   0,  10,  0,   16,  0,   1,   0,   0,  0,   1,   64,  0,   0,
+-    0,   0,   0,  0,  6,   240, 17,  0,  0,   0,   0,   0,   166, 0,   0,  8,   18,  224, 33,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  58,  0,   16,  0,   0,   0,   0,  0,   10,  0,   16,  0,
+-    1,   0,   0,  0,  21,  0,   0,   1,  18,  0,   0,   1,   1,   0,   0,  7,   130, 0,   16,  0,
+-    0,   0,   0,  0,  26,  0,   16,  0,  0,   0,   0,   0,   1,   64,  0,  0,   252, 255, 255, 255,
+-    165, 0,   0,  8,  130, 0,   16,  0,  0,   0,   0,   0,   58,  0,   16, 0,   0,   0,   0,   0,
+-    6,   112, 32, 0,  0,   0,   0,   0,  0,   0,   0,   0,   41,  0,   0,  7,   18,  0,   16,  0,
+-    1,   0,   0,  0,  26,  0,   16,  0,  0,   0,   0,   0,   1,   64,  0,  0,   3,   0,   0,   0,
+-    1,   0,   0,  7,  18,  0,   16,  0,  1,   0,   0,   0,   10,  0,   16, 0,   1,   0,   0,   0,
+-    1,   64,  0,  0,  16,  0,   0,   0,  85,  0,   0,   7,   130, 0,   16, 0,   0,   0,   0,   0,
+-    58,  0,   16, 0,  0,   0,   0,   0,  10,  0,   16,  0,   1,   0,   0,  0,   85,  0,   0,   7,
+-    18,  0,   16, 0,  1,   0,   0,   0,  10,  0,   16,  0,   0,   0,   0,  0,   1,   64,  0,   0,
+-    1,   0,   0,  0,  1,   0,   0,   7,  66,  0,   16,  0,   1,   0,   0,  0,   10,  0,   16,  0,
+-    0,   0,   0,  0,  1,   64,  0,   0,  1,   0,   0,   0,   140, 0,   0,  11,  18,  0,   16,  0,
+-    0,   0,   0,  0,  1,   64,  0,   0,  1,   0,   0,   0,   1,   64,  0,  0,   4,   0,   0,   0,
+-    10,  0,   16, 0,  0,   0,   0,   0,  1,   64,  0,   0,   0,   0,   0,  0,   140, 0,   0,   11,
+-    18,  0,   16, 0,  0,   0,   0,   0,  1,   64,  0,   0,   16,  0,   0,  0,   10,  0,   16,  0,
+-    0,   0,   0,  0,  58,  0,   16,  0,  0,   0,   0,   0,   1,   64,  0,  0,   0,   0,   0,   0,
+-    31,  0,   0,  3,  42,  0,   16,  0,  1,   0,   0,   0,   168, 0,   0,  9,   18,  240, 17,  0,
+-    0,   0,   0,  0,  10,  0,   16,  0,  1,   0,   0,   0,   1,   64,  0,  0,   0,   0,   0,   0,
+-    10,  0,   16, 0,  0,   0,   0,   0,  21,  0,   0,   1,   190, 24,  0,  1,   31,  0,   4,   3,
+-    42,  0,   16, 0,  1,   0,   0,   0,  54,  0,   0,   5,   34,  0,   16, 0,   1,   0,   0,   0,
+-    1,   64,  0,  0,  0,   0,   0,   0,  170, 0,   0,   7,   0,   240, 17, 0,   0,   0,   0,   0,
+-    70,  0,   16, 0,  1,   0,   0,   0,  10,  0,   16,  0,   0,   0,   0,  0,   21,  0,   0,   1,
+-    190, 24,  0,  1,  31,  0,   0,   3,  42,  0,   16,  0,   1,   0,   0,  0,   41,  0,   0,   7,
+-    18,  0,   16, 0,  0,   0,   0,   0,  10,  0,   16,  0,   1,   0,   0,  0,   1,   64,  0,   0,
+-    2,   0,   0,  0,  35,  0,   0,   8,  18,  0,   16,  0,   0,   0,   0,  0,   10,  16,  2,   0,
+-    1,   64,  0,  0,  0,   8,   0,   0,  10,  0,   16,  0,   0,   0,   0,  0,   167, 0,   0,   9,
+-    130, 0,   16, 0,  0,   0,   0,   0,  10,  0,   16,  0,   1,   0,   0,  0,   1,   64,  0,   0,
+-    0,   0,   0,  0,  6,   240, 17,  0,  0,   0,   0,   0,   166, 0,   0,  8,   18,  224, 33,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  10,  0,   16,  0,   0,   0,   0,  0,   58,  0,   16,  0,
+-    0,   0,   0,  0,  21,  0,   0,   1,  21,  0,   0,   1,   18,  0,   0,  1,   35,  0,   0,   8,
+-    66,  0,   16, 0,  0,   0,   0,   0,  10,  16,  2,   0,   42,  0,   16, 0,   0,   0,   0,   0,
+-    42,  0,   16, 0,  1,   0,   0,   0,  32,  0,   0,   9,   18,  0,   16, 0,   0,   0,   0,   0,
+-    42,  128, 48, 0,  0,   0,   0,   0,  0,   0,   0,   0,   0,   0,   0,  0,   1,   64,  0,   0,
+-    2,   0,   0,  0,  31,  0,   4,   3,  10,  0,   16,  0,   0,   0,   0,  0,   165, 0,   0,   8,
+-    18,  0,   16, 0,  0,   0,   0,   0,  26,  0,   16,  0,   0,   0,   0,  0,   6,   112, 32,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  166, 0,   0,   8,   18,  224, 33, 0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  42,  0,   16,  0,  0,   0,   0,   0,   10,  0,   16, 0,   0,   0,   0,   0,
+-    18,  0,   0,  1,  32,  0,   0,   9,  18,  0,   16,  0,   0,   0,   0,  0,   42,  128, 48,  0,
+-    0,   0,   0,  0,  0,   0,   0,   0,  0,   0,   0,   0,   1,   64,  0,  0,   3,   0,   0,   0,
+-    31,  0,   4,  3,  10,  0,   16,  0,  0,   0,   0,   0,   165, 0,   0,  8,   50,  0,   16,  0,
+-    0,   0,   0,  0,  26,  0,   16,  0,  0,   0,   0,   0,   70,  112, 32, 0,   0,   0,   0,   0,
+-    0,   0,   0,  0,  166, 0,   0,   8,  50,  224, 33,  0,   0,   0,   0,  0,   0,   0,   0,   0,
+-    42,  0,   16, 0,  0,   0,   0,   0,  70,  0,   16,  0,   0,   0,   0,  0,   21,  0,   0,   1,
+-    21,  0,   0,  1,  21,  0,   0,   1,  62,  0,   0,   1};
++const BYTE resolve_downscale_cs[] =
++{
++     68,  88,  66,  67,  90, 182, 
++     82, 123, 215, 164,  87, 232, 
++    114,  18, 120,  95, 155, 202, 
++    112, 226,   1,   0,   0,   0, 
++     60,  11,   0,   0,   3,   0, 
++      0,   0,  44,   0,   0,   0, 
++     60,   0,   0,   0,  76,   0, 
++      0,   0,  73,  83,  71,  78, 
++      8,   0,   0,   0,   0,   0, 
++      0,   0,   8,   0,   0,   0, 
++     79,  83,  71,  78,   8,   0, 
++      0,   0,   0,   0,   0,   0, 
++      8,   0,   0,   0,  83,  72, 
++     69,  88, 232,  10,   0,   0, 
++     81,   0,   5,   0, 186,   2, 
++      0,   0, 106,   8,   8,   1, 
++     89,   0,   0,   7,  70, 142, 
++     48,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   2,   0,   0,   0, 
++      0,   0,   0,   0, 161,   0, 
++      0,   6,  70, 126,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0, 157,   0, 
++      0,   6,  70, 238,  49,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,  95,   0, 
++      0,   2,  18,  16,   2,   0, 
++     95,   0,   0,   2,  50,  32, 
++      2,   0, 104,   0,   0,   2, 
++      4,   0,   0,   0, 160,   0, 
++      0,   5,   0, 240,  17,   0, 
++      0,   0,   0,   0,   4,   0, 
++      0,   0,   0,   4,   0,   0, 
++    155,   0,   0,   4,  32,   0, 
++      0,   0,  32,   0,   0,   0, 
++      1,   0,   0,   0,  80,   0, 
++      0,   8,  18,   0,  16,   0, 
++      0,   0,   0,   0,  10,  16, 
++      2,   0,  58, 128,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++     31,   0,   4,   3,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++     62,   0,   0,   1,  21,   0, 
++      0,   1,  35,   0,   0,   7, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,  26,  32,   2,   0, 
++      1,  64,   0,   0,  32,   0, 
++      0,   0,  10,  32,   2,   0, 
++     41,   0,   0,  12,  98,   0, 
++     16,   0,   0,   0,   0,   0, 
++      2,  64,   0,   0,   0,   0, 
++      0,   0,   1,   0,   0,   0, 
++      0,   4,   0,   0,   0,   0, 
++      0,   0, 166, 138,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++     38,   0,   0,  12,   0, 208, 
++      0,   0, 130,   0,  16,   0, 
++      0,   0,   0,   0,  26, 128, 
++     48,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,  10, 128,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++     39,   0,   0,   9,  34,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10, 128,  48,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      1,   0,   0,   0,   1,  64, 
++      0,   0,   0,   0,   0,   0, 
++     79,   0,   0,   7,  66,   0, 
++     16,   0,   1,   0,   0,   0, 
++      1,  64,   0,   0,   1,   0, 
++      0,   0,  58,   0,  16,   0, 
++      0,   0,   0,   0,   1,   0, 
++      0,   7,  34,   0,  16,   0, 
++      1,   0,   0,   0,  42,   0, 
++     16,   0,   1,   0,   0,   0, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0,  31,   0,   4,   3, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0,  85,   0,   0,  12, 
++    162,   0,  16,   0,   1,   0, 
++      0,   0,   6, 132,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      2,  64,   0,   0,   0,   0, 
++      0,   0,   1,   0,   0,   0, 
++      0,   0,   0,   0,   1,   0, 
++      0,   0,  35,   0,   0,  11, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  58,   0,  16,   0, 
++      1,   0,   0,   0,  10, 128, 
++     48,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,  18,   0, 
++      0,   1,  54,   0,   0,   5, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,   1,  64,   0,   0, 
++      0,   0,   0,   0,  21,   0, 
++      0,   1,  38,   0,   0,   8, 
++      0, 208,   0,   0, 146,   0, 
++     16,   0,   1,   0,   0,   0, 
++    246,   7,  16,   0,   0,   0, 
++      0,   0, 166,   2,  16,   0, 
++      0,   0,   0,   0,  38,   0, 
++      0,   8,   0, 208,   0,   0, 
++     18,   0,  16,   0,   2,   0, 
++      0,   0,  58,   0,  16,   0, 
++      0,   0,   0,   0,  58,   0, 
++     16,   0,   1,   0,   0,   0, 
++     35,   0,   0,   8,  18,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10,  16,   2,   0,  10,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10,   0,  16,   0,   2,   0, 
++      0,   0,  35,   0,   0,   9, 
++     34,   0,  16,   0,   0,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,  26,   0, 
++     16,   0,   0,   0,   0,   0, 
++     10,   0,  16,   0,   1,   0, 
++      0,   0,  79,   0,   0,   9, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  42, 128,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0,   2,   0, 
++      0,   0,  31,   0,   4,   3, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0,  31,   0,   0,   5, 
++     42, 128,  48,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   1,   0, 
++      0,   7,  34,   0,  16,   0, 
++      1,   0,   0,   0,  26,   0, 
++     16,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0, 252, 255, 
++    255, 255, 165,   0,   0,   8, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,   6, 112, 
++     32,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0, 140,   0, 
++      0,  11, 130,   0,  16,   0, 
++      1,   0,   0,   0,   1,  64, 
++      0,   0,   2,   0,   0,   0, 
++      1,  64,   0,   0,   3,   0, 
++      0,   0,  26,   0,  16,   0, 
++      0,   0,   0,   0,   1,  64, 
++      0,   0,   0,   0,   0,   0, 
++     85,   0,   0,   7,  34,   0, 
++     16,   0,   1,   0,   0,   0, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0,  58,   0,  16,   0, 
++      1,   0,   0,   0,  85,   0, 
++      0,   7,  18,   0,  16,   0, 
++      2,   0,   0,   0,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0,   2,   0, 
++      0,   0,   1,   0,   0,   7, 
++    130,   0,  16,   0,   1,   0, 
++      0,   0,  10,   0,  16,   0, 
++      0,   0,   0,   0,   1,  64, 
++      0,   0,   3,   0,   0,   0, 
++    140,   0,   0,  11,  66,   0, 
++     16,   0,   2,   0,   0,   0, 
++      1,  64,   0,   0,   2,   0, 
++      0,   0,   1,  64,   0,   0, 
++      3,   0,   0,   0,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0,   0,   0, 
++      0,   0, 140,   0,   0,  11, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,   1,  64,   0,   0, 
++      8,   0,   0,   0,  42,   0, 
++     16,   0,   2,   0,   0,   0, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0,   1,  64,   0,   0, 
++      0,   0,   0,   0,  31,   0, 
++      0,   3,  58,   0,  16,   0, 
++      1,   0,   0,   0, 168,   0, 
++      0,   9,  18, 240,  17,   0, 
++      0,   0,   0,   0,  10,   0, 
++     16,   0,   2,   0,   0,   0, 
++      1,  64,   0,   0,   0,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,  21,   0, 
++      0,   1, 190,  24,   0,   1, 
++     31,   0,   4,   3,  58,   0, 
++     16,   0,   1,   0,   0,   0, 
++     54,   0,   0,   5,  34,   0, 
++     16,   0,   2,   0,   0,   0, 
++      1,  64,   0,   0,   0,   0, 
++      0,   0, 170,   0,   0,   7, 
++      0, 240,  17,   0,   0,   0, 
++      0,   0,  70,   0,  16,   0, 
++      2,   0,   0,   0,  26,   0, 
++     16,   0,   1,   0,   0,   0, 
++     21,   0,   0,   1, 190,  24, 
++      0,   1,  31,   0,   0,   3, 
++     58,   0,  16,   0,   1,   0, 
++      0,   0,   1,   0,   0,   7, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  10,   0,  16,   0, 
++      0,   0,   0,   0,   1,  64, 
++      0,   0, 252,   3,   0,   0, 
++     35,   0,   0,   8,  34,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10,  16,   2,   0,   1,  64, 
++      0,   0,   0,   4,   0,   0, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0, 167,   0,   0,   9, 
++    130,   0,  16,   0,   1,   0, 
++      0,   0,  10,   0,  16,   0, 
++      2,   0,   0,   0,   1,  64, 
++      0,   0,   0,   0,   0,   0, 
++      6, 240,  17,   0,   0,   0, 
++      0,   0, 166,   0,   0,   8, 
++     18, 224,  33,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++     26,   0,  16,   0,   1,   0, 
++      0,   0,  58,   0,  16,   0, 
++      1,   0,   0,   0,  21,   0, 
++      0,   1,  18,   0,   0,   1, 
++      1,   0,   0,   7,  34,   0, 
++     16,   0,   1,   0,   0,   0, 
++     26,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++    252, 255, 255, 255, 165,   0, 
++      0,   8,  34,   0,  16,   0, 
++      1,   0,   0,   0,  26,   0, 
++     16,   0,   1,   0,   0,   0, 
++      6, 112,  32,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++     41,   0,   0,   7, 130,   0, 
++     16,   0,   1,   0,   0,   0, 
++     26,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      3,   0,   0,   0,   1,   0, 
++      0,   7, 130,   0,  16,   0, 
++      1,   0,   0,   0,  58,   0, 
++     16,   0,   1,   0,   0,   0, 
++      1,  64,   0,   0,  16,   0, 
++      0,   0,  85,   0,   0,   7, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,  58,   0, 
++     16,   0,   1,   0,   0,   0, 
++     85,   0,   0,   7,  18,   0, 
++     16,   0,   2,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      1,   0,   0,   0,   1,   0, 
++      0,   7, 130,   0,  16,   0, 
++      1,   0,   0,   0,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0,   1,   0, 
++      0,   0, 140,   0,   0,  11, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      1,   0,   0,   0,   1,  64, 
++      0,   0,   4,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      0,   0,   0,   0, 140,   0, 
++      0,  11,  18,   0,  16,   0, 
++      0,   0,   0,   0,   1,  64, 
++      0,   0,  16,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,   1,  64, 
++      0,   0,   0,   0,   0,   0, 
++     31,   0,   0,   3,  58,   0, 
++     16,   0,   1,   0,   0,   0, 
++    168,   0,   0,   9,  18, 240, 
++     17,   0,   0,   0,   0,   0, 
++     10,   0,  16,   0,   2,   0, 
++      0,   0,   1,  64,   0,   0, 
++      0,   0,   0,   0,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++     21,   0,   0,   1, 190,  24, 
++      0,   1,  31,   0,   4,   3, 
++     58,   0,  16,   0,   1,   0, 
++      0,   0,  54,   0,   0,   5, 
++     34,   0,  16,   0,   2,   0, 
++      0,   0,   1,  64,   0,   0, 
++      0,   0,   0,   0, 170,   0, 
++      0,   7,   0, 240,  17,   0, 
++      0,   0,   0,   0,  70,   0, 
++     16,   0,   2,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,  21,   0,   0,   1, 
++    190,  24,   0,   1,  31,   0, 
++      0,   3,  58,   0,  16,   0, 
++      1,   0,   0,   0,  41,   0, 
++      0,   7,  18,   0,  16,   0, 
++      0,   0,   0,   0,  10,   0, 
++     16,   0,   2,   0,   0,   0, 
++      1,  64,   0,   0,   2,   0, 
++      0,   0,  35,   0,   0,   8, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,  10,  16,   2,   0, 
++      1,  64,   0,   0,   0,   8, 
++      0,   0,  10,   0,  16,   0, 
++      0,   0,   0,   0, 167,   0, 
++      0,   9,  34,   0,  16,   0, 
++      1,   0,   0,   0,  10,   0, 
++     16,   0,   2,   0,   0,   0, 
++      1,  64,   0,   0,   0,   0, 
++      0,   0,   6, 240,  17,   0, 
++      0,   0,   0,   0, 166,   0, 
++      0,   8,  18, 224,  33,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,  10,   0,  16,   0, 
++      0,   0,   0,   0,  26,   0, 
++     16,   0,   1,   0,   0,   0, 
++     21,   0,   0,   1,  21,   0, 
++      0,   1,  18,   0,   0,   1, 
++     35,   0,   0,   8,  66,   0, 
++     16,   0,   0,   0,   0,   0, 
++     10,  16,   2,   0,  42,   0, 
++     16,   0,   0,   0,   0,   0, 
++     58,   0,  16,   0,   1,   0, 
++      0,   0,  32,   0,   0,   9, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,  42, 128,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0,   2,   0, 
++      0,   0,  31,   0,   4,   3, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,  39,   0,   0,   9, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,  26, 128,  48,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   1,   0,   0,   0, 
++      1,  64,   0,   0,   0,   0, 
++      0,   0,   1,   0,   0,   7, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,  42,   0,  16,   0, 
++      1,   0,   0,   0,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++     31,   0,   4,   3,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++     54,   0,   0,   8, 242,   0, 
++     16,   0,   2,   0,   0,   0, 
++      2,  64,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,  54,   0,   0,   5, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      0,   0,   0,   0,  48,   0, 
++      0,   1,  80,   0,   0,   7, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  10,   0,  16,   0, 
++      0,   0,   0,   0,  58,   0, 
++     16,   0,   0,   0,   0,   0, 
++      3,   0,   4,   3,  26,   0, 
++     16,   0,   1,   0,   0,   0, 
++     41,   0,   0,   7,  34,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      2,   0,   0,   0,  30,   0, 
++      0,   7,  34,   0,  16,   0, 
++      1,   0,   0,   0,  26,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10,   0,  16,   0,   1,   0, 
++      0,   0, 165,   0,   0,   8, 
++     34,   0,  16,   0,   1,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,   6, 112, 
++     32,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   1,   0, 
++      0,   7,  18,   0,  16,   0, 
++      3,   0,   0,   0,  26,   0, 
++     16,   0,   1,   0,   0,   0, 
++      1,  64,   0,   0, 255,   0, 
++      0,   0, 138,   0,   0,  15, 
++     98,   0,  16,   0,   3,   0, 
++      0,   0,   2,  64,   0,   0, 
++      0,   0,   0,   0,   8,   0, 
++      0,   0,   8,   0,   0,   0, 
++      0,   0,   0,   0,   2,  64, 
++      0,   0,   0,   0,   0,   0, 
++      8,   0,   0,   0,  16,   0, 
++      0,   0,   0,   0,   0,   0, 
++     86,   5,  16,   0,   1,   0, 
++      0,   0,  85,   0,   0,   7, 
++    130,   0,  16,   0,   3,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,   1,  64, 
++      0,   0,  24,   0,   0,   0, 
++     30,   0,   0,   7, 242,   0, 
++     16,   0,   2,   0,   0,   0, 
++     70,  14,  16,   0,   2,   0, 
++      0,   0,  70,  14,  16,   0, 
++      3,   0,   0,   0,  30,   0, 
++      0,   7,  18,   0,  16,   0, 
++      0,   0,   0,   0,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++      1,  64,   0,   0,   1,   0, 
++      0,   0,  22,   0,   0,   1, 
++     85,   0,   0,   7,  18,   0, 
++     16,   0,   0,   0,   0,   0, 
++     58,   0,  16,   0,   0,   0, 
++      0,   0,   1,  64,   0,   0, 
++      1,   0,   0,   0,  30,   0, 
++      0,   7, 242,   0,  16,   0, 
++      1,   0,   0,   0,   6,   0, 
++     16,   0,   0,   0,   0,   0, 
++     70,  14,  16,   0,   2,   0, 
++      0,   0,  78,   0,   0,   8, 
++    242,   0,  16,   0,   1,   0, 
++      0,   0,   0, 208,   0,   0, 
++     70,  14,  16,   0,   1,   0, 
++      0,   0, 246,  15,  16,   0, 
++      0,   0,   0,   0,  41,   0, 
++      0,  10, 226,   0,  16,   0, 
++      1,   0,   0,   0,  86,  14, 
++     16,   0,   1,   0,   0,   0, 
++      2,  64,   0,   0,   0,   0, 
++      0,   0,   8,   0,   0,   0, 
++     16,   0,   0,   0,  24,   0, 
++      0,   0,  60,   0,   0,   7, 
++     18,   0,  16,   0,   0,   0, 
++      0,   0,  26,   0,  16,   0, 
++      1,   0,   0,   0,  10,   0, 
++     16,   0,   1,   0,   0,   0, 
++     60,   0,   0,   7,  18,   0, 
++     16,   0,   0,   0,   0,   0, 
++     42,   0,  16,   0,   1,   0, 
++      0,   0,  10,   0,  16,   0, 
++      0,   0,   0,   0,  60,   0, 
++      0,   7,  18,   0,  16,   0, 
++      0,   0,   0,   0,  58,   0, 
++     16,   0,   1,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,  18,   0,   0,   1, 
++    165,   0,   0,   8,  18,   0, 
++     16,   0,   0,   0,   0,   0, 
++     26,   0,  16,   0,   0,   0, 
++      0,   0,   6, 112,  32,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,  21,   0,   0,   1, 
++    166,   0,   0,   8,  18, 224, 
++     33,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,  42,   0, 
++     16,   0,   0,   0,   0,   0, 
++     10,   0,  16,   0,   0,   0, 
++      0,   0,  18,   0,   0,   1, 
++     32,   0,   0,   9,  18,   0, 
++     16,   0,   0,   0,   0,   0, 
++     42, 128,  48,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0,   0,   0,   1,  64, 
++      0,   0,   3,   0,   0,   0, 
++     31,   0,   4,   3,  10,   0, 
++     16,   0,   0,   0,   0,   0, 
++    165,   0,   0,   8,  50,   0, 
++     16,   0,   0,   0,   0,   0, 
++     26,   0,  16,   0,   0,   0, 
++      0,   0,  70, 112,  32,   0, 
++      0,   0,   0,   0,   0,   0, 
++      0,   0, 166,   0,   0,   8, 
++     50, 224,  33,   0,   0,   0, 
++      0,   0,   0,   0,   0,   0, 
++     42,   0,  16,   0,   0,   0, 
++      0,   0,  70,   0,  16,   0, 
++      0,   0,   0,   0,  21,   0, 
++      0,   1,  21,   0,   0,   1, 
++     21,   0,   0,   1,  62,   0, 
++      0,   1
 +};
 diff --git a/src/graphics/shaders/bytecode/d3d12_5_1/resolve_fast_32bpp_1x2xmsaa_edram4096_cs.h b/src/graphics/shaders/bytecode/d3d12_5_1/resolve_fast_32bpp_1x2xmsaa_edram4096_cs.h
 new file mode 100644
@@ -48702,6 +49529,57 @@ index 0000000..b4b5c84
 @@ -0,0 +1,2 @@
 +#define XE_RESOLVE_RESOLUTION_SCALED
 +#include "resolve_direct_full_8bpp.xesli"
+diff --git a/src/graphics/shaders/resolve_downscale.cs.hlsl b/src/graphics/shaders/resolve_downscale.cs.hlsl
+index 91c2f95..8742a74 100644
+--- a/src/graphics/shaders/resolve_downscale.cs.hlsl
++++ b/src/graphics/shaders/resolve_downscale.cs.hlsl
+@@ -15,6 +15,10 @@
+ // When xe_downscale_half_pixel_offset is set, samples from (scale/2, scale/2)
+ // within each block to compensate for the half-pixel offset becoming a
+ // full-pixel offset at higher resolutions.
++//
++// With xe_downscale_box_filter set, 8-bit-per-channel 32bpp data is instead the
++// average of every sample of the block, channel by channel, so that content
++// drawn at a higher resolution isn't aliased when it goes back to guest memory.
+ 
+ cbuffer XeResolveDownscaleConstants : register(b0) {
+   uint xe_downscale_scale_x;         // 1 to kMaxDrawResolutionScaleAlongAxis
+@@ -27,6 +31,9 @@ cbuffer XeResolveDownscaleConstants : register(b0) {
+   // games, which at Nx resolution scaling shifts rendered content by
+   // (N/2, N/2) host pixels.
+   uint xe_downscale_half_pixel_offset;
++  // When non-zero, the pixel is the per-channel average of its scaled block.
++  // Only set for 32bpp formats made of four 8-bit channels.
++  uint xe_downscale_box_filter;
+ };
+ 
+ ByteAddressBuffer xe_resolve_source : register(t0);
+@@ -135,8 +142,23 @@ void main(uint3 xe_group_id : SV_GroupID,
+       }
+       break;
+     }
+-    case 2: {  // 32-bit - direct copy
+-      xe_resolve_dest.Store(dst_offset, xe_resolve_source.Load(src_offset));
++    case 2: {  // 32-bit - direct copy, or the average of the block's samples
++      [branch] if (xe_downscale_box_filter != 0u && scale_xy > 1u) {
++        // The samples of a block are consecutive in the scaled data.
++        uint block_offset = tile_index * tile_size_scaled +
++                            pixel_index * pixel_size * scale_xy;
++        uint4 sum = uint4(0u, 0u, 0u, 0u);
++        for (uint sample_index = 0u; sample_index < scale_xy; ++sample_index) {
++          uint packed = xe_resolve_source.Load(block_offset + sample_index * 4u);
++          sum += uint4(packed & 0xFFu, (packed >> 8u) & 0xFFu,
++                       (packed >> 16u) & 0xFFu, packed >> 24u);
++        }
++        uint4 average = (sum + (scale_xy >> 1u)) / scale_xy;
++        xe_resolve_dest.Store(dst_offset, average.x | (average.y << 8u) |
++                                          (average.z << 16u) | (average.w << 24u));
++      } else {
++        xe_resolve_dest.Store(dst_offset, xe_resolve_source.Load(src_offset));
++      }
+       break;
+     }
+     case 3: {  // 64-bit - direct copy
 diff --git a/src/graphics/shaders/resolve_edram4096.xesli b/src/graphics/shaders/resolve_edram4096.xesli
 new file mode 100644
 index 0000000..d15344d
@@ -106869,6 +107747,20 @@ index 2251429..10abf03 100644
        MouseEvent e(this, MouseEvent::Button::kNone, int32_t(event.wheel.mouse_x * density),
                     int32_t(event.wheel.mouse_y * density),
                     int32_t(event.wheel.x * float(MouseEvent::kScrollPerDetent)),
+diff --git a/thirdparty/CMakeLists.txt b/thirdparty/CMakeLists.txt
+index f102b56..b7fa674 100644
+--- a/thirdparty/CMakeLists.txt
++++ b/thirdparty/CMakeLists.txt
+@@ -64,7 +64,8 @@ if(REXGLUE_BUILD_TESTS)
+ endif()
+ 
+ foreach(submodule ${REQUIRED_SUBMODULES})
+-    if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${submodule}/.git")
++    if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${submodule}/.git"
++       AND NOT EXISTS "${PROJECT_SOURCE_DIR}/.release-source-manifest.json")
+         message(FATAL_ERROR
+             "Git submodule '${submodule}' is not initialized.\n"
+             "Please run: git submodule update --init --recursive\n"
 diff --git a/thirdparty/disruptorplus/include/disruptorplus/blocking_wait_strategy.hpp b/thirdparty/disruptorplus/include/disruptorplus/blocking_wait_strategy.hpp
 index 32d427d..526229e 100644
 --- a/thirdparty/disruptorplus/include/disruptorplus/blocking_wait_strategy.hpp
@@ -173007,16 +173899,3 @@ index 0000000..a80304f
 +
 +THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 \ No newline at end of file
-diff --git a/thirdparty/CMakeLists.txt b/thirdparty/CMakeLists.txt
---- a/thirdparty/CMakeLists.txt
-+++ b/thirdparty/CMakeLists.txt
-@@ -64,7 +64,8 @@
- endif()
- 
- foreach(submodule ${REQUIRED_SUBMODULES})
--    if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${submodule}/.git")
-+    if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${submodule}/.git"
-+       AND NOT EXISTS "${PROJECT_SOURCE_DIR}/.release-source-manifest.json")
-         message(FATAL_ERROR
-             "Git submodule '${submodule}' is not initialized.\n"
-             "Please run: git submodule update --init --recursive\n"

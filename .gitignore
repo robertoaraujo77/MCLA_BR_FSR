@@ -31,6 +31,9 @@ keys.*
 *.dll
 *.so
 /third_party/
+
+# Locally prepared assets retained by the maintainer's playable installation.
+/localization/pt-BR/game/
 /tools/
 /out/
 *.log
