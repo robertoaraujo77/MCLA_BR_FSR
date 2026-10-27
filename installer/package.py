@@ -4,6 +4,7 @@ import argparse,hashlib,io,json,re,zipfile
 parser=argparse.ArgumentParser()
 parser.add_argument('--runtime',type=Path,required=True)
 parser.add_argument('--python',dest='python_dir',type=Path,required=True,help='Official Windows x64 Python 3.12 embeddable package, extracted')
+parser.add_argument('--version',default='1.0.1',help='release the package installs; installations of an older one are offered the update')
 args=parser.parse_args();here=Path(__file__).resolve().parent;root=here.parent
 files={}
 # Explicit allowlist: no configuration, save, log or arbitrary runtime-directory file.
@@ -24,14 +25,14 @@ for name in ['python.exe','python312.dll','python312.zip','python312._pth','LICE
 # Preserve Python notices outside the internal tool package too.
 files['payload/licenses/Python-LICENSE.txt']=(args.python_dir/'LICENSE.txt').read_bytes()
 project=io.BytesIO()
-inputs=['scripts/extract_game.py','scripts/configure_install.py','localization/build_ptbr.py','localization/pt-BR/native-texts.json','localization/pt-BR/dialogue-pt-BR.json','localization/pt-BR/subtitle-files.json','launcher/dev/shaderpack/build_pack.py','third_party/rexglue-sdk/src/system/xex_module.cpp','third_party/rexglue-sdk/LICENSE']
+inputs=['scripts/extract_game.py','scripts/configure_install.py','localization/build_ptbr.py','localization/update_ptbr.py','localization/pt-BR/native-texts.json','localization/pt-BR/dialogue-pt-BR.json','localization/pt-BR/subtitle-files.json','launcher/dev/shaderpack/build_pack.py','third_party/rexglue-sdk/src/system/xex_module.cpp','third_party/rexglue-sdk/LICENSE']
 with zipfile.ZipFile(project,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for n in inputs:z.writestr(n,(root/n).read_bytes())
 files['payload/project.zip']=project.getvalue();files['compact_prepare.py']=(here/'source/compact_prepare.py').read_bytes()
-manifest={'format':1,'identity':'mcla-la-recompiled','runtime_version':'FSR 4.1.2 / Frame Generation 4.0.2','isolated_user_profile':True,'files':[{'path':n,'size':len(b),'sha256':hashlib.sha256(b).hexdigest()} for n,b in sorted(files.items())]}
+manifest={'format':1,'identity':'mcla-la-recompiled','release_version':args.version,'runtime_version':'FSR 4.1.2 / Frame Generation 4.0.2','isolated_user_profile':True,'files':[{'path':n,'size':len(b),'sha256':hashlib.sha256(b).hexdigest()} for n,b in sorted(files.items())]}
 files['payload/manifest.json']=json.dumps(manifest,indent=2).encode()
 package=here/'bundle.zip'
 with zipfile.ZipFile(package,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for n,b in sorted(files.items()):z.writestr(n,b)
-hash=hashlib.sha256(package.read_bytes()).hexdigest();core=here/'source/Core.cs';text=core.read_text(encoding='utf8');core.write_text(re.sub(r'public const string Hash = "[0-9a-f]+";', 'public const string Hash = "'+hash+'";',text),encoding='utf8')
+hash=hashlib.sha256(package.read_bytes()).hexdigest();core=here/'source/Core.cs';text=core.read_text(encoding='utf8');text=re.sub(r'public const string Hash = "[0-9a-f]+";', 'public const string Hash = "'+hash+'";',text);core.write_text(re.sub(r'public const string Version = "[0-9.]+";', 'public const string Version = "'+args.version+'";',text),encoding='utf8')
 print('Pacote interno criado. Execute installer/source/build.ps1 para gerar o instalador/configurador.')

@@ -1,24 +1,29 @@
 {
   "format": 1,
   "identity": "mcla-la-recompiled",
+  "release_version": "1.0.1",
   "runtime_version": "FSR 4.1.2 / Frame Generation 4.0.2",
-  "mode": "precompiled PC runtime plus local game-data preparation; no end-user C++ compilation",
   "isolated_user_profile": true,
   "files": [
     {
       "path": "compact_prepare.py",
-      "size": 6870,
-      "sha256": "0106e03e063c16520c5dc8101e87d3d6348f315e8366ce635fdda816a6fe2215"
+      "size": 11806,
+      "sha256": "b6c2c54fcca0e44d1f3d964ca0c27da8be0e716cbed851b8396fa07b56a2a3c1"
     },
     {
       "path": "payload/licenses/CREDITS.md",
-      "size": 2022,
-      "sha256": "79571e5a496610add6180c293bf150cdf3339f8e719b26d93293f22240112c1c"
+      "size": 2047,
+      "sha256": "6e3e9da249268fb114101196bb56e5625920f1ef78f05db030293c2179a1d790"
     },
     {
       "path": "payload/licenses/LICENSE",
       "size": 35823,
       "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "path": "payload/licenses/Python-LICENSE.txt",
+      "size": 36874,
+      "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419"
     },
     {
       "path": "payload/licenses/ReXGlue-LICENSE.txt",
@@ -27,23 +32,13 @@
     },
     {
       "path": "payload/licenses/THIRD-PARTY-NOTICES.md",
-      "size": 9291,
-      "sha256": "8dd9db27ab57301b86f1b868eb7586dfb3e286267a4c7f9e0914adca0a249df4"
-    },
-    {
-      "path": "payload/licenses/native-tools/libmspack-COPYING.LIB",
-      "size": 26934,
-      "sha256": "885a03f54b157961236f46843e79972abfcd6890b6cbb368bc7eca328ff95a12"
-    },
-    {
-      "path": "payload/licenses/rexglue-dependencies/SDL3/LICENSE.txt",
-      "size": 902,
-      "sha256": "f4c406cd23df8e2ea3e8bb1af62f15cb6b2439e4e5385828cf90301baea4d944"
+      "size": 9433,
+      "sha256": "918d9fb90d77d53d30cd60adff7d6b1c4988aa15587cfdc67d116a76e8137210"
     },
     {
       "path": "payload/project.zip",
-      "size": 195193,
-      "sha256": "b643ec7b5a55ab639b16ea088fd197a8e5f92d647e43ddbd7b79188d2374fcc1"
+      "size": 217515,
+      "sha256": "1c0a14ee222f42bc95fca7a8ea4fc3a290f43bffb2ac7bba27d6e109c23f6693"
     },
     {
       "path": "payload/runtime/AMD-FSR-LICENSE.md",
@@ -87,8 +82,8 @@
     },
     {
       "path": "payload/runtime/mcla.exe",
-      "size": 43023360,
-      "sha256": "247653e8b0488770861c18618aed869e9c2fec9101425b8cf76224bc5eb4ccfa"
+      "size": 43022336,
+      "sha256": "0fc9da7445adbb2b401aa6ffcf285b9ba96ea566bdec16961d0da7716e67d73e"
     },
     {
       "path": "payload/runtime/msvcp140.dll",
@@ -117,13 +112,13 @@
     },
     {
       "path": "payload/runtime/rexgpu-xenos.dll",
-      "size": 8856576,
-      "sha256": "6dba908de3207acfb38b04806acbeee4103509ff7058cdadef8646af34681fc3"
+      "size": 8859136,
+      "sha256": "0349184f01c7ddf648c25458ffe83fad583b985901c1ba4cbf9e04c025eaddd9"
     },
     {
       "path": "payload/runtime/rexruntime.dll",
-      "size": 11265536,
-      "sha256": "6a382bf0077276a35bb82dd7c07eca5304a1824fc2ff042b0fd856d0032f4593"
+      "size": 11262464,
+      "sha256": "956a760aae93a5ba9c850e93c839be6b0f2d8ef21c83d971b7aa0fe09fe78620"
     },
     {
       "path": "payload/runtime/vccorlib140.dll",
@@ -256,11 +251,6 @@
       "sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a"
     },
     {
-      "path": "tools/python/python.cat",
-      "size": 574231,
-      "sha256": "5d85439736ae088d9680b391e2bca55ca7e9cc5b41a12ebe8e2f554506c7e72e"
-    },
-    {
       "path": "tools/python/python.exe",
       "size": 104952,
       "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
@@ -321,7 +311,7 @@
       "sha256": "100e8d676777603c7258daf9b2f23ef001f09f1596d8708de359326fff72bddd"
     }
   ],
-  "release": "v1.0.0",
+  "release": "v1.0.1",
   "application_base_commit": "eaf3ad4b8701de537ea55411f7b413ad98bf73f1",
   "sdk_base_commit": "f5337cdc947ff6d4c4196737e2c807a48f2a1fc2"
 }

@@ -18,7 +18,7 @@ O modo automático calcula a proporção a partir da saída/janela na inicializa
 
 ## FSR e Frame Generation
 
-A integração fornece modos de reconstrução e seleciona provedores conforme a API e o hardware. O caminho DX12 foi testado com FSR 4.1.2 e FG AMD 4.0.2 por IA. Vulkan mantém FSR 3.1. Foram feitos ajustes de apresentação, transições de pausa e bordas durante os testes. Artefatos residuais continuam documentados no README.
+A integração fornece modos de reconstrução e seleciona provedores conforme a API e o hardware. O caminho DX12 foi testado com FSR 4.1.2 e FG AMD 4.0.2 por IA. Vulkan mantém FSR 3.1: o FSR 4.1.2 e a Frame Generation por IA da AMD só existem para DirectX 12 no SDK, e em Vulkan a Frame Generation ainda não gera quadros. Foram feitos ajustes de apresentação, transições de pausa e bordas durante os testes. Artefatos residuais continuam documentados no README.
 
 Os algoritmos e provedores são da AMD; este projeto integra e configura esses componentes.
 

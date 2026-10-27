@@ -91,8 +91,13 @@ def translate(data, translations):
     return encoded, count
 
 
-def translate_bundle(data, changes):
-    """Replace only selected English records in the game's multilingual table."""
+def translate_bundle(data, changes, current_ok=None):
+    """Replace only selected English records in the game's multilingual table.
+
+    current_ok(key, text), used to update an archive that is already translated,
+    says whether a record's present text may be replaced; a record it refuses is
+    copied as it is. Without it every record must still be the original English.
+    """
     count = struct.unpack_from('<I', data)[0]
     assert count == 11
     offsets = list(struct.unpack_from('<11I', data, 4))
@@ -113,9 +118,13 @@ def translate_bundle(data, changes):
         text = data[pos:pos + length * 2].decode('utf-16le').rstrip('\0')
         pos += length * 2 + 10
         key = f'{ident:08x}'
-        if key in changes:
+        if key in changes and current_ok is not None and not current_ok(key, text):
+            output.extend(data[record_start:pos])
+        elif key in changes:
             expected, translated = changes[key]
-            assert hashlib.sha256(text.encode('utf8')).hexdigest() == expected, key
+            if current_ok is None:
+                assert hashlib.sha256(text.encode('utf8')).hexdigest() == expected, key
+            # The control tags are the same in the text being replaced and in its translation.
             assert re.findall(r'<[^>]+>', text) == re.findall(r'<[^>]+>', translated)
             encoded = (translated + '\0').encode('utf-16le')
             output.extend(data[record_start:length_pos])
@@ -226,8 +235,12 @@ def main():
                         shutil.copy2(path, linked)
         # Publish only a fully verified archive. Existing good output survives errors.
         destination.replace(installed)
+        # What each record was translated to, so a later update can tell its own
+        # earlier work from text it must leave alone.
+        applied = {key: hashlib.sha256(changed.encode('utf8')).hexdigest() for key, (_, changed) in changes.items()}
         manifest = dict(format=1, language='pt-BR', fingerprint=fingerprint,
-                        native_records=len(changes), dialogue_lines=len(translations), files=changed_files)
+                        native_records=len(changes), dialogue_lines=len(translations), files=changed_files,
+                        native_applied=applied)
         temporary_marker = marker.with_suffix('.tmp')
         temporary_marker.write_text(json.dumps(manifest, indent=2), encoding='utf8')
         temporary_marker.replace(marker)

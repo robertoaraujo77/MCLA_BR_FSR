@@ -1,4 +1,4 @@
-# Compilar o código correspondente à v1.0.0
+# Compilar o código correspondente à v1.0.1
 
 Estas instruções são para desenvolvedores. Jogadores devem usar o ZIP da release e sua própria ISO.
 
@@ -31,7 +31,7 @@ A ISO, o código gerado a partir dela, os recursos traduzidos resultantes, saves
 Baixe do site oficial do Python o pacote **Windows embeddable x64 Python 3.12** e extraia-o em uma pasta de ferramentas. Os avisos/licenças desse pacote devem acompanhar a distribuição. Os arquivos VC Runtime redistribuídos exigem também os respectivos avisos e condições Microsoft.
 
 ```powershell
-python installer/package.py --runtime out/build/win-amd64-release --python C:\tools\python-embed-312
+python installer/package.py --runtime out/build/win-amd64-release --python C:\tools\python-embed-312 --version 1.0.1
 powershell -NoProfile -File installer/source/build.ps1
 ```
 

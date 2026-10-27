@@ -37,7 +37,8 @@ namespace MclaBrFsrSetup {
     }
 
     static class EmbeddedPayload {
-        public const string Hash = "75dd360244d689be49100800dc211a4b4040fdef41c711539c451d346571a386";
+        public const string Hash = "7ccb2feb39c8370f3c9d22b48d0447ba5bf05603a83dca43107ea2e0ca5414e9";
+        public const string Version = "1.0.1";
         public static string Extract(string requested) {
             string parent = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "MCLA_LA_Recompiled", "Installer", "Packages");

@@ -13,9 +13,12 @@ A recompilação original é de [holdmysocks](https://github.com/holdmysocks/mcl
 2. Extraia o ZIP inteiro para uma pasta estável e abra **Midnight Club L.A. Recompiled.exe**.
 3. Selecione sua própria ISO de **Midnight Club: Los Angeles Complete Edition para Xbox 360**.
 4. Escolha a pasta do jogo. O padrão é uma subpasta ao lado do instalador; você pode mudar o local e o nome.
-5. Se quiser, ajuste **Gráficos** e **Perfil e controles** antes de preparar. Sem alterações, serão usados os padrões descritos abaixo.
-6. Clique em **PREPARAR MEU JOGO**. A aba **Registro** mostra o andamento.
-7. Ao terminar, clique em **JOGAR** ou use o atalho da Área de Trabalho.
+5. Deixe marcada a opção **Traduzir o jogo para português (PT-BR)** (padrão), ou desmarque para jogar em inglês.
+6. Se quiser, ajuste **Gráficos** e **Perfil e controles** antes de preparar. Sem alterações, serão usados os padrões descritos abaixo.
+7. Clique em **PREPARAR MEU JOGO**. A aba **Registro** mostra o andamento.
+8. Ao terminar, clique em **JOGAR** ou use o atalho da Área de Trabalho.
+
+**Já tem a v1.0.0?** Abra o novo executável, use **Localizar instalação** e clique em **Atualizar**. A ISO não é necessária e seus saves e configurações são mantidos.
 
 **A ISO e os dados do jogo não são fornecidos.** O assistente prepara localmente os dados da sua cópia usando a versão PC já compilada com as melhorias. Ele não recompila C++ no computador do jogador. Mantenha a ISO fora da pasta de destino.
 
@@ -27,12 +30,14 @@ A recompilação original é de [holdmysocks](https://github.com/holdmysocks/mcl
 | --- | --- |
 | Idioma | Menus, telefone, dicas, missões, objetivos, garagem/customização, corridas e avisos em PT-BR; legendas traduzidas onde disponíveis. |
 | Ultrawide | Automático, 16:9 e 21:9; HUD nos cantos, correções de proporção de telefone, garagem, painéis, GPS, ícones e cursor. |
-| Reconstrução | FSR 4.1.2 no caminho DX12 compatível; Native AA, Qualidade, Equilibrado e Desempenho. |
-| Frame Generation | Provedor AMD 4.0.2 por IA no caminho DX12 compatível; opção de ligar/desligar. |
-| Vulkan | FSR 3.1 e seus modos; não é o caminho FSR 4.1.2/FG por IA validado neste projeto. |
+| Reconstrução | FSR 4.1.2 (IA) **somente no DirectX 12**, em GPU AMD compatível; Native AA, Qualidade, Equilibrado e Desempenho. |
+| Frame Generation | Provedor AMD 4.0.2 por IA **somente no DirectX 12**, em GPU AMD compatível; opção de ligar/desligar. |
+| Vulkan | FSR 3.1 e seus modos. **FSR 4.1.2 e Frame Generation por IA não estão disponíveis em Vulkan**: o SDK da AMD não os oferece para essa API, e a opção de Frame Generation não gera quadros nesse modo. |
 | Facilidade | Um mesmo executável instala, configura, inicia o jogo e exporta backup; atalho direto para jogar. |
 
 Os números FSR identificam os provedores integrados. A seleção efetiva depende de GPU, driver e API e pode ser conferida no registro do jogo. Não há promessa de IA em todas as placas.
+
+**Para usar FSR 4.1.2 e Frame Generation, escolha DirectX 12** em *API gráfica*. O modo Automático deixa o runtime decidir. Em Vulkan, deixe a Frame Generation desligada. O DLSS da NVIDIA não está implementado.
 
 ## Primeira instalação limpa
 
@@ -73,6 +78,7 @@ Capturas do desenvolvimento; opções e desempenho mostrados não representam os
 
 - Testes realizados no Windows, incluindo RX 9060 XT e 3440×1440; outras combinações precisam de validação.
 - Pode ocorrer uma linha verde discreta na borda em alta velocidade com Frame Generation. Desligá-lo eliminou o artefato nos testes relatados.
+- Em Vulkan, FSR 4.1.2 e Frame Generation por IA não existem e a Frame Generation ainda não gera quadros. Use DirectX 12 para esses recursos.
 - Há traduções e legendas que ainda exigem conferência durante toda a campanha. Não é dublagem.
 - Nomes próprios, marcas e músicas permanecem no original.
 - As melhorias não foram testadas no Linux.

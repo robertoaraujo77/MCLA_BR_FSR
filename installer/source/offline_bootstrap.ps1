@@ -1,9 +1,11 @@
 param(
-    [Parameter(Mandatory=$true)][string]$Iso,
+    [string]$Iso = '',
     [Parameter(Mandatory=$true)][string]$InstallDirectory,
     [Parameter(Mandatory=$true)][string]$InstallerDirectory,
-    [Parameter(Mandatory=$true)][string]$GraphicsSettings,
-    [Parameter(Mandatory=$true)][string]$BundleDirectory
+    [string]$GraphicsSettings = '',
+    [Parameter(Mandatory=$true)][string]$BundleDirectory,
+    [string]$Translate = '1',
+    [switch]$Update
 )
 $ErrorActionPreference = 'Stop'
 try {
@@ -14,7 +16,11 @@ try {
     }
     $env:PYTHONUNBUFFERED = '1'
     $env:PYTHONUTF8 = '1'
-    & $python -u $prepare --bundle $BundleDirectory --destination $InstallDirectory --iso $Iso --installer-dir $InstallerDirectory --graphics-settings $GraphicsSettings
+    if ($Update) {
+        & $python -u $prepare --bundle $BundleDirectory --destination $InstallDirectory --installer-dir $InstallerDirectory --update
+    } else {
+        & $python -u $prepare --bundle $BundleDirectory --destination $InstallDirectory --iso $Iso --installer-dir $InstallerDirectory --graphics-settings $GraphicsSettings --translate $Translate
+    }
     if ($LASTEXITCODE -ne 0) { throw 'A preparacao nao terminou. Consulte o registro acima.' }
     exit 0
 } catch {

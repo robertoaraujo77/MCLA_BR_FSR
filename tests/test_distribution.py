@@ -4,6 +4,7 @@ import importlib.util
 import io
 import json
 from pathlib import Path
+import re
 import struct
 import tempfile
 import unittest
@@ -82,6 +83,65 @@ class DistributionTests(unittest.TestCase):
         for item in manifest['files']:
             self.assertEqual(len(item['sha256']), 64)
             self.assertNotIn('..', Path(item['path']).parts)
+
+    @staticmethod
+    def _bundle(records):
+        """A resource table with only an English block, the way the game keeps its texts."""
+        def record(ident, text):
+            data = (text + '\0').encode('utf-16le')
+            return struct.pack('<IHI', ident, 0, 0) + struct.pack('<I', len(data) // 2) + data + bytes(10)
+        english = struct.pack('<I', len(records)) + b''.join(record(i, t) for i, t in records)
+        start = 4 + 11 * 4
+        tail = b'other languages'
+        return struct.pack('<I11I', 11, start, *([start + len(english)] * 10)) + english + tail, tail
+
+    def test_update_rewrites_only_untranslated_records(self):
+        ptbr = module('ptbr', 'localization/build_ptbr.py')
+        sha = lambda text: hashlib.sha256(text.encode()).hexdigest()
+        # 1: still English (a new translation); 2: already the current translation;
+        # 3: the translation an earlier release made; 4: text this tool never wrote.
+        blob, tail = self._bundle([(1, 'New <D>1</D>'), (2, 'Ja traduzido'), (3, 'Antiga'), (4, 'Editado a mao')])
+        changes = {'00000001': (sha('New <D>1</D>'), 'Novo <D>1</D>'),
+                   '00000002': (sha('Already'), 'Ja traduzido'),
+                   '00000003': (sha('Old'), 'Nova'),
+                   '00000004': (sha('Mine'), 'Outra')}
+        earlier = {'00000003': sha('Antiga')}
+        def replaceable(key, text):
+            expected, translated = changes[key]
+            current = sha(text)
+            return False if current == sha(translated) else current == expected or earlier.get(key) == current
+        result, updated = ptbr.translate_bundle(blob, changes, replaceable)
+        self.assertEqual(sorted(updated), ['00000001', '00000003'])
+        self.assertTrue(result.endswith(tail))
+        for text in ('Novo <D>1</D>', 'Nova', 'Ja traduzido', 'Editado a mao'):
+            self.assertIn(text.encode('utf-16le'), result)
+        self.assertNotIn('Antiga'.encode('utf-16le'), result)
+        # Without a policy the original behaviour stays: every record must be the English one.
+        with self.assertRaises(AssertionError):
+            ptbr.translate_bundle(blob, changes)
+
+    def test_installer_version_is_one_release_everywhere(self):
+        core = re.search(r'Version = "([0-9.]+)"', (ROOT / 'installer/source/Core.cs').read_text(encoding='utf8')).group(1)
+        packaged = re.search(r"--version',default='([0-9.]+)'", (ROOT / 'installer/package.py').read_text(encoding='utf8')).group(1)
+        self.assertEqual(core, packaged)
+
+    def test_update_mode_never_writes_player_data(self):
+        source = (ROOT / 'installer/source/compact_prepare.py').read_text(encoding='utf8')
+        update = source[source.index('def update_install'):source.index('def main')]
+        # The update copies the saves out (backup) but never replaces settings or game data wholesale.
+        for forbidden in ("write_text(existing", "rmtree", "output_game", "extract_game", "settings.with_suffix"):
+            self.assertNotIn(forbidden, update)
+        self.assertIn("backup_saves(", update)
+        self.assertIn("update_ptbr.py", update)
+
+    def test_translation_can_be_turned_off_and_defaults_on(self):
+        source = (ROOT / 'installer/source/compact_prepare.py').read_text(encoding='utf8')
+        self.assertIn("'--translate', choices=('1', '0'), default='1'", source)
+        self.assertIn("mcla_ptbr=translate", source)
+        xaml = (ROOT / 'installer/source/Launcher.xaml').read_text(encoding='utf8')
+        self.assertRegex(xaml, r'x:Name="TranslateGame"[^>]*IsChecked="True"')
+        script = (ROOT / 'installer/source/offline_bootstrap.ps1').read_text(encoding='utf8')
+        self.assertIn("[string]$Translate = '1'", script)
 
 
 if __name__ == '__main__':

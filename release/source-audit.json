@@ -1,5 +1,6 @@
 {
-  "release": "v1.0.0",
+  "release": "v1.0.1",
+  "base_release": "v1.0.0",
   "application_files_compared": 32,
   "application_files": [
     {
@@ -44,7 +45,7 @@
     },
     {
       "path": "src/mcla_app.cpp",
-      "sha256": "b478d5e293942000277fe0efc8add0b2f588fce958468630ae3b10fa36bd2655"
+      "sha256": "a7d6eae4c597be39b9681f7ccf1ac16a606d932edc93d948a82d012c275d80ab"
     },
     {
       "path": "src/mcla_app.h",
@@ -131,22 +132,26 @@
       "sha256": "a0cb5d8e1d924c3adbfd16ab36c1c2bcdcbe7c2cfbf2159db34d055b7c55df31"
     }
   ],
-  "sdk_patch_clean_apply": true,
-  "dependency_patches_clean_apply": [
-    "FFmpeg"
-  ],
-  "powershell_syntax_checked": true,
+  "sdk_patch_reverse_check": true,
   "python_syntax_checked": true,
-  "personal_data_scan": "passed",
-  "full_clean_rebuild_performed": true,
-  "clean_build_scope": [
-    "sdk",
-    "fidelityfx-dx12",
-    "fidelityfx-vulkan",
-    "game-from-user-iso",
+  "powershell_syntax_checked": true,
+  "automated_tests": "tests/test_distribution.py (8 tests) passed",
+  "player_package_scan": "no user names or e-mail; Windows build paths under D:/Emuladores appear in the binaries, as in v1.0.0",
+  "full_clean_rebuild_performed": false,
+  "build_scope": [
+    "sdk (incremental)",
+    "game (incremental)",
     "installer-configurator",
     "installer-packaging"
   ],
-  "sdk_source_files_compared": 1736,
-  "published": false
+  "installs_tested": [
+    "fresh install with PT-BR",
+    "fresh install without PT-BR",
+    "update from a simulated v1.0.0 installation (v1.0.0 bundle and runtime)"
+  ],
+  "update_checks": "saves and mcla.toml byte-identical; 80 of 80 translated resources identical to a full build; old runtime kept in backups",
+  "clean_install_validated_in_game": false,
+  "published": false,
+  "installer_ui_clicked_by_a_person": false,
+  "installs_tested_note": "through the installer back end with an already extracted game, not from an ISO and not through the window"
 }
