@@ -380,6 +380,11 @@ void MclaApp::ApplyPcDefaults() {
   //   every fault;
   // - an EDRAM of 4,096 tiles, so that the scene fits in one tile with 2x MSAA
   //   (mcla_single_tile, src/render_perf.cpp);
+  // - resolves read back to guest memory one frame late (readback_resolve
+  //   fast): the car vinyls are drawn to a texture the CPU then reads, which
+  //   without it never reaches guest memory, so they vanish outside the garage.
+  //   "full" does the same but waits for the GPU on every resolve (about 35
+  //   FPS where fast holds 80);
   // - on Windows, HDR output whenever the display is in HDR mode (the SDK's
   //   own default stays off, for other titles). Not on Linux, where the
   //   display's HDR state isn't read yet, so auto would never turn it on
@@ -390,6 +395,7 @@ void MclaApp::ApplyPcDefaults() {
       {"shared_memory_hot_page_faults", "4"},
       {"shared_memory_hot_page_ms", "10000"},
       {"edram_tiles", "4096"},
+      {"readback_resolve", "fast"},
 #if REX_PLATFORM_WIN32
       {"hdr", "auto"},
       {"temporal_aa_quality", "quality"},
