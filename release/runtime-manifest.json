@@ -1,7 +1,7 @@
 {
   "format": 1,
   "identity": "mcla-la-recompiled",
-  "release_version": "1.0.1",
+  "release_version": "1.0.2",
   "runtime_version": "FSR 4.1.2 / Frame Generation 4.0.2",
   "isolated_user_profile": true,
   "files": [
@@ -38,7 +38,7 @@
     {
       "path": "payload/project.zip",
       "size": 217515,
-      "sha256": "1c0a14ee222f42bc95fca7a8ea4fc3a290f43bffb2ac7bba27d6e109c23f6693"
+      "sha256": "c80dc58679bf09d775c82a4bcb162fdeb8043e910fd95b86b2402e4dd585fe3e"
     },
     {
       "path": "payload/runtime/AMD-FSR-LICENSE.md",
@@ -83,7 +83,7 @@
     {
       "path": "payload/runtime/mcla.exe",
       "size": 43022336,
-      "sha256": "0fc9da7445adbb2b401aa6ffcf285b9ba96ea566bdec16961d0da7716e67d73e"
+      "sha256": "f60f74b9f595b64ff7532df7774ac893450c367bd1a759162558ca761a1851e5"
     },
     {
       "path": "payload/runtime/msvcp140.dll",
@@ -311,7 +311,7 @@
       "sha256": "100e8d676777603c7258daf9b2f23ef001f09f1596d8708de359326fff72bddd"
     }
   ],
-  "release": "v1.0.1",
+  "release": "v1.0.2",
   "application_base_commit": "eaf3ad4b8701de537ea55411f7b413ad98bf73f1",
   "sdk_base_commit": "f5337cdc947ff6d4c4196737e2c807a48f2a1fc2"
 }

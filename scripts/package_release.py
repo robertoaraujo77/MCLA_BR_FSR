@@ -1,6 +1,6 @@
 """Build the release archives: the player package and the complete source archive.
 
-    python scripts/package_release.py --version 1.0.1
+    python scripts/package_release.py --version 1.0.2
 
 Needs the installer built (installer/source/build.ps1) and a clean git tree, so that
 the source archive is exactly what the tag holds. Writes into out/releases/v<version>.

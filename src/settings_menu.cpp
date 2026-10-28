@@ -456,6 +456,9 @@ constexpr double kHdrHighlights[] = {1.0, 1.5, 2.0, 3.0};
 constexpr const char* kHdrHighlightLabels[] = {"NORMAL", "BRIGHT", "BRIGHTER", "BRIGHTEST"};
 #endif
 
+constexpr const char* kVinylValues[] = {"none", "fast"};
+constexpr const char* kVinylLabels[] = {"OFF (FASTER)", "ON"};
+
 const ItemDef kDisplayItems[] = {
     {"PM_MxFps", ItemKind::kNumberChoice, "mcla_fps", "FPS TARGET", nullptr, nullptr, kFpsTargets,
      kFpsTargetCount, "%.0f", "UNCAPPED"},
@@ -505,6 +508,12 @@ const ItemDef kDisplayItems[] = {
 #endif
     {"PM_MxMotionBlur", ItemKind::kToggle, "mcla_motion_blur", "MOTION BLUR"},
     {"PM_MxDof", ItemKind::kToggle, "mcla_depth_of_field", "DEPTH OF FIELD"},
+    // The vinyls on a car outside the garage are drawn to a texture the CPU reads
+    // back (readback_resolve, src/mcla_app.cpp); without the readback they don't
+    // show, but the frame rate is higher. Read at every resolve, so it changes
+    // during play (cars already built keep their vinyls until they are rebuilt).
+    {"PM_MxVinyls", ItemKind::kStringChoice, "readback_resolve", "CAR VINYLS", kVinylValues,
+     kVinylLabels, nullptr, 2},
 };
 
 // Detail the game can do without when the frame rate matters more; all as

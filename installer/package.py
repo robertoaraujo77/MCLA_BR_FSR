@@ -4,7 +4,7 @@ import argparse,hashlib,io,json,re,zipfile
 parser=argparse.ArgumentParser()
 parser.add_argument('--runtime',type=Path,required=True)
 parser.add_argument('--python',dest='python_dir',type=Path,required=True,help='Official Windows x64 Python 3.12 embeddable package, extracted')
-parser.add_argument('--version',default='1.0.1',help='release the package installs; installations of an older one are offered the update')
+parser.add_argument('--version',default='1.0.2',help='release the package installs; installations of an older one are offered the update')
 args=parser.parse_args();here=Path(__file__).resolve().parent;root=here.parent
 files={}
 # Explicit allowlist: no configuration, save, log or arbitrary runtime-directory file.
